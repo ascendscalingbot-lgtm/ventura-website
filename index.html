@@ -74,11 +74,52 @@ lucide.createIcons();
 </script>
 </head>
 <body class="selection:bg-blue-500/30 text-white bg-[#000000]">
-<!-- Placeholder content - add your actual content here -->
-<div class="min-h-screen flex items-center justify-center">
-<div class="text-center">
-<h1 class="text-6xl font-bold mb-4">Ventura Marketing</h1>
-<p class="text-xl text-gray-400">Website Coming Soon</p>
+<!-- Navigation -->
+<nav class="flex sticky top-8 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both]">
+<!-- Logo Container -->
+<div class="flex items-center shrink-0">
+<img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
+</div>
+
+<!-- Action Button -->
+<div class="shrink-0">
+<button class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
+<style>
+@keyframes beam-spin { to { transform: rotate(360deg); } }
+</style>
+
+<!-- Spinning Beam Border -->
+<div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
+<div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+</div>
+
+<!-- Inner Background & Hover Effect -->
+<div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
+
+<span class="relative z-10 tracking-tight font-geist">
+Book Strategy Session
+</span>
+<i data-lucide="arrow-right" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"></i>
+</button>
+</div>
+</nav>
+
+<!-- Hero Content -->
+<div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 pr-4 pl-4 items-center mx-auto">
+<!-- Top Icon Box -->
+
+<!-- Headline -->
+<h1 class="md:text-7xl bg-clip-text text-5xl text-transparent tracking-tight font-geist bg-gradient-to-b from-white via-white to-white/60 max-w-2xl mb-6 pb-2">Your Marketing Built, Run, & Optimized For Growth. All On Autopilot.</h1>
+
+<!-- Subtitle -->
+<p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-2xl mb-10">We plug in as your growth partner to build the entire engine: buyer-psychology messaging, in-house content, performance ads, conversion pages, and follow-up systems. backed by some of the biggest brands in this space including the following that we have done video production for</p>
+
+<div class="relative w-full max-w-5xl mx-auto mb-12 p-2.5 rounded-2xl bg-zinc-900/30 border border-white/10 backdrop-blur-md shadow-2xl ring-1 ring-white/5 group">
+<!-- Glow Effect -->
+<div class="absolute -inset-1 bg-gradient-to-r via-purple-500/10 to-cyan-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10 from-emerald-500/10"></div>
+
+<!-- Video Element -->
+<video src="https://storage.googleapis.com/msgsndr/2nsyWqVe64ZcRUdzTqL4/media/698999f4a41b871b1301ae7b.mov" class="w-full h-auto rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-white/5 bg-black" autoplay loop muted playsinline controls></video>
 </div>
 </div>
 
