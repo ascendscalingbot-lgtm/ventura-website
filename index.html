@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventura Marketing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--font-geist: 'Inter', system-ui, -apple-system, sans-serif;
+}
+body {
+font-family: var(--font-geist);
+background-color: #020617; /* Slate 950/Black */
+color: #f8fafc;
+overflow-x: hidden;
+}
+.font-geist {
+font-family: 'Geist', sans-serif !important;
+}
+/* Sequence animation intro */
+@keyframes animationIn {
+0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+/* Aura Background adjustments */
+.aura-background-component canvas {
+opacity: 0.6;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+</style>
+<script>
+/* Sequence animation on scroll */
+(function () {
+const style = document.createElement("style");
+style.textContent = `
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el);
+});
+};
+document.addEventListener("DOMContentLoaded", () => {
+initInViewAnimations();
+lucide.createIcons();
+});
+})();
+</script>
+</head>
+<body class="selection:bg-blue-500/30 text-white bg-[#000000]">
+<!-- Placeholder content - add your actual content here -->
+<div class="min-h-screen flex items-center justify-center">
+<div class="text-center">
+<h1 class="text-6xl font-bold mb-4">Ventura Marketing</h1>
+<p class="text-xl text-gray-400">Website Coming Soon</p>
+</div>
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+</script>
+</body>
+</html>
