@@ -16,33 +16,31 @@
 }
 body {
 font-family: var(--font-geist);
-background-color: #020617; /* Slate 950/Black */
+background-color: #020617;
 color: #f8fafc;
 overflow-x: hidden;
 }
 .font-geist {
 font-family: 'Geist', sans-serif !important;
 }
-/* Sequence animation intro */
 @keyframes animationIn {
 0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
 100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
 }
-/* Aura Background adjustments */
 .aura-background-component canvas {
 opacity: 0.6;
 }
-/* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #020617; }
 ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #334155; }
-
 .animate-on-scroll { animation-play-state: paused !important; }
 .animate-on-scroll.animate { animation-play-state: running !important; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 30s linear infinite; }
+@keyframes beam-spin { to { transform: rotate(360deg); } }
 </style>
 <script>
-/* Sequence animation on scroll */
 (function () {
 const style = document.createElement("style");
 style.textContent = `
@@ -74,31 +72,26 @@ lucide.createIcons();
 </script>
 </head>
 <body class="selection:bg-blue-500/30 text-white bg-[#000000]">
+
+<!-- Aura Background -->
+<div class="aura-background-component -z-10 w-full h-screen absolute top-0 saturate-200 brightness-125" data-alpha-mask="80" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent);">
+<div data-us-project="XbpvsqkebotDhZIDqFtS" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="min-h-screen flex flex-col overflow-hidden w-full pt-6 relative items-center justify-start pb-0">
 <!-- Navigation -->
 <nav class="flex sticky top-8 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both]">
-<!-- Logo Container -->
 <div class="flex items-center shrink-0">
 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
 </div>
-
-<!-- Action Button -->
 <div class="shrink-0">
 <button class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
-<style>
-@keyframes beam-spin { to { transform: rotate(360deg); } }
-</style>
-
-<!-- Spinning Beam Border -->
 <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
 <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
 </div>
-
-<!-- Inner Background & Hover Effect -->
 <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
-
-<span class="relative z-10 tracking-tight font-geist">
-Book Strategy Session
-</span>
+<span class="relative z-10 tracking-tight font-geist">Book Strategy Session</span>
 <i data-lucide="arrow-right" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"></i>
 </button>
 </div>
@@ -106,26 +99,100 @@ Book Strategy Session
 
 <!-- Hero Content -->
 <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 pr-4 pl-4 items-center mx-auto">
-<!-- Top Icon Box -->
-
-<!-- Headline -->
 <h1 class="md:text-7xl bg-clip-text text-5xl text-transparent tracking-tight font-geist bg-gradient-to-b from-white via-white to-white/60 max-w-2xl mb-6 pb-2">Your Marketing Built, Run, & Optimized For Growth. All On Autopilot.</h1>
 
-<!-- Subtitle -->
 <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-2xl mb-10">We plug in as your growth partner to build the entire engine: buyer-psychology messaging, in-house content, performance ads, conversion pages, and follow-up systems. backed by some of the biggest brands in this space including the following that we have done video production for</p>
 
 <div class="relative w-full max-w-5xl mx-auto mb-12 p-2.5 rounded-2xl bg-zinc-900/30 border border-white/10 backdrop-blur-md shadow-2xl ring-1 ring-white/5 group">
-<!-- Glow Effect -->
 <div class="absolute -inset-1 bg-gradient-to-r via-purple-500/10 to-cyan-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10 from-emerald-500/10"></div>
-
-<!-- Video Element -->
 <video src="https://storage.googleapis.com/msgsndr/2nsyWqVe64ZcRUdzTqL4/media/698999f4a41b871b1301ae7b.mov" class="w-full h-auto rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-white/5 bg-black" autoplay loop muted playsinline controls></video>
 </div>
+
+<!-- Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 mb-20 gap-x-2 gap-y-2 items-center">
+<button class="hover:brightness-110 transition-all flex text-sm font-medium text-white bg-white border-transparent border rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0_0_20px_rgba(59,130,246,0.5)] gap-x-2 gap-y-2 items-center" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">
+<span class="tracking-tight font-geist">Book Strategy Session</span>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"></path>
+<path d="m12 5 7 7-7 7"></path>
+</svg>
+</button>
+
+<button class="group relative inline-flex min-w-[140px] cursor-pointer transition-all duration-[500ms] hover:-translate-y-[1px] hover:text-white shadow-lg overflow-hidden font-medium text-neutral-400 tracking-tight bg-zinc-900/50 border-zinc-700/50 border rounded-full py-3 px-6 items-center justify-center backdrop-blur-sm" onclick="document.getElementById('testimonial-highlight').scrollIntoView({ behavior: 'smooth' })">
+<span class="transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md text-sm font-geist z-10 relative">View Testimonials</span>
+<span class="flex items-center justify-center transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none text-sm font-medium font-geist opacity-0 z-10 absolute top-0 right-0 bottom-0 left-0">View Testimonials</span>
+</button>
 </div>
 
-<script>
-// Initialize Lucide icons
-lucide.createIcons();
+<!-- Logo Marquee -->
+<div class="[animation:animationIn_0.8s_ease-out_0.4s_both] opacity-0 w-full max-w-5xl mb-24 pr-4 pl-4">
+<p class="text-sm font-medium text-zinc-500 tracking-tight font-geist text-center mb-8">Brands We Have Worked With:</p>
+<div class="relative w-full overflow-hidden">
+<div class="z-10 bg-gradient-to-r from-[#000000] to-transparent w-24 absolute top-0 bottom-0 left-0"></div>
+<div class="z-10 bg-gradient-to-l from-[#000000] to-transparent w-24 absolute top-0 right-0 bottom-0"></div>
+<div class="flex items-center gap-16 animate-marquee w-max">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b3ff5161c0f5d6592.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/699774c38523c59b7cd9e7f0.svg?w=800&q=80" class="hover:opacity-100 transition-opacity duration-300 bg-center opacity-40 w-auto h-7 object-cover invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736bdf9bdf15851bcfbb.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/699775a320c035d32d1827a3.svg?w=800&q=80" class="hover:opacity-100 transition-opacity duration-300 bg-center opacity-40 w-auto h-7 object-cover invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b2a2f1502ed0965ae.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b4c25022e55a1db12.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b3ff5161c0f5d6592.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/699774c38523c59b7cd9e7f0.svg?w=800&q=80" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 object-cover bg-center invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736bdf9bdf15851bcfbb.svg" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/699775a320c035d32d1827a3.svg?w=800&q=80" class="hover:opacity-100 transition-opacity duration-300 opacity-40 w-auto h-7 object-cover bg-center invert brightness-0" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b2a2f1502ed0965ae.svg" class="h-7 w-auto opacity-40 hover:opacity-100 transition-opacity duration-300 brightness-0 invert" alt="Partner Logo">
+<img src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/6997736b4c25022e55a1db12.svg" class="h-7 w-auto opacity-40 hover:opacity-100 transition-opacity duration-300 brightness-0 invert" alt="Partner Logo">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="animate-on-scroll lg:px-6 text-center max-w-7xl mr-auto ml-auto pt-10 pr-4 pb-24 pl-4" id="testimonial-highlight">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 items-center">
+<div class="group order-2 lg:order-1 relative">
+<div class="-inset-4 group-hover:opacity-100 transition-opacity duration-700 bg-emerald-500/10 opacity-0 rounded-[2.5rem] absolute blur-3xl"></div>
+<div class="relative aspect-[9/16] w-full max-w-[400px] mx-auto overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5">
+<video src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/699763258523c57143d282f3.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline controls></video>
+<div class="absolute left-6 right-6 p-6 bg-zinc-950/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl top-8">
+<p class="leading-snug text-lg font-medium text-white tracking-tight">"He's a Visionary in Marketing"</p>
+<p class="text-sm text-zinc-400 font-geist mt-2">Traci Andreason • Founder Rise Rejuvenation</p>
+</div>
+</div>
+</div>
+
+<div class="flex flex-col order-1 lg:order-2 text-center items-center">
+<div class="inline-flex text-[11px] uppercase font-semibold text-emerald-400 tracking-[0.2em] text-center bg-emerald-500/10 border-emerald-500/20 border rounded-full mb-8 px-3 py-1 shadow-[0_0_15px_rgba(16,185,129,0.1)] gap-x-1.5 gap-y-1.5 items-center">[ Testimonials ]</div>
+<h2 class="md:text-5xl lg:text-6xl leading-[1.1] text-4xl font-medium text-white tracking-tight font-geist text-center max-w-2xl mb-8">Proven Results From The <span class="text-emerald-400">New Frontier</span> Of Marketing.</h2>
+<p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 text-center max-w-xl mb-10">We blend sharp strategy, high-converting creative, and AI-powered execution to help growth focused brands scale faster. With messaging that feels human and performance you can measure.</p>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="max-w-7xl mx-auto px-6 pb-8">
+<div class="overflow-hidden md:p-16 bg-zinc-600/40 rounded-3xl ring-white/5 ring-1 px-10 py-10 relative">
+<div class="flex flex-col items-center justify-center text-center">
+<div class="flex flex-col items-center text-center">
+<img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="mb-6 object-contain saturate-150 brightness-125" style="width: 220px; height: 50px;">
+<p class="leading-relaxed text-sm font-light text-zinc-400 font-geist max-w-sm mr-auto mb-8 ml-auto">Building the nervous system for an autonomous business. Connect, automate, and scale with marketing intelligence.</p>
+</div>
+</div>
+
+<div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
+<p class="font-geist">© 2026 Ventura Marketing. All rights reserved.</p>
+<div class="flex gap-6">
+<a href="#" class="hover:text-zinc-400 transition font-geist">Privacy Policy</a>
+<a href="#" class="hover:text-zinc-400 transition font-geist">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script type="text/javascript">
+!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();
 </script>
 </body>
 </html>
