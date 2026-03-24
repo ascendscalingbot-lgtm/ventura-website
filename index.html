@@ -86,14 +86,14 @@ lucide.createIcons();
 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
 </div>
 <div class="shrink-0">
-<button class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
+<a href="#book-consultation" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
 <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
 <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
 </div>
 <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
 <span class="relative z-10 tracking-tight font-geist">Book Strategy Session</span>
 <i data-lucide="arrow-right" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"></i>
-</button>
+</a>
 </div>
 </nav>
 
@@ -110,13 +110,13 @@ lucide.createIcons();
 
 <!-- Buttons -->
 <div class="flex flex-col sm:flex-row gap-4 mb-20 gap-x-2 gap-y-2 items-center">
-<button class="hover:brightness-110 transition-all flex text-sm font-medium text-white bg-white border-transparent border rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0_0_20px_rgba(59,130,246,0.5)] gap-x-2 gap-y-2 items-center" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">
+<a href="#book-consultation" class="hover:brightness-110 transition-all flex text-sm font-medium text-white bg-white border-transparent border rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0_0_20px_rgba(59,130,246,0.5)] gap-x-2 gap-y-2 items-center" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">
 <span class="tracking-tight font-geist">Book Strategy Session</span>
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <path d="M5 12h14"></path>
 <path d="m12 5 7 7-7 7"></path>
 </svg>
-</button>
+</a>
 
 <button class="group relative inline-flex min-w-[140px] cursor-pointer transition-all duration-[500ms] hover:-translate-y-[1px] hover:text-white shadow-lg overflow-hidden font-medium text-neutral-400 tracking-tight bg-zinc-900/50 border-zinc-700/50 border rounded-full py-3 px-6 items-center justify-center backdrop-blur-sm" onclick="document.getElementById('testimonial-highlight').scrollIntoView({ behavior: 'smooth' })">
 <span class="transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md text-sm font-geist z-10 relative">View Testimonials</span>
@@ -303,6 +303,17 @@ lucide.createIcons();
 </div>
 </section>
 
+<!-- BOOKING CALENDAR SECTION -->
+<section id="book-consultation" class="max-w-4xl mx-auto px-6 py-24">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight font-geist mb-4">Book Your Strategy Session</h2>
+<p class="text-zinc-400 text-lg max-w-2xl mx-auto">Choose a time that works for you. We'll discuss your business goals and show you exactly how we can help.</p>
+</div>
+<div class="rounded-3xl bg-zinc-900/40 border border-white/10 backdrop-blur-xl overflow-hidden p-4 md:p-8">
+<iframe src="https://api.venturamc.com/widget/booking/bkMGTKIhQpXdHtFAZLVs" style="width: 100%;border:none;overflow: hidden;min-height:600px;" scrolling="no" id="Owofuu1frJh76LLShtnH_1774376787161"></iframe>
+</div>
+</section>
+
 <!-- FOOTER -->
 <footer class="max-w-7xl mx-auto px-6 pb-8">
 <div class="overflow-hidden md:p-16 bg-zinc-600/40 rounded-3xl ring-white/5 ring-1 px-10 py-10 relative">
@@ -326,5 +337,6 @@ lucide.createIcons();
 <script type="text/javascript">
 !function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();
 </script>
+<script src="https://api.venturamc.com/js/form_embed.js" type="text/javascript"></script>
 </body>
 </html>
