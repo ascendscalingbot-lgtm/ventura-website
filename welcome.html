@@ -111,8 +111,8 @@ lucide.createIcons();
 <!-- HERO SECTION -->
 <section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-12 pt-0">
 <!-- Hero Radial Gradients -->
-<div class="absolute left-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
-<div class="absolute right-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+<div class="absolute left-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
+<div class="absolute right-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
 <!-- Gradient Fade to Black -->
 <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
 <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-20 px-4 items-center mx-auto">
@@ -143,15 +143,19 @@ lucide.createIcons();
 <section class="w-full max-w-5xl mx-auto px-4 py-12 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
 <div class="relative group">
 <!-- Glow Effect -->
-<div class="absolute -inset-1 bg-gradient-to-r from-[#34D399]/10 via-purple-500/10 to-[#34D399]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
+<div class="absolute -inset-1 bg-gradient-to-r from-[#34D399]/10 to-[#34D399]/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
 
 <!-- Letter Card -->
 <div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-12 md:p-16 backdrop-blur-md">
-<div class="flex items-start gap-4 mb-8">
-<div class="w-1 h-16 bg-gradient-to-b from-[#34D399] to-transparent rounded-full"></div>
+<div class="flex items-start gap-6 mb-8">
+<div class="w-1 h-16 bg-gradient-to-b from-[#34D399] to-transparent rounded-full flex-shrink-0"></div>
+<div class="flex items-start gap-4 flex-1">
+<!-- Profile Image -->
+<img src="https://via.placeholder.com/80" alt="Shawn Vierra" class="w-20 h-20 rounded-full object-cover border-2 border-[#34D399]/30 flex-shrink-0" />
 <div>
 <h2 class="text-2xl font-newsreader italic text-[#34D399] mb-2">A Message from Shawn Vierra</h2>
 <p class="text-sm text-zinc-500 font-geist">Founder & CEO, Ventura Marketing Collective</p>
+</div>
 </div>
 </div>
 
