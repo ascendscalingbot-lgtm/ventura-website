@@ -109,11 +109,13 @@ lucide.createIcons();
 </nav>
 
 <!-- HERO SECTION -->
-<section class="min-h-screen flex flex-col overflow-hidden w-full relative items-center justify-start pb-20">
+<section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-12 pt-0">
 <!-- Hero Radial Gradients -->
 <div class="absolute left-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
 <div class="absolute right-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
-<div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 px-4 items-center mx-auto">
+<!-- Gradient Fade to Black -->
+<div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
+<div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-20 px-4 items-center mx-auto">
 
 <!-- Client Badge -->
 <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/5 backdrop-blur-sm mb-6 [animation:animationIn_0.8s_ease-out_0.4s_both]">
@@ -130,7 +132,7 @@ lucide.createIcons();
 <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-3xl mb-12 [animation:animationIn_0.8s_ease-out_0.6s_both]">You made a decision today that will compound in value every single day from here forward. We are honored to be your partners.</p>
 
 <!-- Scroll Indicator -->
-<div class="flex flex-col items-center gap-2 mt-8 [animation:animationIn_0.8s_ease-out_0.7s_both] opacity-50">
+<div class="flex flex-col items-center gap-2 mt-8 mb-8 [animation:animationIn_0.8s_ease-out_0.7s_both] opacity-50">
 <span class="text-xs text-zinc-500 font-geist uppercase tracking-wider">Scroll to explore</span>
 <i data-lucide="arrow-down" class="w-4 h-4 text-zinc-500 float-animation"></i>
 </div>
