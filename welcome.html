@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Ventura Marketing Collective</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+--font-geist: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+--font-newsreader: 'Newsreader', serif;
+--teal-primary: #05BFAB;
+--teal-dark: #038c7f;
+--teal-light: #4adcd0;
+}
+body {
+font-family: var(--font-geist);
+background-color: #000000;
+color: #f8fafc;
+overflow-x: hidden;
+}
+.font-geist { font-family: 'Geist', sans-serif !important; }
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+
+@keyframes animationIn {
+0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+.aura-background-component canvas { opacity: 0.6; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+@keyframes beam-spin { to { transform: rotate(360deg); } }
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+.float-animation { animation: float 6s ease-in-out infinite; }
+</style>
+<script>
+(function () {
+const style = document.createElement("style");
+style.textContent = `
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el);
+});
+};
+document.addEventListener("DOMContentLoaded", () => {
+initInViewAnimations();
+lucide.createIcons();
+});
+})();
+</script>
+</head>
+<body class="selection:bg-blue-500/30 text-white bg-[#000000]">
+
+<!-- Aura Background -->
+<div class="aura-background-component -z-10 w-full h-screen absolute top-0 saturate-200 brightness-125" data-alpha-mask="80" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent);">
+<div data-us-project="XbpvsqkebotDhZIDqFtS" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="flex sticky top-8 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both] mt-6">
+<div class="flex items-center shrink-0">
+<img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
+</div>
+<div class="shrink-0">
+<a href="mailto:shawn@venturamc.com" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
+<div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
+<div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+</div>
+<div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
+<span class="relative z-10 tracking-tight font-geist">Get Started</span>
+<i data-lucide="arrow-right" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"></i>
+</a>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="min-h-screen flex flex-col overflow-hidden w-full relative items-center justify-start pb-20">
+<div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 px-4 items-center mx-auto">
+
+<!-- Client Badge -->
+<div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#05BFAB]/30 bg-[#05BFAB]/5 backdrop-blur-sm mb-6 [animation:animationIn_0.8s_ease-out_0.4s_both]">
+<div class="w-2 h-2 rounded-full bg-[#05BFAB] animate-pulse"></div>
+<span class="text-sm font-medium text-[#05BFAB] tracking-tight font-geist">Prepared Exclusively for <span class="font-semibold">Ability HHH</span></span>
+</div>
+
+<!-- Hero Headline -->
+<h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-4xl mb-6 pb-2 [animation:animationIn_0.8s_ease-out_0.5s_both]">
+<span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Welcome to the</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB]"> Collective.</span>
+</h1>
+
+<p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-3xl mb-12 [animation:animationIn_0.8s_ease-out_0.6s_both]">You made a decision today that will compound in value every single day from here forward. We are honored to be your partners.</p>
+
+<!-- Scroll Indicator -->
+<div class="flex flex-col items-center gap-2 mt-8 [animation:animationIn_0.8s_ease-out_0.7s_both] opacity-50">
+<span class="text-xs text-zinc-500 font-geist uppercase tracking-wider">Scroll to explore</span>
+<i data-lucide="arrow-down" class="w-4 h-4 text-zinc-500 float-animation"></i>
+</div>
+</div>
+</section>
+
+<!-- LETTER SECTION -->
+<section class="w-full max-w-5xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="relative group">
+<!-- Glow Effect -->
+<div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB]/10 via-purple-500/10 to-[#05BFAB]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
+
+<!-- Letter Card -->
+<div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-12 md:p-16 backdrop-blur-md">
+<div class="flex items-start gap-4 mb-8">
+<div class="w-1 h-16 bg-gradient-to-b from-[#05BFAB] to-transparent rounded-full"></div>
+<div>
+<h2 class="text-2xl font-newsreader italic text-[#05BFAB] mb-2">A Message from Shawn Vierra</h2>
+<p class="text-sm text-zinc-500 font-geist">Founder & CEO, Ventura Marketing Collective</p>
+</div>
+</div>
+
+<div class="space-y-5 text-zinc-300 leading-relaxed font-geist">
+<p>Dear Eric and the Ability Team,</p>
+
+<p>On behalf of the entire Ventura Marketing Collective team — welcome. We are genuinely excited that Ability HHH has chosen to partner with us, and I want you to know that we do not take that trust lightly.</p>
+
+<p>I started this firm with one conviction: that the best healthcare practices in the world deserve to be the most visible ones. That the professionals who show up every day and do exceptional work should not be the best-kept secret in their market. They should be the name everyone knows, the voice everyone trusts, and the first call anyone makes.</p>
+
+<p>What we are building together at Ability HHH is not just a marketing strategy. It is a <span class="text-white font-medium">permanent infrastructure of authority</span> — a digital presence so consistent, so compelling, and so credible that your ideal patients arrive already confident in their choice. That is what it means to dominate your space, and that is exactly what we are here to create.</p>
+
+<p class="text-[#05BFAB] font-medium italic">Being everywhere, all the time, all at once is not just a tactic. It is an investment in your business that compounds every single day — and that nobody can ever take away from you.</p>
+
+<p>Let's go build something that lasts.</p>
+
+<div class="mt-10 pt-8 border-t border-white/10">
+<div class="font-semibold text-white text-lg mb-1">Shawn Vierra</div>
+<div class="text-sm text-zinc-500">Founder & CEO, Ventura Marketing Collective</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHILOSOPHY SECTION -->
+<section class="w-full max-w-7xl mx-auto px-4 py-24 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="text-center mb-16">
+<h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">Authority.</h2>
+<p class="text-xl text-zinc-400 font-geist">Most businesses compete. We position Ability HHH to win.</p>
+</div>
+
+<!-- Beliefs Grid -->
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Belief 1 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">01</div>
+<h3 class="text-xl font-bold text-white mb-3 font-geist">Authority Is the Asset</h3>
+<p class="text-zinc-400 leading-relaxed font-geist text-sm">Followers fade. Ad budgets end. Algorithms change. But the practice that becomes the trusted voice in its community owns something no one can take — reputation at scale.</p>
+</div>
+</div>
+
+<!-- Belief 2 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">02</div>
+<h3 class="text-xl font-bold text-white mb-3 font-geist">Presence Is Non-Negotiable</h3>
+<p class="text-zinc-400 leading-relaxed font-geist text-sm">Your ideal patient is online right now, forming opinions. If you are not showing up with clarity and credibility, a competitor is. We make sure it is you they find.</p>
+</div>
+</div>
+
+<!-- Belief 3 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">03</div>
+<h3 class="text-xl font-bold text-white mb-3 font-geist">Business Should Come to You</h3>
+<p class="text-zinc-400 leading-relaxed font-geist text-sm">When you are visible everywhere your audience looks — with content that educates and a brand that earns trust — qualified patients arrive already decided. That is what we build.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PILLARS SECTION -->
+<section class="w-full max-w-7xl mx-auto px-4 py-24 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="text-center mb-16">
+<h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">What We Build Together</h2>
+<p class="text-xl text-zinc-400 font-geist">The Six Pillars of Market Dominance</p>
+</div>
+
+<!-- Pillars Stack -->
+<div class="space-y-6">
+<!-- Pillar 1 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">01</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Unified Social Media Presence</h3>
+<p class="text-zinc-400 mb-4 font-geist">Authority-building content strategy across every platform your patients use — Instagram, Facebook, LinkedIn, and Google. Consistent, credible, and unmissable.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Platform Strategy</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Content Creation</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Analytics</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pillar 2 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">02</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">High-Performance Web Presence</h3>
+<p class="text-zinc-400 mb-4 font-geist">Your website is your strongest business development tool. We optimize it to convert visitors into patients with clear messaging, trust signals, and a seamless digital experience.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ SEO Foundation</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Conversion Design</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Website Audit</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pillar 3 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">03</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Strategic Content Engine</h3>
+<p class="text-zinc-400 mb-4 font-geist">A monthly content strategy built around the questions your ideal patients are already asking. Every asset positions you as the trusted answer in your field.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Content Calendar</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Brand Voice</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Topic Authority</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pillar 4 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">04</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Automated Systems & Lead Nurture</h3>
+<p class="text-zinc-400 mb-4 font-geist">The right message, to the right person, at the right time — automatically. We build the systems that keep your practice top of mind so no opportunity is ever lost.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Email Automation</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ CRM Integration</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Nurture Flows</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pillar 5 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">05</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Monthly Video & Value Assets</h3>
+<p class="text-zinc-400 mb-4 font-geist">New video content and free educational resources produced every month — guides, FAQs, patient education videos, and downloadable tools that earn deep, lasting trust.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Video Production</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Lead Magnets</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Patient Education</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pillar 6 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">06</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">High-Performance Paid Advertising</h3>
+<p class="text-zinc-400 mb-4 font-geist">Powered by our Scalehouse Healthcare Advertising Team — targeted paid campaigns built specifically for healthcare, designed to drive qualified patient leads and measurable ROI.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Scalehouse HC Team</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Paid Strategy</span>
+<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Lead Generation</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="w-full max-w-7xl mx-auto px-4 py-24 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="text-center mb-16">
+<h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">Your First 90 Days</h2>
+<p class="text-xl text-zinc-400 font-geist">The Launch Sequence</p>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Month 1 -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 1</div>
+<h3 class="text-2xl font-bold text-white mb-6 font-geist">Foundation</h3>
+<ul class="space-y-3 text-sm text-zinc-400 font-geist">
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Brand audit & messaging refinement</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Website optimization begins</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Content calendar development</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>CRM & automation setup</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Social media strategy kickoff</span>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Month 2 -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 2</div>
+<h3 class="text-2xl font-bold text-white mb-6 font-geist">Production</h3>
+<ul class="space-y-3 text-sm text-zinc-400 font-geist">
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>First video assets produced</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Lead magnet creation</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Email nurture sequences built</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Paid ad campaigns launched</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Weekly content publishing begins</span>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Month 3 -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 3</div>
+<h3 class="text-2xl font-bold text-white mb-6 font-geist">Acceleration</h3>
+<ul class="space-y-3 text-sm text-zinc-400 font-geist">
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Performance optimization</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>A/B testing & refinement</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Authority content amplification</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Lead flow analysis & scaling</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-[#05BFAB] mt-1">→</span>
+<span>Quarterly strategy review</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="w-full max-w-5xl mx-auto px-4 py-32 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 border-2 border-[#05BFAB]/50 rounded-3xl p-16 backdrop-blur-xl text-center">
+<h2 class="md:text-5xl text-3xl font-newsreader italic mb-6 text-white">Welcome to Ventura.</h2>
+<p class="text-lg text-zinc-400 mb-10 font-geist max-w-2xl mx-auto">This is the beginning of something exceptional. Let's build the authority your brand deserves.</p>
+<a href="mailto:shawn@venturamc.com" class="hover:brightness-110 transition-all inline-flex items-center gap-2 text-sm font-medium text-white rounded-full px-8 py-4 shadow-[0_0_20px_rgba(5,191,171,0.5)] font-geist" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">
+<span class="tracking-tight">Get Started</span>
+<i data-lucide="arrow-right" class="w-4 h-4"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="w-full border-t border-white/10 py-16 mt-20">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex items-center justify-center gap-2 mb-4">
+<img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
+</div>
+<p class="text-sm text-zinc-500 mb-6 font-geist">We install revenue systems and help brands make a meaningful digital transformation.</p>
+<div class="flex items-center justify-center gap-6 text-sm text-zinc-500 mb-8 font-geist">
+<a href="https://venturamc.com" class="hover:text-[#05BFAB] transition-colors">venturamc.com</a>
+<span>·</span>
+<a href="mailto:hello@venturamc.com" class="hover:text-[#05BFAB] transition-colors">hello@venturamc.com</a>
+</div>
+<p class="text-xs text-zinc-600 tracking-widest uppercase font-geist">Confidential · 2026</p>
+</div>
+</footer>
+
+<!-- Aura Script -->
+<script src="https://cdn.usestyle.ai/aura.js"></script>
+
+</body>
+</html>
