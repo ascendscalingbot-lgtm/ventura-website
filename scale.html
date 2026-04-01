@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scale Framework — Ventura Marketing Collective</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+--font-geist: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+--font-newsreader: 'Newsreader', serif;
+--accent: #34D399;
+--mint: #34D399;
+}
+body {
+font-family: var(--font-geist);
+background-color: #000000;
+color: #f8fafc;
+overflow-x: hidden;
+}
+*::selection {
+background-color: rgba(52, 211, 153, 0.3);
+}
+.font-geist { font-family: 'Geist', sans-serif !important; }
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+@keyframes animationIn {
+0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+@keyframes beam-spin { to { transform: rotate(360deg); } }
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+</style>
+<script>
+(function () {
+const style = document.createElement("style");
+style.textContent = `
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el);
+});
+};
+document.addEventListener("DOMContentLoaded", () => {
+initInViewAnimations();
+lucide.createIcons();
+});
+})();
+</script>
+</head>
+<body class="text-white bg-[#000000]">
+
+<!-- Aura Background -->
+<div class="aura-background-component -z-10 w-full h-screen fixed top-0 saturate-200 brightness-125" data-alpha-mask="80" style="mask-image: linear-gradient(180deg, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(180deg, black 0%, black 80%, transparent);">
+<div data-us-project="XbpvsqkebotDhZIDqFtS" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl px-6 py-2.5 flex items-center justify-between rounded-full border border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex items-center shrink-0">
+<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
+</div>
+<div class="shrink-0 hidden md:block">
+<a href="/welcome.html" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
+<div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
+<div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#34D399_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+</div>
+<div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
+<span class="relative z-10 tracking-tight font-geist">Back to Welcome</span>
+<i data-lucide="arrow-left" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-0.5"></i>
+</a>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="min-h-screen flex flex-col overflow-hidden w-full relative items-center justify-center pb-12 pt-40">
+<!-- Hero Radial Gradients -->
+<div class="absolute left-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
+<div class="absolute right-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+<!-- Gradient Fade to Black -->
+<div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
+
+<div class="flex flex-col text-center w-full max-w-5xl z-20 px-4 items-center mx-auto">
+<!-- Eyebrow -->
+<div class="text-sm font-medium text-[#34D399] tracking-widest uppercase mb-6 font-geist">The Framework</div>
+
+<!-- Hero Headline -->
+<h1 class="md:text-8xl text-6xl font-newsreader italic tracking-tight max-w-4xl mb-6 pb-2">
+<span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">The Scale</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]"> Framework</span>
+</h1>
+
+<p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-3xl mb-12">
+A complete system for scaling your business with clarity, confidence, and measurable results.
+</p>
+
+<!-- Scroll Indicator -->
+<div class="flex flex-col items-center gap-2 mt-8 mb-8 opacity-50">
+<span class="text-xs text-zinc-500 font-geist uppercase tracking-wider">Scroll to explore</span>
+<i data-lucide="arrow-down" class="w-4 h-4 text-zinc-500"></i>
+</div>
+</div>
+</section>
+
+<!-- CONTENT SECTIONS -->
+<section class="w-full max-w-5xl mx-auto px-4 py-24">
+<div class="text-center mb-16">
+<h2 class="md:text-5xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">What is Scale?</h2>
+<p class="text-xl text-zinc-400 font-geist">The six-step system for sustainable growth</p>
+</div>
+
+<!-- Steps -->
+<div class="space-y-16">
+<!-- Step 1 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">01</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Strategy</h3>
+<p class="text-zinc-400 mb-4 font-geist">Define your ideal customer, positioning, and growth roadmap.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ ICP Definition</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Market Positioning</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Growth Roadmap</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">02</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Creative</h3>
+<p class="text-zinc-400 mb-4 font-geist">Build high-converting assets that resonate with your audience.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Ad Creative</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Landing Pages</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Video Content</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">03</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Ads</h3>
+<p class="text-zinc-400 mb-4 font-geist">Deploy paid campaigns that drive qualified leads and sales.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Meta Ads</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Google Ads</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Retargeting</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Step 4 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">04</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Systems</h3>
+<p class="text-zinc-400 mb-4 font-geist">Automate follow-up and nurture sequences that convert.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ CRM Setup</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Email Automation</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Lead Scoring</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Step 5 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">05</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Content</h3>
+<p class="text-zinc-400 mb-4 font-geist">Build authority with consistent, high-value content.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Social Media</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ SEO Content</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Video Strategy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Step 6 -->
+<div class="group relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="flex items-start gap-6">
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">06</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3 font-geist">Optimize</h3>
+<p class="text-zinc-400 mb-4 font-geist">Continuously improve based on data and performance.</p>
+<div class="flex flex-wrap gap-4">
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Analytics</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ A/B Testing</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Scaling</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="w-full max-w-5xl mx-auto px-4 py-32">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 border-2 border-[#34D399]/50 rounded-3xl p-16 backdrop-blur-xl text-center">
+<h2 class="md:text-5xl text-3xl font-newsreader italic mb-6 text-white">Ready to Scale?</h2>
+<p class="text-lg text-zinc-400 mb-10 font-geist max-w-2xl mx-auto">
+Let's build a growth system that works for your business.
+</p>
+<a href="/welcome.html" class="hover:brightness-110 transition-all inline-flex items-center gap-2 text-sm font-medium text-white rounded-full px-8 py-4 shadow-[0_0_20px_rgba(52,211,153,0.5)] font-geist" style="background: linear-gradient(135deg, #059669 0%, #34D399 50%, #6ee7b7 100%)">
+<span class="tracking-tight">Get Started</span>
+<i data-lucide="arrow-right" class="w-4 h-4"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="w-full border-t border-white/10 py-16 mt-20">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex items-center justify-center gap-2 mb-4">
+<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
+</div>
+<p class="text-sm text-zinc-500 mb-6 font-geist">We install revenue systems and help brands make a meaningful digital transformation.</p>
+<div class="flex items-center justify-center gap-6 text-sm text-zinc-500 mb-8 font-geist">
+<a href="https://venturamc.com" class="hover:text-[#34D399] transition-colors">venturamc.com</a>
+<span>·</span>
+<a href="mailto:hello@venturamc.com" class="hover:text-[#34D399] transition-colors">hello@venturamc.com</a>
+</div>
+<p class="text-xs text-zinc-600 tracking-widest uppercase font-geist">Confidential · 2026</p>
+</div>
+</footer>
+
+<!-- Aura Script -->
+<script src="https://cdn.usestyle.ai/aura.js"></script>
+
+</body>
+</html>
