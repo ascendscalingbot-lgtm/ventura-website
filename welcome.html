@@ -25,6 +25,12 @@ background-color: #000000;
 color: #f8fafc;
 overflow-x: hidden;
 }
+.selection\:bg-blue-500\/30::selection {
+background-color: rgba(5, 191, 171, 0.3) !important;
+}
+*::selection {
+background-color: rgba(5, 191, 171, 0.3);
+}
 .font-geist { font-family: 'Geist', sans-serif !important; }
 .font-newsreader { font-family: 'Newsreader', serif !important; }
 
@@ -77,7 +83,7 @@ lucide.createIcons();
 })();
 </script>
 </head>
-<body class="selection:bg-blue-500/30 text-white bg-[#000000]">
+<body class="text-white bg-[#000000]">
 
 <!-- Aura Background -->
 <div class="aura-background-component -z-10 w-full h-screen absolute top-0 saturate-200 brightness-125" data-alpha-mask="80" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 80%, transparent);">
@@ -90,19 +96,22 @@ lucide.createIcons();
 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="w-auto h-8 object-contain saturate-150 brightness-125" style="max-width: 140px; aspect-ratio: 220/50">
 </div>
 <div class="shrink-0">
-<a href="mailto:shawn@venturamc.com" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
+<a href="#schedule-onboarding" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
 <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
 <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
 </div>
 <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
-<span class="relative z-10 tracking-tight font-geist">Get Started</span>
-<i data-lucide="arrow-right" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"></i>
+<span class="relative z-10 tracking-tight font-geist">Schedule Onboarding</span>
+<i data-lucide="arrow-down" class="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5"></i>
 </a>
 </div>
 </nav>
 
 <!-- HERO SECTION -->
 <section class="min-h-screen flex flex-col overflow-hidden w-full relative items-center justify-start pb-20">
+<!-- Hero Radial Gradients -->
+<div class="absolute left-0 top-1/3 w-[600px] h-[600px] bg-[#05BFAB] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
+<div class="absolute right-0 top-1/3 w-[600px] h-[600px] bg-[#4adcd0] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
 <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 px-4 items-center mx-auto">
 
 <!-- Client Badge -->
@@ -113,8 +122,8 @@ lucide.createIcons();
 
 <!-- Hero Headline -->
 <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-4xl mb-6 pb-2 [animation:animationIn_0.8s_ease-out_0.5s_both]">
-<span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Welcome to the</span>
-<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB]"> Collective.</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Welcome to</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB]"> Ventura.</span>
 </h1>
 
 <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-3xl mb-12 [animation:animationIn_0.8s_ease-out_0.6s_both]">You made a decision today that will compound in value every single day from here forward. We are honored to be your partners.</p>
@@ -128,7 +137,7 @@ lucide.createIcons();
 </section>
 
 <!-- LETTER SECTION -->
-<section class="w-full max-w-5xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<section class="w-full max-w-5xl mx-auto px-4 py-12 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
 <div class="relative group">
 <!-- Glow Effect -->
 <div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB]/10 via-purple-500/10 to-[#05BFAB]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
@@ -434,17 +443,19 @@ lucide.createIcons();
 </div>
 </section>
 
-<!-- CTA SECTION -->
-<section class="w-full max-w-5xl mx-auto px-4 py-32 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<!-- SCHEDULE ONBOARDING SECTION -->
+<section id="schedule-onboarding" class="w-full max-w-5xl mx-auto px-4 py-32 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+<div class="text-center mb-12">
+<h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">Schedule Your Onboarding</h2>
+<p class="text-xl text-zinc-400 font-geist">Let's get started building something exceptional together.</p>
+</div>
+
+<!-- Calendar Embed Placeholder -->
 <div class="relative group">
 <div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
-<div class="relative bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 border-2 border-[#05BFAB]/50 rounded-3xl p-16 backdrop-blur-xl text-center">
-<h2 class="md:text-5xl text-3xl font-newsreader italic mb-6 text-white">Welcome to Ventura.</h2>
-<p class="text-lg text-zinc-400 mb-10 font-geist max-w-2xl mx-auto">This is the beginning of something exceptional. Let's build the authority your brand deserves.</p>
-<a href="mailto:shawn@venturamc.com" class="hover:brightness-110 transition-all inline-flex items-center gap-2 text-sm font-medium text-white rounded-full px-8 py-4 shadow-[0_0_20px_rgba(5,191,171,0.5)] font-geist" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">
-<span class="tracking-tight">Get Started</span>
-<i data-lucide="arrow-right" class="w-4 h-4"></i>
-</a>
+<div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-8 backdrop-blur-md min-h-[600px] flex items-center justify-center">
+<!-- CALENDAR EMBED GOES HERE -->
+<p class="text-zinc-500 font-geist">Calendar embed will be placed here</p>
 </div>
 </div>
 </section>
