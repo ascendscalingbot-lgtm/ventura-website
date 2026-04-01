@@ -15,9 +15,10 @@
 :root {
 --font-geist: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
 --font-newsreader: 'Newsreader', serif;
---teal-primary: #05BFAB;
---teal-dark: #038c7f;
---teal-light: #4adcd0;
+--accent: #34D399;
+--teal-primary: #34D399;
+--teal-dark: #34D399;
+--teal-light: #34D399;
 }
 body {
 font-family: var(--font-geist);
@@ -93,12 +94,12 @@ lucide.createIcons();
 <!-- Navigation -->
 <nav class="flex sticky top-8 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both] mt-6">
 <div class="flex items-center shrink-0">
-<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-r from-white to-[#05BFAB]">Ventura Marketing</span>
+<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
 </div>
 <div class="shrink-0">
 <a href="#schedule-onboarding" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,191,171,0.3)]">
 <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]">
-<div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#05BFAB_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+<div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#34D399_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
 </div>
 <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950 transition-colors duration-300 group-hover:bg-zinc-900"></div>
 <span class="relative z-10 tracking-tight font-geist">Schedule Onboarding</span>
@@ -110,20 +111,20 @@ lucide.createIcons();
 <!-- HERO SECTION -->
 <section class="min-h-screen flex flex-col overflow-hidden w-full relative items-center justify-start pb-20">
 <!-- Hero Radial Gradients -->
-<div class="absolute left-0 top-1/3 w-[600px] h-[600px] bg-[#05BFAB] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
-<div class="absolute right-0 top-1/3 w-[600px] h-[600px] bg-[#4adcd0] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+<div class="absolute left-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
+<div class="absolute right-0 top-1/3 w-[600px] h-[600px] bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
 <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-10 px-4 items-center mx-auto">
 
 <!-- Client Badge -->
-<div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#05BFAB]/30 bg-[#05BFAB]/5 backdrop-blur-sm mb-6 [animation:animationIn_0.8s_ease-out_0.4s_both]">
-<div class="w-2 h-2 rounded-full bg-[#05BFAB] animate-pulse"></div>
-<span class="text-sm font-medium text-[#05BFAB] tracking-tight font-geist">Prepared Exclusively for <span class="font-semibold">Ability HHH</span></span>
+<div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/5 backdrop-blur-sm mb-6 [animation:animationIn_0.8s_ease-out_0.4s_both]">
+<div class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></div>
+<span class="text-sm font-medium text-[#34D399] tracking-tight font-geist">Prepared Exclusively for <span class="font-semibold">Ability HHH</span></span>
 </div>
 
 <!-- Hero Headline -->
 <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-4xl mb-6 pb-2 [animation:animationIn_0.8s_ease-out_0.5s_both]">
 <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Welcome to</span>
-<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB]"> Ventura.</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]"> Ventura.</span>
 </h1>
 
 <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-3xl mb-12 [animation:animationIn_0.8s_ease-out_0.6s_both]">You made a decision today that will compound in value every single day from here forward. We are honored to be your partners.</p>
@@ -140,14 +141,14 @@ lucide.createIcons();
 <section class="w-full max-w-5xl mx-auto px-4 py-12 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
 <div class="relative group">
 <!-- Glow Effect -->
-<div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB]/10 via-purple-500/10 to-[#05BFAB]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
+<div class="absolute -inset-1 bg-gradient-to-r from-[#34D399]/10 via-purple-500/10 to-[#34D399]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
 
 <!-- Letter Card -->
 <div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-12 md:p-16 backdrop-blur-md">
 <div class="flex items-start gap-4 mb-8">
-<div class="w-1 h-16 bg-gradient-to-b from-[#05BFAB] to-transparent rounded-full"></div>
+<div class="w-1 h-16 bg-gradient-to-b from-[#34D399] to-transparent rounded-full"></div>
 <div>
-<h2 class="text-2xl font-newsreader italic text-[#05BFAB] mb-2">A Message from Shawn Vierra</h2>
+<h2 class="text-2xl font-newsreader italic text-[#34D399] mb-2">A Message from Shawn Vierra</h2>
 <p class="text-sm text-zinc-500 font-geist">Founder & CEO, Ventura Marketing Collective</p>
 </div>
 </div>
@@ -161,7 +162,7 @@ lucide.createIcons();
 
 <p>What we are building together at Ability HHH is not just a marketing strategy. It is a <span class="text-white font-medium">permanent infrastructure of authority</span> — a digital presence so consistent, so compelling, and so credible that your ideal patients arrive already confident in their choice. That is what it means to dominate your space, and that is exactly what we are here to create.</p>
 
-<p class="text-[#05BFAB] font-medium italic">Being everywhere, all the time, all at once is not just a tactic. It is an investment in your business that compounds every single day — and that nobody can ever take away from you.</p>
+<p class="text-[#34D399] font-medium italic">Being everywhere, all the time, all at once is not just a tactic. It is an investment in your business that compounds every single day — and that nobody can ever take away from you.</p>
 
 <p>Let's go build something that lasts.</p>
 
@@ -185,9 +186,9 @@ lucide.createIcons();
 <div class="grid md:grid-cols-3 gap-6">
 <!-- Belief 1 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">01</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399] to-[#34D399] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">01</div>
 <h3 class="text-xl font-bold text-white mb-3 font-geist">Authority Is the Asset</h3>
 <p class="text-zinc-400 leading-relaxed font-geist text-sm">Followers fade. Ad budgets end. Algorithms change. But the practice that becomes the trusted voice in its community owns something no one can take — reputation at scale.</p>
 </div>
@@ -195,9 +196,9 @@ lucide.createIcons();
 
 <!-- Belief 2 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">02</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399] to-[#34D399] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">02</div>
 <h3 class="text-xl font-bold text-white mb-3 font-geist">Presence Is Non-Negotiable</h3>
 <p class="text-zinc-400 leading-relaxed font-geist text-sm">Your ideal patient is online right now, forming opinions. If you are not showing up with clarity and credibility, a competitor is. We make sure it is you they find.</p>
 </div>
@@ -205,9 +206,9 @@ lucide.createIcons();
 
 <!-- Belief 3 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB] to-[#4adcd0] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-bold text-[#05BFAB] tracking-wider mb-4 font-geist">03</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399] to-[#34D399] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">03</div>
 <h3 class="text-xl font-bold text-white mb-3 font-geist">Business Should Come to You</h3>
 <p class="text-zinc-400 leading-relaxed font-geist text-sm">When you are visible everywhere your audience looks — with content that educates and a brand that earns trust — qualified patients arrive already decided. That is what we build.</p>
 </div>
@@ -226,17 +227,17 @@ lucide.createIcons();
 <div class="space-y-6">
 <!-- Pillar 1 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">01</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">01</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">Unified Social Media Presence</h3>
 <p class="text-zinc-400 mb-4 font-geist">Authority-building content strategy across every platform your patients use — Instagram, Facebook, LinkedIn, and Google. Consistent, credible, and unmissable.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Platform Strategy</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Content Creation</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Analytics</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Platform Strategy</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Content Creation</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Analytics</span>
 </div>
 </div>
 </div>
@@ -245,17 +246,17 @@ lucide.createIcons();
 
 <!-- Pillar 2 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">02</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">02</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">High-Performance Web Presence</h3>
 <p class="text-zinc-400 mb-4 font-geist">Your website is your strongest business development tool. We optimize it to convert visitors into patients with clear messaging, trust signals, and a seamless digital experience.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ SEO Foundation</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Conversion Design</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Website Audit</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ SEO Foundation</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Conversion Design</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Website Audit</span>
 </div>
 </div>
 </div>
@@ -264,17 +265,17 @@ lucide.createIcons();
 
 <!-- Pillar 3 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">03</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">03</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">Strategic Content Engine</h3>
 <p class="text-zinc-400 mb-4 font-geist">A monthly content strategy built around the questions your ideal patients are already asking. Every asset positions you as the trusted answer in your field.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Content Calendar</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Brand Voice</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Topic Authority</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Content Calendar</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Brand Voice</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Topic Authority</span>
 </div>
 </div>
 </div>
@@ -283,17 +284,17 @@ lucide.createIcons();
 
 <!-- Pillar 4 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">04</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">04</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">Automated Systems & Lead Nurture</h3>
 <p class="text-zinc-400 mb-4 font-geist">The right message, to the right person, at the right time — automatically. We build the systems that keep your practice top of mind so no opportunity is ever lost.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Email Automation</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ CRM Integration</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Nurture Flows</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Email Automation</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ CRM Integration</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Nurture Flows</span>
 </div>
 </div>
 </div>
@@ -302,17 +303,17 @@ lucide.createIcons();
 
 <!-- Pillar 5 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">05</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">05</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">Monthly Video & Value Assets</h3>
 <p class="text-zinc-400 mb-4 font-geist">New video content and free educational resources produced every month — guides, FAQs, patient education videos, and downloadable tools that earn deep, lasting trust.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Video Production</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Lead Magnets</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Patient Education</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Video Production</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Lead Magnets</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Patient Education</span>
 </div>
 </div>
 </div>
@@ -321,17 +322,17 @@ lucide.createIcons();
 
 <!-- Pillar 6 -->
 <div class="group relative">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300 hover:translate-x-2">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300 hover:translate-x-2">
 <div class="flex items-start gap-6">
-<div class="text-7xl font-newsreader italic text-[#05BFAB]/20 leading-none">06</div>
+<div class="text-7xl font-newsreader italic text-[#34D399]/20 leading-none">06</div>
 <div class="flex-1">
 <h3 class="text-2xl font-bold text-white mb-3 font-geist">High-Performance Paid Advertising</h3>
 <p class="text-zinc-400 mb-4 font-geist">Powered by our Scalehouse Healthcare Advertising Team — targeted paid campaigns built specifically for healthcare, designed to drive qualified patient leads and measurable ROI.</p>
 <div class="flex flex-wrap gap-4">
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Scalehouse HC Team</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Paid Strategy</span>
-<span class="text-xs text-[#05BFAB] font-medium font-geist">✓ Lead Generation</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Scalehouse HC Team</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Paid Strategy</span>
+<span class="text-xs text-[#34D399] font-medium font-geist">✓ Lead Generation</span>
 </div>
 </div>
 </div>
@@ -350,29 +351,29 @@ lucide.createIcons();
 <div class="grid md:grid-cols-3 gap-6">
 <!-- Month 1 -->
 <div class="relative group">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 1</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#34D399] mb-2">Month 1</div>
 <h3 class="text-2xl font-bold text-white mb-6 font-geist">Foundation</h3>
 <ul class="space-y-3 text-sm text-zinc-400 font-geist">
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Brand audit & messaging refinement</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Website optimization begins</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Content calendar development</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>CRM & automation setup</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Social media strategy kickoff</span>
 </li>
 </ul>
@@ -381,29 +382,29 @@ lucide.createIcons();
 
 <!-- Month 2 -->
 <div class="relative group">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 2</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#34D399] mb-2">Month 2</div>
 <h3 class="text-2xl font-bold text-white mb-6 font-geist">Production</h3>
 <ul class="space-y-3 text-sm text-zinc-400 font-geist">
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>First video assets produced</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Lead magnet creation</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Email nurture sequences built</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Paid ad campaigns launched</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Weekly content publishing begins</span>
 </li>
 </ul>
@@ -412,29 +413,29 @@ lucide.createIcons();
 
 <!-- Month 3 -->
 <div class="relative group">
-<div class="absolute -inset-0.5 bg-gradient-to-r from-[#05BFAB]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#05BFAB]/50 transition-all duration-300">
-<div class="text-sm font-newsreader italic text-[#05BFAB] mb-2">Month 3</div>
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#34D399]/20 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<div class="relative bg-zinc-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#34D399]/50 transition-all duration-300">
+<div class="text-sm font-newsreader italic text-[#34D399] mb-2">Month 3</div>
 <h3 class="text-2xl font-bold text-white mb-6 font-geist">Acceleration</h3>
 <ul class="space-y-3 text-sm text-zinc-400 font-geist">
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Performance optimization</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>A/B testing & refinement</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Authority content amplification</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Lead flow analysis & scaling</span>
 </li>
 <li class="flex items-start gap-2">
-<span class="text-[#05BFAB] mt-1">→</span>
+<span class="text-[#34D399] mt-1">→</span>
 <span>Quarterly strategy review</span>
 </li>
 </ul>
@@ -452,7 +453,7 @@ lucide.createIcons();
 
 <!-- Calendar Embed -->
 <div class="relative group">
-<div class="absolute -inset-1 bg-gradient-to-r from-[#05BFAB] via-[#4adcd0] to-[#05BFAB] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="absolute -inset-1 bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
 <div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-8 backdrop-blur-md overflow-hidden">
 <iframe src="https://api.venturamc.com/widget/booking/FK26smLK95H3CFyUmZg2" style="width: 100%; min-height: 700px; border: none; overflow: hidden;" scrolling="no" id="Owofuu1frJh76LLShtnH_1775072593172"></iframe>
 </div>
@@ -464,13 +465,13 @@ lucide.createIcons();
 <footer class="w-full border-t border-white/10 py-16 mt-20">
 <div class="max-w-7xl mx-auto px-4 text-center">
 <div class="flex items-center justify-center gap-2 mb-4">
-<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-r from-white to-[#05BFAB]">Ventura Marketing</span>
+<span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
 </div>
 <p class="text-sm text-zinc-500 mb-6 font-geist">We install revenue systems and help brands make a meaningful digital transformation.</p>
 <div class="flex items-center justify-center gap-6 text-sm text-zinc-500 mb-8 font-geist">
-<a href="https://venturamc.com" class="hover:text-[#05BFAB] transition-colors">venturamc.com</a>
+<a href="https://venturamc.com" class="hover:text-[#34D399] transition-colors">venturamc.com</a>
 <span>·</span>
-<a href="mailto:hello@venturamc.com" class="hover:text-[#05BFAB] transition-colors">hello@venturamc.com</a>
+<a href="mailto:hello@venturamc.com" class="hover:text-[#34D399] transition-colors">hello@venturamc.com</a>
 </div>
 <p class="text-xs text-zinc-600 tracking-widest uppercase font-geist">Confidential · 2026</p>
 </div>
