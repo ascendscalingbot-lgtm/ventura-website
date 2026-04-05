@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventura Marketing — Growth Blueprint</title>
+  <meta name="description" content="A Ventura Marketing creator-style growth blueprint page designed for green-screen website background videos and conversion storytelling.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root { --font-geist: 'Geist', 'Inter', system-ui, -apple-system, sans-serif; --font-newsreader: 'Newsreader', serif; }
+    body { font-family: var(--font-geist); background: #000; color: #f8fafc; overflow-x: hidden; }
+    *::selection { background-color: rgba(52, 211, 153, 0.25); }
+    .font-newsreader { font-family: var(--font-newsreader) !important; }
+    @keyframes animationIn { 0% { opacity: 0; transform: translateY(30px); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
+    @keyframes beam-spin { to { transform: rotate(360deg); } }
+    .glass-card { background: linear-gradient(180deg, rgba(24,24,27,.65), rgba(9,9,11,.55)); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.09); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+    .animate-on-scroll { animation-play-state: paused !important; }
+    .animate-on-scroll.animate { animation-play-state: running !important; }
+  </style>
+  <script>
+    (function () {
+      const style = document.createElement('style');
+      style.textContent = '.animate-on-scroll { animation-play-state: paused !important; } .animate-on-scroll.animate { animation-play-state: running !important; }';
+      document.head.appendChild(style);
+      if (!window.__inViewIO) {
+        window.__inViewIO = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              window.__inViewIO.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
+        if (window.lucide) lucide.createIcons();
+        const year = document.getElementById('year');
+        if (year) year.textContent = new Date().getFullYear();
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-[-10%] top-[-5%] h-[36rem] w-[36rem] rounded-full bg-emerald-500/20 blur-[140px]"></div>
+    <div class="absolute right-[-10%] top-[10%] h-[34rem] w-[34rem] rounded-full bg-cyan-400/10 blur-[140px]"></div>
+    <div class="absolute bottom-[-15%] left-[25%] h-[28rem] w-[28rem] rounded-full bg-teal-400/10 blur-[120px]"></div>
+  </div>
+
+  <nav class="fixed top-6 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-zinc-950/60 px-6 py-3 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div class="flex items-center gap-3">
+      <div class="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.8)]"></div>
+      <span class="font-newsreader text-2xl italic text-white">Ventura Marketing</span>
+    </div>
+    <div class="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
+      <a href="#problem" class="transition hover:text-white">Problem</a>
+      <a href="#system" class="transition hover:text-white">System</a>
+      <a href="#proof" class="transition hover:text-white">Proof</a>
+      <a href="#cta" class="transition hover:text-white">CTA</a>
+    </div>
+    <a href="#cta" class="group relative inline-flex h-10 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(52,211,153,0.28)]">
+      <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]"><div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#34D399_360deg)]" style="animation: beam-spin 3s linear infinite;"></div></div>
+      <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950"></div>
+      <span class="relative z-10 tracking-tight">DM VENTURA</span>
+      <i data-lucide="arrow-right" class="relative z-10 h-3.5 w-3.5"></i>
+    </a>
+  </nav>
+
+  <main>
+    <section class="relative flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-36">
+      <div class="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="[animation:animationIn_0.8s_ease-out_0.1s_both]">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-emerald-300">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            Giann-Style Growth Blueprint
+          </div>
+          <h1 class="max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-7xl md:leading-[1.02]">
+            If you think you need more leads,
+            <span class="block bg-gradient-to-r from-emerald-300 via-emerald-400 to-cyan-300 bg-clip-text text-transparent">this page is probably not for you.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">
+            Because most service businesses do not have a lead problem. They have a trust compression problem — and Ventura fixes that with a narrative system built to convert attention into booked calls.
+          </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#system" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#038c7f] via-[#05BFAB] to-[#4adcd0] px-7 py-3 text-sm font-medium text-white shadow-[0_0_30px_rgba(5,191,171,0.35)] transition hover:brightness-110">See the system</a>
+            <a href="#proof" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-zinc-900/50 px-7 py-3 text-sm font-medium text-zinc-200 backdrop-blur-sm transition hover:border-emerald-400/30 hover:text-white">See the walkthrough</a>
+          </div>
+        </div>
+        <div class="glass-card relative overflow-hidden rounded-[2rem] p-4 [animation:animationIn_0.8s_ease-out_0.25s_both]">
+          <div class="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-950/80 p-5">
+            <p class="text-xs uppercase tracking-[0.24em] text-emerald-300">Trust Compression Snapshot</p>
+            <h3 class="mt-3 text-3xl font-semibold leading-tight text-white">More traffic on a weak page just creates more expensive drop-off.</h3>
+            <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-xl bg-black/30 p-3"><div class="text-lg font-semibold text-white">12.4k</div><div class="text-[11px] text-zinc-500">traffic</div></div>
+              <div class="rounded-xl bg-black/30 p-3"><div class="text-lg font-semibold text-white">418</div><div class="text-[11px] text-zinc-500">leads</div></div>
+              <div class="rounded-xl bg-black/30 p-3"><div class="text-lg font-semibold text-white">19</div><div class="text-[11px] text-zinc-500">booked calls</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="animate-on-scroll px-4 py-24" style="animation: animationIn 0.8s ease-out both;">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-10 max-w-3xl">
+          <p class="mb-4 text-xs uppercase tracking-[0.24em] text-emerald-300">What’s breaking</p>
+          <h2 class="text-4xl font-semibold tracking-tight text-white md:text-6xl">Cold traffic is being asked to make a warm decision on a weak page.</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="glass-card rounded-3xl p-8"><h3 class="text-2xl font-semibold text-white">Vague message</h3><p class="mt-3 text-zinc-400">People cannot tell in 5 seconds whether this is actually for them.</p></div>
+          <div class="glass-card rounded-3xl p-8"><h3 class="text-2xl font-semibold text-white">Buried proof</h3><p class="mt-3 text-zinc-400">Credibility arrives too late, after skepticism has already won.</p></div>
+          <div class="glass-card rounded-3xl p-8"><h3 class="text-2xl font-semibold text-white">Weak CTA</h3><p class="mt-3 text-zinc-400">The next step feels generic instead of obvious and earned.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="system" class="animate-on-scroll px-4 py-24" style="animation: animationIn 0.8s ease-out both;">
+      <div class="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-zinc-950/40 p-8 backdrop-blur-xl md:p-12">
+        <div class="mb-12 max-w-3xl">
+          <p class="mb-4 text-xs uppercase tracking-[0.24em] text-emerald-300">The Ventura system</p>
+          <h2 class="text-4xl font-semibold tracking-tight text-white md:text-6xl">Hook. Proof. Offer. Follow-up.</h2>
+          <p class="mt-5 text-lg text-zinc-400">This is how Ventura compresses trust faster and turns casual attention into qualified booked calls.</p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-4">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6"><div class="mb-4 text-sm font-medium text-emerald-300">Hook</div><h3 class="text-xl font-semibold text-white">Filter fast</h3><p class="mt-3 text-sm text-zinc-400">Call out the right buyer and disqualify the wrong one early.</p></div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6"><div class="mb-4 text-sm font-medium text-emerald-300">Proof</div><h3 class="text-xl font-semibold text-white">Earn belief</h3><p class="mt-3 text-sm text-zinc-400">Show why the message deserves trust before asking for the click.</p></div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6"><div class="mb-4 text-sm font-medium text-emerald-300">Offer</div><h3 class="text-xl font-semibold text-white">Clarify the move</h3><p class="mt-3 text-sm text-zinc-400">Make the next step feel natural, specific, and low friction.</p></div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6"><div class="mb-4 text-sm font-medium text-emerald-300">Follow-Up</div><h3 class="text-xl font-semibold text-white">Keep continuity</h3><p class="mt-3 text-sm text-zinc-400">Ads, page, and follow-up all continue one persuasive conversation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="animate-on-scroll px-4 py-24" style="animation: animationIn 0.8s ease-out both;">
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div>
+          <p class="mb-4 text-xs uppercase tracking-[0.24em] text-emerald-300">Walkthrough</p>
+          <h2 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">The page behind the creator is doing actual sales work.</h2>
+          <p class="mt-5 max-w-xl text-lg text-zinc-400">Every section supports what is being said on camera: diagnosis, mechanism, proof, and CTA.</p>
+        </div>
+        <div class="glass-card rounded-[2rem] p-4">
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="rounded-[1.5rem] border border-white/10 bg-zinc-950/80 p-5 md:col-span-2"><h3 class="text-3xl font-semibold text-white">Every section earns its place.</h3></div>
+            <div class="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-emerald-500/10 to-transparent p-5"><p class="text-sm text-emerald-300">Headline</p><p class="mt-3 text-sm text-zinc-300">Make the right buyer feel instantly understood.</p></div>
+            <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5"><p class="text-sm text-emerald-300">Mechanism</p><p class="mt-3 text-sm text-zinc-300">Explain the narrative system without fluff.</p></div>
+            <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5"><p class="text-sm text-emerald-300">Proof</p><p class="mt-3 text-sm text-zinc-300">Quantify why Ventura’s approach deserves belief.</p></div>
+            <div class="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-cyan-400/10 to-transparent p-5"><p class="text-sm text-emerald-300">CTA</p><p class="mt-3 text-sm text-zinc-300">Only ask once the page has reduced risk and increased clarity.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="animate-on-scroll px-4 py-24" style="animation: animationIn 0.8s ease-out both;">
+      <div class="mx-auto max-w-5xl">
+        <div class="relative overflow-hidden rounded-[2.5rem] border border-emerald-400/20 bg-gradient-to-br from-zinc-950 via-zinc-950 to-emerald-950/20 p-10 shadow-[0_0_100px_rgba(5,191,171,0.12)] md:p-14">
+          <p class="mb-4 text-xs uppercase tracking-[0.24em] text-emerald-300">Next step</p>
+          <h2 class="max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl">If your funnel is leaking trust, DM <span class="text-emerald-300">VENTURA</span>.</h2>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">We’ll map what is broken, what to fix first, and what your funnel should actually look like if you want it to scale.</p>
+          <div class="mt-10 grid gap-4 text-sm text-zinc-400 md:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Messaging</div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Landing page</div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Ads</div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Follow-up</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="px-4 pb-10 pt-4">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500 md:flex-row md:items-center">
+      <p>© <span id="year"></span> Ventura Marketing. Built for creator-led conversion storytelling.</p>
+      <p>Giann Bernard-inspired green-screen companion page.</p>
+    </div>
+  </footer>
+</body>
+</html>
