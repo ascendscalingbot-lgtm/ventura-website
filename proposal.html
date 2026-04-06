@@ -160,6 +160,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     const canonical = document.getElementById('canonicalHint');
     if (canonical) canonical.textContent = inferredSlug ? `/proposal/${inferredSlug}` : '/proposal/their-business-name';
 
+    const footerProposalLabel = document.getElementById('footerProposalLabel');
+    if (footerProposalLabel) footerProposalLabel.textContent = `${client} Proposal`;
+
     document.title = `Ventura Proposal${client && client !== '[Client Name]' ? ' — ' + client : ''}`;
   });
 })();
@@ -320,9 +323,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   <div class="border-t border-white/10 pt-8 flex flex-col items-center justify-center gap-4 text-sm text-zinc-500 font-geist text-center">
     <div class="flex flex-col items-center gap-2">
       <span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
-      <span>Proposal Template</span>
+      <span id="footerProposalLabel">[Client Name] Proposal</span>
     </div>
-    <div class="max-w-2xl">Built for dedicated client proposal links and future database-backed personalization.</div>
   </div>
 </footer>
 
