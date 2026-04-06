@@ -52,6 +52,11 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     return '$' + cleaned;
   }
 
+  function titleCaseSlug(value) {
+    if (!value) return '';
+    return String(value).replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
   function setText(id, value) {
     const el = document.getElementById(id);
     if (el && value) el.textContent = value;
@@ -62,31 +67,43 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     if (el && value) el.innerHTML = value;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
     if (window.lucide) lucide.createIcons();
 
     const params = new URLSearchParams(window.location.search);
     const pathSegments = window.location.pathname.split('/').filter(Boolean);
-    const lastSegment = pathSegments[pathSegments.length - 1] || '';
-    const inferredSlug = lastSegment && lastSegment !== 'proposal.html' ? lastSegment : '';
-    const clientFromSlug = inferredSlug ? inferredSlug.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : '';
-    const client = params.get('client') || clientFromSlug || '[Client Name]';
-    const objective = params.get('objective') || 'Build a predictable growth system';
-    const proposalType = params.get('type') || '3-tier strategic partnership';
-    const timeline = params.get('timeline') || 'Ready to start within 7 days';
-    const summary = params.get('summary') || 'This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.';
-    const email = params.get('email') || 'shayan@ascendscaling.com';
+    const proposalIndex = pathSegments.indexOf('proposal');
+    const inferredSlug = params.get('slug') || (proposalIndex >= 0 && pathSegments[proposalIndex + 1] ? pathSegments[proposalIndex + 1] : '');
 
-    const tier1Name = params.get('tier1name') || 'Foundation';
-    const tier2Name = params.get('tier2name') || 'Growth Partner';
-    const tier3Name = params.get('tier3name') || 'Market Domination';
-    const tier1Price = money(params.get('tier1price'), '$3,500');
-    const tier2Price = money(params.get('tier2price'), '$6,500');
-    const tier3Price = money(params.get('tier3price'), '$10,000+');
-    const tier1Desc = params.get('tier1desc') || 'For brands that need the core strategy and assets done right.';
-    const tier2Desc = params.get('tier2desc') || 'For brands that want strategy plus hands-on momentum.';
-    const tier3Desc = params.get('tier3desc') || 'For brands that want full-force strategic and execution support.';
+    let proposalData = {};
+    try {
+      const response = await fetch('/proposals.json', { cache: 'no-store' });
+      if (response.ok) {
+        const json = await response.json();
+        const fromSlug = inferredSlug && json[inferredSlug] ? json[inferredSlug] : null;
+        proposalData = fromSlug || json.default || {};
+      }
+    } catch (error) {
+      proposalData = {};
+    }
+
+    const client = params.get('client') || proposalData.client || titleCaseSlug(inferredSlug) || '[Client Name]';
+    const objective = params.get('objective') || proposalData.objective || 'Build a predictable growth system';
+    const proposalType = params.get('type') || proposalData.type || '3-tier strategic partnership';
+    const timeline = params.get('timeline') || proposalData.timeline || 'Ready to start within 7 days';
+    const summary = params.get('summary') || proposalData.summary || 'This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.';
+    const email = params.get('email') || proposalData.email || 'shayan@ascendscaling.com';
+
+    const tier1Name = params.get('tier1name') || proposalData.tier1name || 'Foundation';
+    const tier2Name = params.get('tier2name') || proposalData.tier2name || 'Growth Partner';
+    const tier3Name = params.get('tier3name') || proposalData.tier3name || 'Market Domination';
+    const tier1Price = money(params.get('tier1price') || proposalData.tier1price, '$3,500');
+    const tier2Price = money(params.get('tier2price') || proposalData.tier2price, '$6,500');
+    const tier3Price = money(params.get('tier3price') || proposalData.tier3price, '$10,000+');
+    const tier1Desc = params.get('tier1desc') || proposalData.tier1desc || 'For brands that need the core strategy and assets done right.';
+    const tier2Desc = params.get('tier2desc') || proposalData.tier2desc || 'For brands that want strategy plus hands-on momentum.';
+    const tier3Desc = params.get('tier3desc') || proposalData.tier3desc || 'For brands that want full-force strategic and execution support.';
 
     setText('clientBadge', client);
     setText('clientHeadline', client);
@@ -114,7 +131,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     if (questions) questions.href = `mailto:${email}?subject=${encodeURIComponent(`Ventura Proposal - ${client} - Questions`)}`;
 
     const canonical = document.getElementById('canonicalHint');
-    if (canonical) canonical.textContent = inferredSlug ? `/${inferredSlug}` : '/their-business-name';
+    if (canonical) canonical.textContent = inferredSlug ? `/proposal/${inferredSlug}` : '/proposal/their-business-name';
 
     document.title = `Ventura Proposal${client && client !== '[Client Name]' ? ' — ' + client : ''}`;
   });

@@ -1,0 +1,36 @@
+{
+  "default": {
+    "client": "[Client Name]",
+    "objective": "Build a predictable growth system",
+    "type": "3-tier strategic partnership",
+    "timeline": "Ready to start within 7 days",
+    "summary": "This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.",
+    "email": "shayan@ascendscaling.com",
+    "tier1name": "Foundation",
+    "tier1price": "$3,500",
+    "tier1desc": "For brands that need the core strategy and assets done right.",
+    "tier2name": "Growth Partner",
+    "tier2price": "$6,500",
+    "tier2desc": "For brands that want strategy plus hands-on momentum.",
+    "tier3name": "Market Domination",
+    "tier3price": "$10,000+",
+    "tier3desc": "For brands that want full-force strategic and execution support."
+  },
+  "lovato-lending": {
+    "client": "Lovato Lending",
+    "objective": "Build a predictable mortgage lead engine",
+    "type": "3-tier lending growth proposal",
+    "timeline": "Kickoff within 7 days",
+    "summary": "This proposal outlines the three ways Ventura can help Lovato Lending scale with clear pricing, clear deliverables, and a faster path to qualified lead volume.",
+    "email": "shayan@ascendscaling.com",
+    "tier1name": "Foundation",
+    "tier1price": "$3,500",
+    "tier1desc": "For getting the core message, funnel, and growth foundation in place.",
+    "tier2name": "Growth Partner",
+    "tier2price": "$6,500",
+    "tier2desc": "For deeper execution support and more aggressive lead-generation momentum.",
+    "tier3name": "Market Domination",
+    "tier3price": "$10,000+",
+    "tier3desc": "For full-force growth execution, creative, optimization, and strategic oversight."
+  }
+}
