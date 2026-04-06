@@ -32,5 +32,22 @@
     "tier3name": "Market Domination",
     "tier3price": "$10,000+",
     "tier3desc": "For full-force growth execution, creative, optimization, and strategic oversight."
+  },
+  "tanzzz": {
+    "client": "Tanzzz",
+    "objective": "Launch Tanzzz with high-converting product photography and video assets for Amazon, Shopify, and social.",
+    "type": "3-tier product launch creative proposal",
+    "timeline": "2-5 weeks depending on selected package and final product delivery",
+    "summary": "Tanzzz solves a real problem spray tan users know too well: waiting hours for a tan to develop while it stains sheets, rubs off on clothes, and leaves a mess behind. This proposal is built to turn the product from "just another jumpsuit" into a clearly differentiated product with visuals that show exactly why it matters.",
+    "email": "shayan@ascendscaling.com",
+    "tier1name": "Essential Package",
+    "tier1price": "$3,500",
+    "tier1desc": "Core product photography for Amazon and Shopify plus a basic product handling video for launch-ready storefront visuals.",
+    "tier2name": "Growth Package",
+    "tier2price": "$4,500",
+    "tier2desc": "Everything in Tier 1 plus lifestyle video and expanded product photography for a full multi-channel launch.",
+    "tier3name": "Premium Package",
+    "tier3price": "$6,500",
+    "tier3desc": "Everything in Tier 2 plus extended storytelling video, full product photography suite, and content variations for scale."
   }
 }
