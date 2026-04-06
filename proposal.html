@@ -39,9 +39,72 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
   }
+
+  function money(value, fallback) {
+    if (!value) return fallback;
+    const cleaned = String(value).trim();
+    if (cleaned.startsWith('$')) return cleaned;
+    return '$' + cleaned;
+  }
+
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el && value) el.textContent = value;
+  }
+
+  function setHtml(id, value) {
+    const el = document.getElementById(id);
+    if (el && value) el.innerHTML = value;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
     if (window.lucide) lucide.createIcons();
+
+    const params = new URLSearchParams(window.location.search);
+    const client = params.get('client') || '[Client Name]';
+    const objective = params.get('objective') || 'Build a predictable growth system';
+    const proposalType = params.get('type') || '3-tier strategic partnership';
+    const timeline = params.get('timeline') || 'Ready to start within 7 days';
+    const summary = params.get('summary') || 'This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.';
+    const email = params.get('email') || 'shayan@ascendscaling.com';
+
+    const tier1Name = params.get('tier1name') || 'Foundation';
+    const tier2Name = params.get('tier2name') || 'Growth Partner';
+    const tier3Name = params.get('tier3name') || 'Market Domination';
+    const tier1Price = money(params.get('tier1price'), '$3,500');
+    const tier2Price = money(params.get('tier2price'), '$6,500');
+    const tier3Price = money(params.get('tier3price'), '$10,000+');
+    const tier1Desc = params.get('tier1desc') || 'For brands that need the core strategy and assets done right.';
+    const tier2Desc = params.get('tier2desc') || 'For brands that want strategy plus hands-on momentum.';
+    const tier3Desc = params.get('tier3desc') || 'For brands that want full-force strategic and execution support.';
+
+    setText('clientBadge', client);
+    setText('clientHeadline', client);
+    setText('objectiveText', objective);
+    setText('proposalTypeText', proposalType);
+    setText('timelineText', timeline);
+    setText('summaryText', summary);
+
+    setText('tier1Name', tier1Name);
+    setText('tier2Name', tier2Name);
+    setText('tier3Name', tier3Name);
+    setText('tier1Price', tier1Price);
+    setText('tier2Price', tier2Price);
+    setText('tier3Price', tier3Price);
+    setText('tier1Desc', tier1Desc);
+    setText('tier2Desc', tier2Desc);
+    setText('tier3Desc', tier3Desc);
+    setText('compareTier1', tier1Name);
+    setText('compareTier2', tier2Name);
+    setText('compareTier3', tier3Name);
+
+    const approve = document.getElementById('approveLink');
+    const questions = document.getElementById('questionsLink');
+    if (approve) approve.href = `mailto:${email}?subject=${encodeURIComponent(`Ventura Proposal - ${client} - Let's Move Forward`)}`;
+    if (questions) questions.href = `mailto:${email}?subject=${encodeURIComponent(`Ventura Proposal - ${client} - Questions`)}`;
+
+    document.title = `Ventura Proposal${client && client !== '[Client Name]' ? ' — ' + client : ''}`;
   });
 })();
 </script>
@@ -78,21 +141,21 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-20 px-4 items-center mx-auto">
     <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/5 backdrop-blur-sm mb-6">
       <div class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></div>
-      <span class="text-sm font-medium text-[#34D399] tracking-tight font-geist">Prepared Exclusively for <span class="font-semibold">[Client Name]</span></span>
+      <span class="text-sm font-medium text-[#34D399] tracking-tight font-geist">Prepared Exclusively for <span id="clientBadge" class="font-semibold">[Client Name]</span></span>
     </div>
 
     <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-5xl mb-6 pb-2">
       <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">A Proposal to Help</span>
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]"> [Client Name] </span>
+      <span id="clientHeadline" class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]">[Client Name]</span>
       <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
     </h1>
 
-    <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-10">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
+    <p id="summaryText" class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-10">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
 
     <div class="grid md:grid-cols-3 gap-4 w-full max-w-5xl">
-      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Objective</div><div class="text-white font-medium">Build a predictable growth system</div></div>
-      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Proposal Type</div><div class="text-white font-medium">3-tier strategic partnership</div></div>
-      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Timeline</div><div class="text-white font-medium">Ready to start within 7 days</div></div>
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Objective</div><div id="objectiveText" class="text-white font-medium">Build a predictable growth system</div></div>
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Proposal Type</div><div id="proposalTypeText" class="text-white font-medium">3-tier strategic partnership</div></div>
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Timeline</div><div id="timelineText" class="text-white font-medium">Ready to start within 7 days</div></div>
     </div>
   </div>
 </section>
@@ -120,9 +183,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   <div class="grid lg:grid-cols-3 gap-6 items-stretch">
     <div class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
       <div class="text-sm font-bold text-zinc-500 tracking-wider mb-4 font-geist">TIER 1</div>
-      <h3 class="text-3xl font-newsreader italic text-white mb-2">Foundation</h3>
-      <p class="text-zinc-400 font-geist mb-6">For brands that need the core strategy and assets done right.</p>
-      <div class="text-5xl font-geist font-semibold text-white mb-1">$3,500<span class="text-lg text-zinc-500">/mo</span></div>
+      <h3 id="tier1Name" class="text-3xl font-newsreader italic text-white mb-2">Foundation</h3>
+      <p id="tier1Desc" class="text-zinc-400 font-geist mb-6">For brands that need the core strategy and assets done right.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1"><span id="tier1Price">$3,500</span><span class="text-lg text-zinc-500">/mo</span></div>
       <p class="text-sm text-zinc-500 mb-8">Strong entry point with essential growth infrastructure.</p>
       <ul class="space-y-3 text-sm text-zinc-300 font-geist mb-10">
         <li>✓ Core messaging and positioning</li><li>✓ Monthly strategy direction</li><li>✓ Basic content + landing page support</li><li>✓ Reporting and optimization guidance</li><li>✓ 1 primary growth channel focus</li>
@@ -133,9 +196,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     <div class="relative bg-gradient-to-b from-[#34D399]/10 to-zinc-900/70 border border-[#34D399]/40 rounded-3xl p-8 backdrop-blur-sm shadow-[0_0_60px_rgba(52,211,153,0.12)] scale-[1.01]">
       <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#34D399]/15 border border-[#34D399]/30 text-[#34D399] text-xs font-semibold tracking-wide">MOST POPULAR</div>
       <div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">TIER 2</div>
-      <h3 class="text-3xl font-newsreader italic text-white mb-2">Growth Partner</h3>
-      <p class="text-zinc-300 font-geist mb-6">For brands that want strategy plus hands-on momentum.</p>
-      <div class="text-5xl font-geist font-semibold text-white mb-1">$6,500<span class="text-lg text-zinc-400">/mo</span></div>
+      <h3 id="tier2Name" class="text-3xl font-newsreader italic text-white mb-2">Growth Partner</h3>
+      <p id="tier2Desc" class="text-zinc-300 font-geist mb-6">For brands that want strategy plus hands-on momentum.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1"><span id="tier2Price">$6,500</span><span class="text-lg text-zinc-400">/mo</span></div>
       <p class="text-sm text-zinc-400 mb-8">Balanced option for brands ready to scale with consistency.</p>
       <ul class="space-y-3 text-sm text-zinc-200 font-geist mb-10">
         <li>✓ Everything in Foundation</li><li>✓ More execution support across channels</li><li>✓ Expanded landing page / funnel work</li><li>✓ Creative direction + campaign planning</li><li>✓ Faster iteration and deeper optimization</li>
@@ -145,9 +208,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 
     <div class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
       <div class="text-sm font-bold text-zinc-500 tracking-wider mb-4 font-geist">TIER 3</div>
-      <h3 class="text-3xl font-newsreader italic text-white mb-2">Market Domination</h3>
-      <p class="text-zinc-400 font-geist mb-6">For brands that want full-force strategic and execution support.</p>
-      <div class="text-5xl font-geist font-semibold text-white mb-1">$10,000+<span class="text-lg text-zinc-500">/mo</span></div>
+      <h3 id="tier3Name" class="text-3xl font-newsreader italic text-white mb-2">Market Domination</h3>
+      <p id="tier3Desc" class="text-zinc-400 font-geist mb-6">For brands that want full-force strategic and execution support.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1"><span id="tier3Price">$10,000+</span><span class="text-lg text-zinc-500">/mo</span></div>
       <p class="text-sm text-zinc-500 mb-8">Highest-touch partnership for aggressive growth and category authority.</p>
       <ul class="space-y-3 text-sm text-zinc-300 font-geist mb-10">
         <li>✓ Everything in Growth Partner</li><li>✓ Full campaign ecosystem oversight</li><li>✓ Higher content / creative volume</li><li>✓ Deeper conversion and offer optimization</li><li>✓ Priority communication and strategic input</li>
@@ -163,7 +226,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     <p class="text-xl text-zinc-400 font-geist">Designed so clients can immediately understand what changes as investment increases.</p>
   </div>
   <div class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 backdrop-blur-md">
-    <div class="grid grid-cols-4 border-b border-white/10 bg-zinc-950/50 text-sm font-medium font-geist"><div class="p-5 text-zinc-400">Category</div><div class="p-5 text-white">Foundation</div><div class="p-5 text-[#34D399]">Growth Partner</div><div class="p-5 text-white">Market Domination</div></div>
+    <div class="grid grid-cols-4 border-b border-white/10 bg-zinc-950/50 text-sm font-medium font-geist"><div class="p-5 text-zinc-400">Category</div><div id="compareTier1" class="p-5 text-white">Foundation</div><div id="compareTier2" class="p-5 text-[#34D399]">Growth Partner</div><div id="compareTier3" class="p-5 text-white">Market Domination</div></div>
     <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Strategic Support</div><div class="p-5 text-zinc-300">Core monthly direction</div><div class="p-5 text-zinc-200">Deeper planning + iteration</div><div class="p-5 text-zinc-200">Highest-touch strategic oversight</div></div>
     <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5 bg-white/[0.02]"><div class="p-5 text-zinc-400">Execution Volume</div><div class="p-5 text-zinc-300">Essential assets</div><div class="p-5 text-zinc-200">Broader multi-channel support</div><div class="p-5 text-zinc-200">Full-force execution ecosystem</div></div>
     <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Funnels / Landing Pages</div><div class="p-5 text-zinc-300">Basic page support</div><div class="p-5 text-zinc-200">Expanded funnel work</div><div class="p-5 text-zinc-200">Advanced conversion optimization</div></div>
@@ -185,8 +248,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     <h2 class="max-w-3xl mx-auto font-newsreader italic text-4xl tracking-tight text-white md:text-6xl">Choose the tier that matches the speed and level of support you want.</h2>
     <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-zinc-400 font-geist">Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.</p>
     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Let's%20Move%20Forward" class="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-white transition hover:brightness-110" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">Approve & Move Forward</a>
-      <a href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Questions" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-3 text-sm font-medium text-zinc-200 transition hover:border-[#34D399]/30 hover:text-white">Ask a Question</a>
+      <a id="approveLink" href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Let's%20Move%20Forward" class="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-white transition hover:brightness-110" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">Approve & Move Forward</a>
+      <a id="questionsLink" href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Questions" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-3 text-sm font-medium text-zinc-200 transition hover:border-[#34D399]/30 hover:text-white">Ask a Question</a>
     </div>
   </div>
 </section>
