@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventura Proposal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-geist: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-newsreader: 'Newsreader', serif;
+  --accent: #34D399;
+}
+body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-x:hidden; }
+*::selection { background-color: rgba(52, 211, 153, 0.3); }
+.font-geist { font-family: 'Geist', sans-serif !important; }
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+@keyframes animationIn { 0% { opacity:0; transform: translateY(30px); filter: blur(8px);} 100% { opacity:1; transform:translateY(0); filter:blur(0);} }
+@keyframes beam-spin { to { transform: rotate(360deg); } }
+</style>
+<script>
+(function () {
+  const style = document.createElement('style');
+  style.textContent = '.animate-on-scroll { animation-play-state: paused !important; } .animate-on-scroll.animate { animation-play-state: running !important; }';
+  document.head.appendChild(style);
+  if (!window.__inViewIO) {
+    window.__inViewIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          window.__inViewIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
+    if (window.lucide) lucide.createIcons();
+  });
+})();
+</script>
+</head>
+<body class="text-white bg-black">
+
+<div class="aura-background-component -z-10 w-full h-screen fixed top-0 saturate-200 brightness-125" style="mask-image: linear-gradient(180deg, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(180deg, black 0%, black 80%, transparent);">
+  <div data-us-project="XbpvsqkebotDhZIDqFtS" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+</div>
+
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl px-6 py-2.5 flex items-center justify-between rounded-full border border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-2xl shadow-black/40">
+  <div class="flex items-center shrink-0">
+    <span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
+  </div>
+  <div class="hidden md:flex items-center gap-6 text-sm text-zinc-400">
+    <a href="#overview" class="hover:text-white transition">Overview</a>
+    <a href="#tiers" class="hover:text-white transition">Packages</a>
+    <a href="#comparison" class="hover:text-white transition">Compare</a>
+    <a href="#next-steps" class="hover:text-white transition">Next Steps</a>
+  </div>
+  <a href="#tiers" class="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full px-5 text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
+    <div class="absolute inset-0 -z-10 overflow-hidden rounded-full p-[1px]"><div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#34D399_360deg)]" style="animation: beam-spin 3s linear infinite;"></div></div>
+    <div class="absolute inset-[1px] -z-10 rounded-full bg-zinc-950"></div>
+    <span class="relative z-10 tracking-tight font-geist">View Proposal</span>
+    <i data-lucide="arrow-down" class="relative z-10 w-3.5 h-3.5"></i>
+  </a>
+</nav>
+
+<section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-16 pt-40">
+  <div class="absolute left-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
+
+  <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-20 px-4 items-center mx-auto">
+    <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/5 backdrop-blur-sm mb-6">
+      <div class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></div>
+      <span class="text-sm font-medium text-[#34D399] tracking-tight font-geist">Prepared Exclusively for <span class="font-semibold">[Client Name]</span></span>
+    </div>
+
+    <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-5xl mb-6 pb-2">
+      <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">A Proposal to Help</span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]"> [Client Name] </span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
+    </h1>
+
+    <p class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-10">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
+
+    <div class="grid md:grid-cols-3 gap-4 w-full max-w-5xl">
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Objective</div><div class="text-white font-medium">Build a predictable growth system</div></div>
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Proposal Type</div><div class="text-white font-medium">3-tier strategic partnership</div></div>
+      <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Timeline</div><div class="text-white font-medium">Ready to start within 7 days</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="overview" class="w-full max-w-6xl mx-auto px-4 py-12 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+  <div class="relative group">
+    <div class="absolute -inset-1 bg-gradient-to-r from-[#34D399]/10 to-[#34D399]/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
+    <div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-10 md:p-14 backdrop-blur-md">
+      <div class="flex items-center gap-4 mb-8"><div class="w-1 h-14 bg-gradient-to-b from-[#34D399] to-transparent rounded-full"></div><div class="flex-1"><h2 class="text-3xl font-newsreader italic text-[#34D399] mb-1">What This Proposal Solves</h2><p class="text-sm text-zinc-500 font-geist">Clear strategy, execution support, and the right level of partnership for your stage.</p></div></div>
+      <div class="space-y-5 text-zinc-300 leading-relaxed font-geist max-w-4xl">
+        <p>Most proposals make people work too hard to understand what they’re buying. This one does the opposite.</p>
+        <p>We’ve structured these packages so the difference between each option is obvious: how much strategic depth you get, how much execution support is included, and how aggressively we help you grow.</p>
+        <p>The goal is simple — help you choose the level of support that matches your ambition, your bandwidth, and the speed you want to move.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tiers" class="w-full max-w-7xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+  <div class="text-center mb-14">
+    <h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">Three Ways to Work Together</h2>
+    <p class="text-xl text-zinc-400 font-geist">Clear tiers. Clear outcomes. Clear pricing.</p>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+    <div class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+      <div class="text-sm font-bold text-zinc-500 tracking-wider mb-4 font-geist">TIER 1</div>
+      <h3 class="text-3xl font-newsreader italic text-white mb-2">Foundation</h3>
+      <p class="text-zinc-400 font-geist mb-6">For brands that need the core strategy and assets done right.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1">$3,500<span class="text-lg text-zinc-500">/mo</span></div>
+      <p class="text-sm text-zinc-500 mb-8">Strong entry point with essential growth infrastructure.</p>
+      <ul class="space-y-3 text-sm text-zinc-300 font-geist mb-10">
+        <li>✓ Core messaging and positioning</li><li>✓ Monthly strategy direction</li><li>✓ Basic content + landing page support</li><li>✓ Reporting and optimization guidance</li><li>✓ 1 primary growth channel focus</li>
+      </ul>
+      <a href="#next-steps" class="w-full inline-flex justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition">Choose Foundation</a>
+    </div>
+
+    <div class="relative bg-gradient-to-b from-[#34D399]/10 to-zinc-900/70 border border-[#34D399]/40 rounded-3xl p-8 backdrop-blur-sm shadow-[0_0_60px_rgba(52,211,153,0.12)] scale-[1.01]">
+      <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#34D399]/15 border border-[#34D399]/30 text-[#34D399] text-xs font-semibold tracking-wide">MOST POPULAR</div>
+      <div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">TIER 2</div>
+      <h3 class="text-3xl font-newsreader italic text-white mb-2">Growth Partner</h3>
+      <p class="text-zinc-300 font-geist mb-6">For brands that want strategy plus hands-on momentum.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1">$6,500<span class="text-lg text-zinc-400">/mo</span></div>
+      <p class="text-sm text-zinc-400 mb-8">Balanced option for brands ready to scale with consistency.</p>
+      <ul class="space-y-3 text-sm text-zinc-200 font-geist mb-10">
+        <li>✓ Everything in Foundation</li><li>✓ More execution support across channels</li><li>✓ Expanded landing page / funnel work</li><li>✓ Creative direction + campaign planning</li><li>✓ Faster iteration and deeper optimization</li>
+      </ul>
+      <a href="#next-steps" class="w-full inline-flex justify-center rounded-full px-6 py-3 text-sm font-medium text-white transition hover:brightness-110" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">Choose Growth Partner</a>
+    </div>
+
+    <div class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+      <div class="text-sm font-bold text-zinc-500 tracking-wider mb-4 font-geist">TIER 3</div>
+      <h3 class="text-3xl font-newsreader italic text-white mb-2">Market Domination</h3>
+      <p class="text-zinc-400 font-geist mb-6">For brands that want full-force strategic and execution support.</p>
+      <div class="text-5xl font-geist font-semibold text-white mb-1">$10,000+<span class="text-lg text-zinc-500">/mo</span></div>
+      <p class="text-sm text-zinc-500 mb-8">Highest-touch partnership for aggressive growth and category authority.</p>
+      <ul class="space-y-3 text-sm text-zinc-300 font-geist mb-10">
+        <li>✓ Everything in Growth Partner</li><li>✓ Full campaign ecosystem oversight</li><li>✓ Higher content / creative volume</li><li>✓ Deeper conversion and offer optimization</li><li>✓ Priority communication and strategic input</li>
+      </ul>
+      <a href="#next-steps" class="w-full inline-flex justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition">Choose Market Domination</a>
+    </div>
+  </div>
+</section>
+
+<section id="comparison" class="w-full max-w-7xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+  <div class="text-center mb-14">
+    <h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">See the Difference Clearly</h2>
+    <p class="text-xl text-zinc-400 font-geist">Designed so clients can immediately understand what changes as investment increases.</p>
+  </div>
+  <div class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 backdrop-blur-md">
+    <div class="grid grid-cols-4 border-b border-white/10 bg-zinc-950/50 text-sm font-medium font-geist"><div class="p-5 text-zinc-400">Category</div><div class="p-5 text-white">Foundation</div><div class="p-5 text-[#34D399]">Growth Partner</div><div class="p-5 text-white">Market Domination</div></div>
+    <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Strategic Support</div><div class="p-5 text-zinc-300">Core monthly direction</div><div class="p-5 text-zinc-200">Deeper planning + iteration</div><div class="p-5 text-zinc-200">Highest-touch strategic oversight</div></div>
+    <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5 bg-white/[0.02]"><div class="p-5 text-zinc-400">Execution Volume</div><div class="p-5 text-zinc-300">Essential assets</div><div class="p-5 text-zinc-200">Broader multi-channel support</div><div class="p-5 text-zinc-200">Full-force execution ecosystem</div></div>
+    <div class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Funnels / Landing Pages</div><div class="p-5 text-zinc-300">Basic page support</div><div class="p-5 text-zinc-200">Expanded funnel work</div><div class="p-5 text-zinc-200">Advanced conversion optimization</div></div>
+    <div class="grid grid-cols-4 text-sm font-geist bg-white/[0.02]"><div class="p-5 text-zinc-400">Best Fit</div><div class="p-5 text-zinc-300">Need the essentials done right</div><div class="p-5 text-zinc-200">Ready to scale with consistency</div><div class="p-5 text-zinc-200">Want full partnership and aggressive growth</div></div>
+  </div>
+</section>
+
+<section class="w-full max-w-6xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DEDICATED CLIENT LINKS</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Built to become proposal-per-client.</h3><p class="text-zinc-400 font-geist leading-relaxed">This page is structured as a proposal template that can evolve into dedicated links for each client. The next layer is straightforward: attach proposal data by client slug or proposal ID and render the same branded UI dynamically.</p></div>
+    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DATABASE READY DIRECTION</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Easy next step: hook into a database.</h3><p class="text-zinc-400 font-geist leading-relaxed">Recommended path: store proposal records with client name, pricing tiers, deliverables, bonuses, CTA links, and status. Then generate links like <span class="text-white">/proposal.html?client=ability-hhh</span> or a future route like <span class="text-white">/proposals/ability-hhh</span>.</p></div>
+  </div>
+</section>
+
+<section id="next-steps" class="w-full max-w-5xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
+  <div class="relative overflow-hidden rounded-[2rem] border border-[#34D399]/20 bg-gradient-to-br from-zinc-950 via-zinc-950 to-emerald-950/20 p-10 shadow-[0_0_100px_rgba(5,191,171,0.12)] md:p-14 text-center">
+    <div class="absolute right-0 top-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-[120px]"></div>
+    <p class="mb-4 text-xs uppercase tracking-[0.24em] text-[#34D399]">Next Step</p>
+    <h2 class="max-w-3xl mx-auto font-newsreader italic text-4xl tracking-tight text-white md:text-6xl">Choose the tier that matches the speed and level of support you want.</h2>
+    <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-zinc-400 font-geist">Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.</p>
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Let's%20Move%20Forward" class="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-white transition hover:brightness-110" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">Approve & Move Forward</a>
+      <a href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Questions" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-3 text-sm font-medium text-zinc-200 transition hover:border-[#34D399]/30 hover:text-white">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+<footer class="w-full max-w-7xl mx-auto px-4 py-12">
+  <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-zinc-500 font-geist">
+    <div>Ventura Marketing Proposal Template</div>
+    <div>Built for dedicated client proposal links and future database-backed personalization.</div>
+  </div>
+</footer>
+
+</body>
+</html>
