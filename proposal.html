@@ -23,6 +23,11 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 .font-newsreader { font-family: 'Newsreader', serif !important; }
 @keyframes animationIn { 0% { opacity:0; transform: translateY(30px); filter: blur(8px);} 100% { opacity:1; transform:translateY(0); filter:blur(0);} }
 @keyframes beam-spin { to { transform: rotate(360deg); } }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.float-animation { animation: float 6s ease-in-out infinite; }
 </style>
 <script>
 (function () {
@@ -62,7 +67,11 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     if (window.lucide) lucide.createIcons();
 
     const params = new URLSearchParams(window.location.search);
-    const client = params.get('client') || '[Client Name]';
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const lastSegment = pathSegments[pathSegments.length - 1] || '';
+    const inferredSlug = lastSegment && lastSegment !== 'proposal.html' ? lastSegment : '';
+    const clientFromSlug = inferredSlug ? inferredSlug.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : '';
+    const client = params.get('client') || clientFromSlug || '[Client Name]';
     const objective = params.get('objective') || 'Build a predictable growth system';
     const proposalType = params.get('type') || '3-tier strategic partnership';
     const timeline = params.get('timeline') || 'Ready to start within 7 days';
@@ -104,6 +113,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     if (approve) approve.href = `mailto:${email}?subject=${encodeURIComponent(`Ventura Proposal - ${client} - Let's Move Forward`)}`;
     if (questions) questions.href = `mailto:${email}?subject=${encodeURIComponent(`Ventura Proposal - ${client} - Questions`)}`;
 
+    const canonical = document.getElementById('canonicalHint');
+    if (canonical) canonical.textContent = inferredSlug ? `/${inferredSlug}` : '/their-business-name';
+
     document.title = `Ventura Proposal${client && client !== '[Client Name]' ? ' — ' + client : ''}`;
   });
 })();
@@ -133,7 +145,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   </a>
 </nav>
 
-<section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-16 pt-40">
+<section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-12 pt-40">
   <div class="absolute left-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
   <div class="absolute right-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
   <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
@@ -150,7 +162,12 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
       <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
     </h1>
 
-    <p id="summaryText" class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-10">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
+    <p id="summaryText" class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-12">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
+
+    <div class="flex flex-col items-center gap-2 mt-2 mb-8 opacity-50">
+      <span class="text-xs text-zinc-500 font-geist uppercase tracking-wider">Scroll to explore</span>
+      <i data-lucide="arrow-down" class="w-4 h-4 text-zinc-500 float-animation"></i>
+    </div>
 
     <div class="grid md:grid-cols-3 gap-4 w-full max-w-5xl">
       <div class="bg-zinc-900/40 border border-white/10 rounded-2xl p-5 backdrop-blur-sm text-left"><div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Objective</div><div id="objectiveText" class="text-white font-medium">Build a predictable growth system</div></div>
@@ -237,7 +254,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 <section class="w-full max-w-6xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
   <div class="grid md:grid-cols-2 gap-6">
     <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DEDICATED CLIENT LINKS</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Built to become proposal-per-client.</h3><p class="text-zinc-400 font-geist leading-relaxed">This page is structured as a proposal template that can evolve into dedicated links for each client. The next layer is straightforward: attach proposal data by client slug or proposal ID and render the same branded UI dynamically.</p></div>
-    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DATABASE READY DIRECTION</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Easy next step: hook into a database.</h3><p class="text-zinc-400 font-geist leading-relaxed">Recommended path: store proposal records with client name, pricing tiers, deliverables, bonuses, CTA links, and status. Then generate links like <span class="text-white">/proposal.html?client=ability-hhh</span> or a future route like <span class="text-white">/proposals/ability-hhh</span>.</p></div>
+    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DATABASE READY DIRECTION</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Easy next step: hook into a database.</h3><p class="text-zinc-400 font-geist leading-relaxed">Recommended path: store proposal records by slug and serve each proposal from a clean route like <span id="canonicalHint" class="text-white">/their-business-name</span>. The page can then pull client name, pricing tiers, deliverables, bonuses, CTA links, and status directly from the record.</p></div>
   </div>
 </section>
 
@@ -255,8 +272,11 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 </section>
 
 <footer class="w-full max-w-7xl mx-auto px-4 py-12">
-  <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-zinc-500 font-geist">
-    <div>Ventura Marketing Proposal Template</div>
+  <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-sm text-zinc-500 font-geist">
+    <div class="flex flex-col gap-2">
+      <span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
+      <span>Proposal Template</span>
+    </div>
     <div>Built for dedicated client proposal links and future database-backed personalization.</div>
   </div>
 </footer>
