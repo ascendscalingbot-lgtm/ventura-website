@@ -1,93 +1,23 @@
 {
   "default": {
     "client": "[Client Name]",
-    "heroTitlePrefix": "A Proposal to Help",
-    "heroTitleHighlight": "[Client Name]",
-    "heroTitleSuffix": "Scale with Clarity",
     "objective": "Build a predictable growth system",
     "type": "3-tier strategic partnership",
     "timeline": "Ready to start within 7 days",
     "summary": "This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.",
     "email": "shayan@ascendscaling.com",
-    "sections": [
-      {
-        "eyebrow": "The Opportunity",
-        "title": "What This Proposal Solves",
-        "body": [
-          "Most proposals make people work too hard to understand what they’re buying. This one does the opposite.",
-          "We’ve structured these packages so the difference between each option is obvious: how much strategic depth you get, how much execution support is included, and how aggressively we help you grow.",
-          "The goal is simple — help you choose the level of support that matches your ambition, your bandwidth, and the speed you want to move."
-        ]
-      }
-    ],
-    "proof": {
-      "eyebrow": "Proof",
-      "title": "Why this approach works",
-      "items": [
-        "Clear scope",
-        "Clear pricing",
-        "Clear deliverables"
-      ]
-    },
-    "tierIntroTitle": "Three Ways to Work Together",
-    "tierIntroSubtitle": "Clear tiers. Clear outcomes. Clear pricing.",
     "tier1name": "Foundation",
     "tier1price": "$3,500",
     "tier1desc": "For brands that need the core strategy and assets done right.",
-    "tier1bullets": [
-      "Core messaging and positioning",
-      "Monthly strategy direction",
-      "Basic content + landing page support",
-      "Reporting and optimization guidance",
-      "1 primary growth channel focus"
-    ],
     "tier2name": "Growth Partner",
     "tier2price": "$6,500",
     "tier2desc": "For brands that want strategy plus hands-on momentum.",
-    "tier2bullets": [
-      "Everything in Foundation",
-      "More execution support across channels",
-      "Expanded landing page / funnel work",
-      "Creative direction + campaign planning",
-      "Faster iteration and deeper optimization"
-    ],
     "tier3name": "Market Domination",
     "tier3price": "$10,000+",
-    "tier3desc": "For brands that want full-force strategic and execution support.",
-    "tier3bullets": [
-      "Everything in Growth Partner",
-      "Full campaign ecosystem oversight",
-      "Higher content / creative volume",
-      "Deeper conversion and offer optimization",
-      "Priority communication and strategic input"
-    ],
-    "comparisonTitle": "See the Difference Clearly",
-    "comparisonSubtitle": "Designed so clients can immediately understand what changes as investment increases.",
-    "comparisonRows": [
-      ["Strategic Support", "Core monthly direction", "Deeper planning + iteration", "Highest-touch strategic oversight"],
-      ["Execution Volume", "Essential assets", "Broader multi-channel support", "Full-force execution ecosystem"],
-      ["Funnels / Landing Pages", "Basic page support", "Expanded funnel work", "Advanced conversion optimization"],
-      ["Best Fit", "Need the essentials done right", "Ready to scale with consistency", "Want full partnership and aggressive growth"]
-    ],
-    "whyThisWorks": {
-      "title": "Why This Works",
-      "items": [
-        "The structure makes the differences between tiers obvious.",
-        "The proposal makes scope and outcomes easy to understand.",
-        "The next step is clear once the right package is chosen."
-      ]
-    },
-    "nextSteps": {
-      "title": "Choose the tier that matches the speed and level of support you want.",
-      "body": "Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.",
-      "bullets": []
-    }
+    "tier3desc": "For brands that want full-force strategic and execution support."
   },
   "lovato-lending": {
     "client": "Lovato Lending",
-    "heroTitlePrefix": "A Proposal to Help",
-    "heroTitleHighlight": "Lovato Lending",
-    "heroTitleSuffix": "Scale Qualified Lead Volume",
     "objective": "Build a predictable mortgage lead engine",
     "type": "3-tier lending growth proposal",
     "timeline": "Kickoff within 7 days",
@@ -105,115 +35,19 @@
   },
   "tanzzz": {
     "client": "Tanzzz",
-    "heroTitlePrefix": "Proposal for",
-    "heroTitleHighlight": "Tanzzz",
-    "heroTitleSuffix": "Spray Tan Body Suit — Product Photography & Video Assets",
     "objective": "Launch Tanzzz with high-converting product photography and video assets for Amazon, Shopify, and social.",
     "type": "3-tier product launch creative proposal",
     "timeline": "2-5 weeks depending on selected package and final product delivery",
-    "summary": "Tanzzz solves a real problem spray tan users know too well: waiting hours for a tan to develop while it stains sheets, rubs off on clothes, and leaves a mess behind.",
+    "summary": "Tanzzz solves a real problem spray tan users know too well: waiting hours for a tan to develop while it stains sheets, rubs off on clothes, and leaves a mess behind. This proposal is built to turn the product from "just another jumpsuit" into a clearly differentiated product with visuals that show exactly why it matters.",
     "email": "shayan@ascendscaling.com",
-    "sections": [
-      {
-        "eyebrow": "The Opportunity",
-        "title": "The product is brilliant. The visuals need to prove it.",
-        "body": [
-          "The patent is your differentiator. But without the right visuals, it is just another jumpsuit.",
-          "What we are here to build is the photography and video asset library that shows why Tanzzz is different, how it works, and why someone would choose it over throwing on old clothes and hoping for the best."
-        ]
-      },
-      {
-        "eyebrow": "The Strategy",
-        "title": "Show, don’t tell.",
-        "body": [
-          "The most powerful way to sell a product like this is to show it in action.",
-          "The play: professional product photography for Amazon storefront and Shopify, lifestyle video showing the full experience, close-up product handling video for Amazon, and a mix of polished studio shots plus relatable real-life scenarios.",
-          "The patent feature should become the hero once finalized."
-        ]
-      },
-      {
-        "eyebrow": "What We’re Building",
-        "title": "A bridge proposal focused on foundational creative.",
-        "body": [
-          "This proposal is focused on getting the initial product assets created before launch.",
-          "Once final product, margins, and launch strategy are locked in, the next phase becomes a full advertising and growth plan. For now, the focus is the foundational creative that makes everything else possible."
-        ]
-      }
-    ],
-    "proof": {
-      "eyebrow": "Video Production Proof",
-      "title": "Because this strategy is content-led, proof matters.",
-      "items": [
-        "Demo Reel: https://drive.google.com/file/d/1NLdNeDtD51oekf7LF947ZZPjQKxTzMRi/view?usp=drivesdk",
-        "Video converts 3–5x better than static images alone",
-        "Amazon buyers need close-up product proof",
-        "Shopify needs storytelling and lifestyle context"
-      ]
-    },
-    "tierIntroTitle": "Offer Overview",
-    "tierIntroSubtitle": "Three options depending on how extensive you want the initial asset creation to be.",
     "tier1name": "Essential Package",
     "tier1price": "$3,500",
     "tier1desc": "Core product photography for Amazon and Shopify plus a basic product handling video for launch-ready storefront visuals.",
-    "tier1bullets": [
-      "8–12 professional product shots",
-      "White background studio shots for Amazon",
-      "Flat lay and detail shots",
-      "Lifestyle shots with model",
-      "30–45 second close-up product handling video",
-      "Half-day shoot",
-      "1 round of revisions"
-    ],
     "tier2name": "Growth Package",
     "tier2price": "$4,500",
     "tier2desc": "Everything in Tier 1 plus lifestyle video and expanded product photography for a full multi-channel launch.",
-    "tier2bullets": [
-      "15–20 total product shots",
-      "Additional lifestyle angles",
-      "Social-ready square and vertical formats",
-      "60–90 second lifestyle storytelling video",
-      "Full-day shoot",
-      "2 rounds of revisions"
-    ],
     "tier3name": "Premium Package",
     "tier3price": "$6,500",
-    "tier3desc": "Everything in Tier 2 plus extended storytelling video, full product photography suite, and content variations for scale.",
-    "tier3bullets": [
-      "25–30 total product shots",
-      "2–3 minute storytelling video",
-      "Amazon A+ content visuals",
-      "Social content library",
-      "Short-form video cuts for ads",
-      "1.5-day shoot",
-      "3 rounds of revisions"
-    ],
-    "comparisonTitle": "See the Difference Clearly",
-    "comparisonSubtitle": "Each tier expands the depth of the creative library and the number of launch-ready assets.",
-    "comparisonRows": [
-      ["Photography", "8–12 product shots", "15–20 product + lifestyle shots", "25–30 full content suite"],
-      ["Video", "Basic handling video", "Lifestyle storytelling video", "Extended storytelling + ad variations"],
-      ["Production", "Half-day shoot", "Full-day shoot", "1.5-day multi-scenario shoot"],
-      ["Best Fit", "Launch basics", "Launch-ready omnichannel coverage", "Maximum creative flexibility and scale"]
-    ],
-    "whyThisWorks": {
-      "title": "Why This Works",
-      "items": [
-        "Video is non-negotiable for this product because people need to see the problem and the solution.",
-        "Amazon and Shopify require different creative approaches, and this proposal covers both.",
-        "Using your daughter as the model adds authenticity and brand equity.",
-        "The patent becomes the unfair advantage once highlighted visually.",
-        "You launch with a creative library built for Amazon, Shopify, paid ads, and social."
-      ]
-    },
-    "nextSteps": {
-      "title": "If this resonates, let’s lock in the right package and get the creative moving.",
-      "body": "The next step is to review the sample product, finalize the shot list, choose the tier that fits the budget, and schedule the shoot once the final product arrives.",
-      "bullets": [
-        "Review the sample product and finalize shot list",
-        "Lock in the right tier",
-        "Schedule the shoot",
-        "Start building launch-ready creative assets"
-      ]
-    }
+    "tier3desc": "Everything in Tier 2 plus extended storytelling video, full product photography suite, and content variations for scale."
   }
 }
