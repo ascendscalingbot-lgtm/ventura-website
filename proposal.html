@@ -21,6 +21,33 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 *::selection { background-color: rgba(52, 211, 153, 0.3); }
 .font-geist { font-family: 'Geist', sans-serif !important; }
 .font-newsreader { font-family: 'Newsreader', serif !important; }
+.hero-glow-left,
+.hero-glow-right {
+  position: absolute;
+  top: -4rem;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(120px);
+  opacity: 0.26;
+  background: radial-gradient(circle at center, rgba(52, 211, 153, 0.9) 0%, rgba(5, 191, 171, 0.45) 28%, rgba(52, 211, 153, 0.14) 52%, rgba(0, 0, 0, 0) 74%);
+}
+.hero-glow-left { left: -14rem; }
+.hero-glow-right { right: -14rem; }
+@media (max-width: 768px) {
+  .hero-glow-left,
+  .hero-glow-right {
+    width: 24rem;
+    height: 24rem;
+    top: 1.5rem;
+    filter: blur(70px);
+    opacity: 0.42;
+  }
+  .hero-glow-left { left: -10rem; }
+  .hero-glow-right { right: -10rem; }
+}
 @keyframes animationIn { 0% { opacity:0; transform: translateY(30px); filter: blur(8px);} 100% { opacity:1; transform:translateY(0); filter:blur(0);} }
 @keyframes beam-spin { to { transform: rotate(360deg); } }
 @keyframes float {
@@ -163,8 +190,9 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 </nav>
 
 <section class="flex flex-col overflow-hidden w-full relative items-center justify-start pb-12 pt-40">
-  <div class="absolute left-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full -translate-x-1/2 pointer-events-none"></div>
-  <div class="absolute right-0 top-0 w-[600px] h-full bg-[#34D399] opacity-20 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
+  <div class="absolute inset-x-0 top-0 h-[34rem] bg-gradient-to-b from-emerald-400/8 via-transparent to-transparent pointer-events-none"></div>
   <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black pointer-events-none z-10"></div>
 
   <div class="flex flex-col [animation:animationIn_0.8s_ease-out_0.3s_both] text-center w-full max-w-7xl z-20 px-4 items-center mx-auto">
@@ -289,12 +317,12 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 </section>
 
 <footer class="w-full max-w-7xl mx-auto px-4 py-12">
-  <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-sm text-zinc-500 font-geist">
-    <div class="flex flex-col gap-2">
+  <div class="border-t border-white/10 pt-8 flex flex-col items-center justify-center gap-4 text-sm text-zinc-500 font-geist text-center">
+    <div class="flex flex-col items-center gap-2">
       <span class="text-2xl font-newsreader italic bg-clip-text text-transparent bg-gradient-to-b from-white from-80% to-[#34D399]">Ventura Marketing</span>
       <span>Proposal Template</span>
     </div>
-    <div>Built for dedicated client proposal links and future database-backed personalization.</div>
+    <div class="max-w-2xl">Built for dedicated client proposal links and future database-backed personalization.</div>
   </div>
 </footer>
 
