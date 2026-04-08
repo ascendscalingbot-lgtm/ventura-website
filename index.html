@@ -333,42 +333,30 @@ transition: opacity 0.3s ease;
 .video-card video.loaded {
 opacity: 1;
 }
-.video-card .poster-img {
-position: absolute;
-inset: 0;
-object-fit: cover;
-width: 100%;
-height: 100%;
-transition: opacity 0.3s ease;
-}
-.video-card video.loaded + .poster-img,
-.video-card video.playing + .poster-img {
-opacity: 0;
-}
 </style>
 
 <!-- Auto-scrolling Container -->
 <div class="flex gap-6 overflow-x-auto pb-4" id="video-marquee-container" style="scrollbar-width:none;-ms-overflow-style:none;">
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-1.jpg" alt="CRE H1 B2 C4 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-2.jpg" alt="H1 B1 C1 Final preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b03eeaae8b1b71e046e8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-3.jpg" alt="CRE H2 B# C3 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b03eeaae8b1b71e046e8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b41c3dd00cb232ab41fd.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-4.jpg" alt="H5 B2 C4 Final preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b41c3dd00cb232ab41fd.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b5273d829c73b2e829b2.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-5.jpg" alt="Rise MomTox V03_prob4 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b5273d829c73b2e829b2.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-1.jpg" alt="CRE H1 B2 C4 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-2.jpg" alt="H1 B1 C1 Final preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b03eeaae8b1b71e046e8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-3.jpg" alt="CRE H2 B# C3 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b03eeaae8b1b71e046e8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b41c3dd00cb232ab41fd.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-4.jpg" alt="H5 B2 C4 Final preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b41c3dd00cb232ab41fd.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
-  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b5273d829c73b2e829b2.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><img src="./assets/slider-video-5.jpg" alt="Rise MomTox V03_prob4 preview" class="poster-img"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
+  <div class="flex-shrink-0"><div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b5273d829c73b2e829b2.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 
 </div>
 </section>
@@ -446,11 +434,12 @@ opacity: 0;
           video.src = video.dataset.src;
           video.addEventListener('loadeddata', () => {
             video.classList.add('loaded');
-            video.play().catch(() => {});
           });
         }
+        if (video.src) {
+          video.play().catch(() => {});
+        }
       } else {
-        // Pause video when out of viewport to save resources
         const video = entry.target;
         if (video.src) {
           video.pause();
@@ -466,31 +455,7 @@ opacity: 0;
     videoObserver.observe(video);
   });
   
-  // Play video on hover/click for cards
-  document.querySelectorAll('.video-card').forEach(card => {
-    const video = card.querySelector('video');
-    
-    card.addEventListener('mouseenter', () => {
-      if (video.src) {
-        video.play().catch(() => {});
-        video.classList.add('playing');
-      }
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      // Keep playing for marquee effect
-    });
-    
-    card.addEventListener('click', () => {
-      if (video.src) {
-        if (video.paused) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      }
-    });
-  });
+
 })();
 </script>
 </body>
