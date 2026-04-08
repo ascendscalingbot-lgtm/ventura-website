@@ -413,10 +413,6 @@ opacity: 1;
       if (container.scrollLeft >= maxScroll) container.scrollLeft = 0;
     }
     requestAnimationFrame(step);
-
-  window.addEventListener('resize', () => {
-    scrollSpeed = window.innerWidth < 768 ? 0.22 : 0.35;
-  });
   }
   requestAnimationFrame(step);
 
