@@ -325,9 +325,7 @@ lucide.createIcons();
 .animate-video-marquee {
 animation: video-marquee 40s linear infinite;
 }
-.animate-video-marquee:hover {
-animation-play-state: paused;
-}
+#video-marquee-container::-webkit-scrollbar { display:none; }
 .video-card video {
 opacity: 0;
 transition: opacity 0.3s ease;
@@ -350,15 +348,13 @@ opacity: 0;
 </style>
 
 <!-- Auto-scrolling Container -->
-<div class="flex gap-6 animate-video-marquee w-max" id="video-marquee-container">
+<div class="flex gap-6 overflow-x-auto pb-4" id="video-marquee-container" style="scrollbar-width:none;-ms-overflow-style:none;">
 
 <!-- Video Card 1 -->
 <div class="flex-shrink-0">
 <div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30">
 <video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video>
-<div class="poster-img bg-zinc-800 flex items-center justify-center">
-<svg class="w-12 h-12 text-white/30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-</div>
+<img src="./assets/slider-video-1.jpg" alt="Client content preview" class="poster-img">
 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
 </div>
 </div>
@@ -367,9 +363,7 @@ opacity: 0;
 <div class="flex-shrink-0">
 <div class="video-card group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30">
 <video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video>
-<div class="poster-img bg-zinc-800 flex items-center justify-center">
-<svg class="w-12 h-12 text-white/30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-</div>
+<img src="./assets/slider-video-2.jpg" alt="Client content preview" class="poster-img">
 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
 </div>
 </div>
@@ -506,6 +500,29 @@ opacity: 0;
 <!-- Lazy Load Videos Script -->
 <script>
 (function() {
+  const container = document.getElementById('video-marquee-container');
+  let autoScroll = true;
+  let scrollSpeed = 0.5;
+
+  function step() {
+    if (autoScroll && container) {
+      container.scrollLeft += scrollSpeed;
+      const maxScroll = container.scrollWidth / 2;
+      if (container.scrollLeft >= maxScroll) container.scrollLeft = 0;
+    }
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+
+  let resumeTimer;
+  ['mouseenter','touchstart','pointerdown','wheel'].forEach(evt => {
+    container?.addEventListener(evt, () => {
+      autoScroll = false;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => autoScroll = true, 2500);
+    }, {passive:true});
+  });
+
   // Lazy load videos when they enter viewport
   const lazyVideos = document.querySelectorAll('.lazy-video');
   
