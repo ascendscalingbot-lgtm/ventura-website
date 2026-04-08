@@ -401,8 +401,8 @@ opacity: 1;
 <script>
 (function() {
   const container = document.getElementById('video-marquee-container');
-  let autoScroll = window.innerWidth >= 768;
-  let scrollSpeed = 0.35;
+  let autoScroll = true;
+  let scrollSpeed = window.innerWidth < 768 ? 0.22 : 0.35;
 
   function step() {
     if (autoScroll && container) {
@@ -413,13 +413,13 @@ opacity: 1;
     requestAnimationFrame(step);
 
   window.addEventListener('resize', () => {
-    autoScroll = window.innerWidth >= 768;
+    scrollSpeed = window.innerWidth < 768 ? 0.22 : 0.35;
   });
   }
   requestAnimationFrame(step);
 
   window.addEventListener('resize', () => {
-    autoScroll = window.innerWidth >= 768;
+    scrollSpeed = window.innerWidth < 768 ? 0.22 : 0.35;
   });
 
   let resumeTimer;
@@ -427,7 +427,7 @@ opacity: 1;
     container?.addEventListener(evt, () => {
       autoScroll = false;
       clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { if (window.innerWidth >= 768) autoScroll = true; }, 2200);
+      resumeTimer = setTimeout(() => { autoScroll = true; }, 2200);
     }, {passive:true});
   });
 
