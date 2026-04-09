@@ -352,7 +352,47 @@ animation-play-state: paused;
   <div class="flex-shrink-0"><div class="group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b5273d829c73b2e829b2.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
 </div>
 </div>
+</div>
 </section>
+
+<script>
+(function(){
+  const shell = document.getElementById('video-slider-shell');
+  if (!shell) return;
+  let auto = true;
+  let speed = window.innerWidth < 768 ? 0.45 : 0.6;
+  let dragging = false;
+  let startX = 0;
+  let startScroll = 0;
+  function tick(){
+    if (auto && !dragging) {
+      shell.scrollLeft += speed;
+      const max = shell.scrollWidth / 2;
+      if (shell.scrollLeft >= max) shell.scrollLeft = 0;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  let resumeTimer;
+  const pauseThenResume = () => {
+    auto = false;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => auto = true, 1800);
+  };
+  ['wheel','touchstart','mouseenter','pointerdown'].forEach(evt => shell.addEventListener(evt, pauseThenResume, {passive:true}));
+  shell.addEventListener('mousedown', (e) => {
+    dragging = true; auto = false; startX = e.pageX; startScroll = shell.scrollLeft;
+  });
+  window.addEventListener('mouseup', () => { if (dragging){ dragging = false; pauseThenResume(); }});
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    e.preventDefault();
+    shell.scrollLeft = startScroll - (e.pageX - startX);
+  });
+  shell.addEventListener('touchend', pauseThenResume, {passive:true});
+  window.addEventListener('resize', () => speed = window.innerWidth < 768 ? 0.45 : 0.6);
+})();
+</script>
 
 <!-- BOOKING CALENDAR SECTION -->
 <section id="book-consultation" class="max-w-4xl mx-auto px-6 py-24 relative">
