@@ -83,7 +83,7 @@ lucide.createIcons();
 <!-- HERO SECTION -->
 <section class="min-h-screen flex flex-col overflow-hidden w-full pt-6 relative items-center justify-start pb-0">
 <!-- Navigation -->
-<nav class="flex sticky top-8 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/40 backdrop-blur-xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both]">
+<nav class="flex sticky top-6 z-50 mx-auto w-[calc(100%-2rem)] max-w-3xl mb-16 md:mb-24 px-6 py-2.5 items-center justify-between rounded-full border border-white/10 bg-zinc-950/55 backdrop-blur-2xl shadow-2xl shadow-black/40 [animation:animationIn_0.8s_ease-out_0.1s_both] supports-[backdrop-filter]:bg-zinc-950/45">
 <div class="flex items-center shrink-0">
 <img src="./assets/favicon.png" alt="Ventura Marketing Logo" class="w-auto h-10 object-contain saturate-150 brightness-125" style="max-width: 56px; aspect-ratio: 1/1">
 </div>
@@ -152,7 +152,9 @@ lucide.createIcons();
 </section>
 
 <!-- FEATURES SECTION -->
-<section class="animate-on-scroll lg:px-6 text-center max-w-7xl mr-auto ml-auto pt-10 pr-4 pb-24 pl-4" id="testimonial-highlight">
+<section class="animate-on-scroll lg:px-6 text-center max-w-7xl mr-auto ml-auto pt-10 pr-4 pb-24 pl-4 relative" id="testimonial-highlight">
+<div class="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl"></div>
+<div class="pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-cyan-500/8 blur-3xl"></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 items-center">
 <div class="group order-2 lg:order-1 relative">
 <div class="-inset-4 group-hover:opacity-100 transition-opacity duration-700 bg-emerald-500/10 opacity-0 rounded-[2.5rem] absolute blur-3xl"></div>
@@ -174,7 +176,9 @@ lucide.createIcons();
 </section>
 
 <!-- SERVICES SECTION -->
-<section class="animate-on-scroll max-w-7xl mx-auto px-6 py-24" id="services">
+<section class="animate-on-scroll max-w-7xl mx-auto px-6 py-24 relative" id="services">
+<div class="pointer-events-none absolute left-0 top-20 h-72 w-72 rounded-full bg-emerald-500/8 blur-3xl"></div>
+<div class="pointer-events-none absolute right-0 bottom-0 h-96 w-96 rounded-full bg-teal-400/6 blur-3xl"></div>
 <div class="text-center mb-16">
 <div class="inline-flex text-[11px] uppercase font-semibold text-emerald-400 tracking-[0.2em] text-center bg-emerald-500/10 border-emerald-500/20 border rounded-full mb-8 px-3 py-1 shadow-[0_0_15px_rgba(16,185,129,0.1)] gap-x-1.5 gap-y-1.5 items-center">[ Our Services ]</div>
 <h2 class="md:text-5xl lg:text-6xl leading-[1.1] text-4xl font-medium text-white tracking-tight font-geist text-center max-w-3xl mx-auto mb-6">Growth Engines That <span class="text-emerald-400">Print Revenue</span></h2>
@@ -306,7 +310,9 @@ lucide.createIcons();
 </section>
 
 <!-- CLIENT CONTENT SHOWCASE SECTION -->
-<section class="animate-on-scroll w-full py-24" id="content-showcase">
+<section class="animate-on-scroll w-full py-24 relative" id="content-showcase">
+<div class="pointer-events-none absolute left-10 top-16 h-80 w-80 rounded-full bg-emerald-500/8 blur-3xl"></div>
+<div class="pointer-events-none absolute right-10 bottom-12 h-80 w-80 rounded-full bg-cyan-500/6 blur-3xl"></div>
 <div class="text-center mb-16 px-6 max-w-7xl mx-auto">
 <div class="inline-flex text-[11px] uppercase font-semibold text-emerald-400 tracking-[0.2em] text-center bg-emerald-500/10 border-emerald-500/20 border rounded-full mb-8 px-3 py-1 shadow-[0_0_15px_rgba(16,185,129,0.1)] gap-x-1.5 gap-y-1.5 items-center">[ Our Work ]</div>
 <h2 class="md:text-5xl lg:text-6xl leading-[1.1] text-4xl font-medium text-white tracking-tight font-geist text-center max-w-4xl mx-auto mb-6">Content That's Focused On <span class="text-emerald-400">Conversion</span>, Not Trends</h2>
@@ -328,9 +334,12 @@ animation: video-marquee 40s linear infinite;
 .animate-video-marquee:hover {
 animation-play-state: paused;
 }
+#video-slider-rail:hover { animation-play-state: paused; }
+.video-hover-pause:hover ~ * { animation-play-state: paused; }
+
 </style>
 
-<div class="flex gap-6 animate-video-marquee w-max">
+<div class="flex gap-6 animate-video-marquee w-max hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing select-none" id="video-slider-rail">
   <div class="flex-shrink-0"><div class="group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6aab2a5d3efc6deddade3.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
   <div class="flex-shrink-0"><div class="group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6ad7f3dd00cb232a9f2c8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
   <div class="flex-shrink-0"><div class="group relative w-[280px] md:w-[300px] aspect-[9/16] rounded-[2rem] border border-white/10 bg-zinc-900/30 backdrop-blur-xl shadow-2xl ring-1 ring-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-500/30"><video data-src="https://assets.cdn.filesafe.space/2nsyWqVe64ZcRUdzTqL4/media/69d6b03eeaae8b1b71e046e8.mp4" class="lazy-video w-full h-full object-cover" loop muted playsinline preload="none"></video><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div></div></div>
@@ -346,7 +355,9 @@ animation-play-state: paused;
 </section>
 
 <!-- BOOKING CALENDAR SECTION -->
-<section id="book-consultation" class="max-w-4xl mx-auto px-6 py-24">
+<section id="book-consultation" class="max-w-4xl mx-auto px-6 py-24 relative">
+<div class="pointer-events-none absolute -left-16 top-10 h-72 w-72 rounded-full bg-emerald-500/8 blur-3xl"></div>
+<div class="pointer-events-none absolute -right-16 bottom-10 h-72 w-72 rounded-full bg-cyan-500/6 blur-3xl"></div>
 <div class="text-center mb-12">
 <div class="inline-flex text-[11px] uppercase font-semibold text-emerald-400 tracking-[0.2em] text-center bg-emerald-500/10 border-emerald-500/20 border rounded-full mb-8 px-3 py-1 shadow-[0_0_15px_rgba(16,185,129,0.1)] gap-x-1.5 gap-y-1.5 items-center">[ Work with us ]</div>
 <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight font-geist mb-4">Book Your Strategy Session</h2>
@@ -359,7 +370,7 @@ animation-play-state: paused;
 
 <!-- FOOTER -->
 <footer class="max-w-7xl mx-auto px-6 pb-8">
-<div class="overflow-hidden md:p-16 bg-zinc-600/40 rounded-3xl ring-white/5 ring-1 px-10 py-10 relative">
+<div class="overflow-hidden md:p-16 bg-zinc-950/55 backdrop-blur-2xl rounded-3xl ring-white/10 ring-1 px-10 py-10 relative border border-white/10">
 <div class="flex flex-col items-center justify-center text-center">
 <div class="flex flex-col items-center text-center">
 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd645208-d90f-4f7a-85b1-3fca87b59728_320w.png" alt="Ventura Marketing Logo" class="mb-6 object-contain saturate-150 brightness-125" style="width: 220px; height: 50px;">
@@ -402,6 +413,20 @@ animation-play-state: paused;
     });
   }, { root: null, rootMargin: '150px 0px', threshold: 0.35 });
   lazyVideos.forEach((video) => observer.observe(video));
+})();
+</script>
+
+<script>
+(function(){
+  const rail = document.getElementById('video-slider-rail');
+  if (!rail) return;
+  let isDown = false, startX = 0, scrollLeft = 0;
+  rail.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - rail.offsetLeft; scrollLeft = rail.scrollLeft; rail.style.animationPlayState = 'paused'; });
+  rail.addEventListener('mouseleave', () => { isDown = false; rail.style.animationPlayState = ''; });
+  rail.addEventListener('mouseup', () => { isDown = false; rail.style.animationPlayState = ''; });
+  rail.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - rail.offsetLeft; const walk = (x - startX) * 1.5; rail.scrollLeft = scrollLeft - walk; });
+  rail.addEventListener('touchstart', () => { rail.style.animationPlayState = 'paused'; }, {passive:true});
+  rail.addEventListener('touchend', () => { rail.style.animationPlayState = ''; }, {passive:true});
 })();
 </script>
 </body>
