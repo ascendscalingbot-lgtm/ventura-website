@@ -38,7 +38,7 @@
     "objective": "Launch Tanzzz with high-converting product photography and video assets for Amazon, Shopify, and social.",
     "type": "3-tier product launch creative proposal",
     "timeline": "2-5 weeks depending on selected package and final product delivery",
-    "summary": "Tanzzz solves a real problem spray tan users know too well: waiting hours for a tan to develop while it stains sheets, rubs off on clothes, and leaves a mess behind. This proposal is built to turn the product from "just another jumpsuit" into a clearly differentiated product with visuals that show exactly why it matters.",
+    "summary": "Tanzzz solves a real problem spray tan users know too well: waiting hours for a tan to develop while it stains sheets, rubs off on clothes, and leaves a mess behind. This proposal is built to turn the product from just another jumpsuit into a clearly differentiated product with visuals that show exactly why it matters.",
     "email": "shayan@ascendscaling.com",
     "tier1name": "Essential Package",
     "tier1price": "$3,500",
@@ -49,5 +49,37 @@
     "tier3name": "Premium Package",
     "tier3price": "$6,500",
     "tier3desc": "Everything in Tier 2 plus extended storytelling video, full product photography suite, and content variations for scale."
+  },
+  "rise-rejuvenation-center": {
+    "client": "Rise Rejuvenation Center",
+    "objective": "Create the Rise Reality Show project structure",
+    "type": "2-option reality show project proposal",
+    "timeline": "Project timeline to be finalized after scope lock",
+    "summary": "This proposal creates the initial structure for the Rise Reality Show project with two clear budget options. Specific deliverables will be added after the project scope is finalized.",
+    "email": "shayan@ascendscaling.com",
+    "tiers": 2,
+    "pricesuffix": " project budget",
+    "tiersheading": "Two Project Budget Options",
+    "tierssubheading": "Initial page structure now. Specific deliverables to be added next.",
+    "tier1name": "Option One",
+    "tier1price": "$45,000",
+    "tier1desc": "A strong project foundation for the Rise Reality Show with core strategy, structure, and production planning.",
+    "tier2name": "Option Two",
+    "tier2price": "$70,000",
+    "tier2desc": "A larger project budget for a more robust Rise Reality Show scope with expanded production depth and higher-touch execution.",
+    "tier1features": [
+      "Rise Reality Show project concept and structure placeholder",
+      "Core episode / content framework to be defined",
+      "Primary production plan placeholder",
+      "Initial creative direction placeholder",
+      "Specific deliverables to be added after scope is finalized"
+    ],
+    "tier2features": [
+      "Everything in Option One",
+      "Expanded Rise Reality Show production scope placeholder",
+      "Additional creative / content asset planning placeholder",
+      "Higher-touch production and execution support placeholder",
+      "Specific expanded deliverables to be added after scope is finalized"
+    ]
   }
 }
