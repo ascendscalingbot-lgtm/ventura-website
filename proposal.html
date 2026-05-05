@@ -102,6 +102,22 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     el.innerHTML = items.map((item) => `<li>✓ ${item}</li>`).join('');
   }
 
+  function setParagraphs(id, items) {
+    const el = document.getElementById(id);
+    if (!el || !Array.isArray(items) || !items.length) return;
+    el.innerHTML = items.map((item) => `<p>${item}</p>`).join('');
+  }
+
+  function setComparisonRows(rows, tierCount) {
+    const el = document.getElementById('comparisonRows');
+    if (!el || !Array.isArray(rows) || !rows.length) return;
+    el.innerHTML = rows.map((row, index) => {
+      const bg = index % 2 ? ' bg-white/[0.02]' : '';
+      const values = Array.isArray(row.values) ? row.values : [];
+      return `<div data-comparison-row class="grid ${tierCount === 2 ? 'grid-cols-3' : 'grid-cols-4'} text-sm font-geist border-b border-white/5${bg}"><div class="p-5 text-zinc-400">${row.category || ''}</div><div class="p-5 text-zinc-300">${values[0] || ''}</div><div class="p-5 text-zinc-200">${values[1] || ''}</div>${tierCount === 3 ? `<div data-tier="3" class="p-5 text-zinc-200">${values[2] || ''}</div>` : ''}</div>`;
+    }).join('');
+  }
+
   document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
     if (window.lucide) lucide.createIcons();
@@ -146,6 +162,16 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     const tier1Features = proposalData.tier1features;
     const tier2Features = proposalData.tier2features;
     const tier3Features = proposalData.tier3features;
+    const headlineSuffix = proposalData.headlineSuffix || 'Scale with Clarity';
+    const overviewTitle = proposalData.overviewTitle || 'What This Proposal Solves';
+    const overviewSubtitle = proposalData.overviewSubtitle || 'Clear strategy, execution support, and the right level of partnership for your stage.';
+    const overviewParagraphs = proposalData.overviewParagraphs;
+    const comparisonHeading = proposalData.comparisonHeading || 'See the Difference Clearly';
+    const comparisonSubheading = proposalData.comparisonSubheading || 'Designed so clients can immediately understand what changes as investment increases.';
+    const comparisonRows = proposalData.comparisonRows;
+    const detailCards = proposalData.detailCards;
+    const nextStepHeading = proposalData.nextStepHeading || 'Choose the tier that matches the speed and level of support you want.';
+    const nextStepBody = proposalData.nextStepBody || 'Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.';
 
     setText('clientBadge', client);
     setText('clientHeadline', client);
@@ -153,6 +179,10 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     setText('proposalTypeText', proposalType);
     setText('timelineText', timeline);
     setText('summaryText', summary);
+    setText('headlineSuffix', headlineSuffix);
+    setText('overviewTitle', overviewTitle);
+    setText('overviewSubtitle', overviewSubtitle);
+    setParagraphs('overviewParagraphs', overviewParagraphs);
 
     setText('tier1Name', tier1Name);
     setText('tier2Name', tier2Name);
@@ -171,6 +201,19 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     setList('tier3Features', tier3Features);
     setText('tiersHeading', tiersHeading);
     setText('tiersSubheading', tiersSubheading);
+    setText('comparisonHeading', comparisonHeading);
+    setText('comparisonSubheading', comparisonSubheading);
+    setComparisonRows(comparisonRows, tierCount);
+    setText('nextStepHeading', nextStepHeading);
+    setText('nextStepBody', nextStepBody);
+    if (Array.isArray(detailCards) && detailCards.length >= 2) {
+      setText('detailCard1Label', detailCards[0].label);
+      setText('detailCard1Title', detailCards[0].title);
+      setText('detailCard1Body', detailCards[0].body);
+      setText('detailCard2Label', detailCards[1].label);
+      setText('detailCard2Title', detailCards[1].title);
+      setText('detailCard2Body', detailCards[1].body);
+    }
     document.querySelectorAll('[data-price-suffix]').forEach((el) => { el.textContent = priceSuffix; });
 
     if (tierCount === 2) {
@@ -241,7 +284,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-5xl mb-6 pb-2">
       <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">A Proposal to Help</span>
       <span id="clientHeadline" class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]">[Client Name]</span>
-      <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
+      <span id="headlineSuffix" class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
     </h1>
 
     <p id="summaryText" class="md:text-xl leading-relaxed text-lg font-light text-zinc-400 tracking-tight font-geist max-w-4xl mb-12">This proposal is designed to make the decision easy: clear scope, clear pricing, clear differences between each tier, and a direct path to the right next step.</p>
@@ -263,8 +306,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   <div class="relative group">
     <div class="absolute -inset-1 bg-gradient-to-r from-[#34D399]/10 to-[#34D399]/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
     <div class="relative bg-zinc-900/30 border border-white/10 rounded-3xl p-10 md:p-14 backdrop-blur-md">
-      <div class="flex items-center gap-4 mb-8"><div class="w-1 h-14 bg-gradient-to-b from-[#34D399] to-transparent rounded-full"></div><div class="flex-1"><h2 class="text-3xl font-newsreader italic text-[#34D399] mb-1">What This Proposal Solves</h2><p class="text-sm text-zinc-500 font-geist">Clear strategy, execution support, and the right level of partnership for your stage.</p></div></div>
-      <div class="space-y-5 text-zinc-300 leading-relaxed font-geist max-w-4xl">
+      <div class="flex items-center gap-4 mb-8"><div class="w-1 h-14 bg-gradient-to-b from-[#34D399] to-transparent rounded-full"></div><div class="flex-1"><h2 id="overviewTitle" class="text-3xl font-newsreader italic text-[#34D399] mb-1">What This Proposal Solves</h2><p id="overviewSubtitle" class="text-sm text-zinc-500 font-geist">Clear strategy, execution support, and the right level of partnership for your stage.</p></div></div>
+      <div id="overviewParagraphs" class="space-y-5 text-zinc-300 leading-relaxed font-geist max-w-4xl">
         <p>Most proposals make people work too hard to understand what they’re buying. This one does the opposite.</p>
         <p>We’ve structured these packages so the difference between each option is obvious: how much strategic depth you get, how much execution support is included, and how aggressively we help you grow.</p>
         <p>The goal is simple — help you choose the level of support that matches your ambition, your bandwidth, and the speed you want to move.</p>
@@ -321,22 +364,24 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
 
 <section id="comparison" class="w-full max-w-7xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
   <div class="text-center mb-14">
-    <h2 class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">See the Difference Clearly</h2>
-    <p class="text-xl text-zinc-400 font-geist">Designed so clients can immediately understand what changes as investment increases.</p>
+    <h2 id="comparisonHeading" class="md:text-6xl text-4xl font-newsreader italic mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">See the Difference Clearly</h2>
+    <p id="comparisonSubheading" class="text-xl text-zinc-400 font-geist">Designed so clients can immediately understand what changes as investment increases.</p>
   </div>
   <div class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40 backdrop-blur-md">
     <div data-comparison-row class="grid grid-cols-4 border-b border-white/10 bg-zinc-950/50 text-sm font-medium font-geist"><div class="p-5 text-zinc-400">Category</div><div id="compareTier1" class="p-5 text-white">Foundation</div><div id="compareTier2" class="p-5 text-[#34D399]">Growth Partner</div><div data-tier="3" id="compareTier3" class="p-5 text-white">Market Domination</div></div>
-    <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Strategic Support</div><div class="p-5 text-zinc-300">Core project direction</div><div class="p-5 text-zinc-200">Expanded planning + iteration</div><div data-tier="3" class="p-5 text-zinc-200">Highest-touch strategic oversight</div></div>
-    <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5 bg-white/[0.02]"><div class="p-5 text-zinc-400">Execution Volume</div><div class="p-5 text-zinc-300">Core production foundation</div><div class="p-5 text-zinc-200">Expanded production scope</div><div data-tier="3" class="p-5 text-zinc-200">Full-force execution ecosystem</div></div>
-    <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Production Planning</div><div class="p-5 text-zinc-300">Core show structure</div><div class="p-5 text-zinc-200">More robust show structure and asset planning</div><div data-tier="3" class="p-5 text-zinc-200">Advanced conversion optimization</div></div>
-    <div data-comparison-row class="grid grid-cols-4 text-sm font-geist bg-white/[0.02]"><div class="p-5 text-zinc-400">Best Fit</div><div class="p-5 text-zinc-300">Need a strong reality-show project foundation</div><div class="p-5 text-zinc-200">Want a bigger, more premium production scope</div><div data-tier="3" class="p-5 text-zinc-200">Want full partnership and aggressive growth</div></div>
+    <div id="comparisonRows">
+      <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Strategic Support</div><div class="p-5 text-zinc-300">Core project direction</div><div class="p-5 text-zinc-200">Expanded planning + iteration</div><div data-tier="3" class="p-5 text-zinc-200">Highest-touch strategic oversight</div></div>
+      <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5 bg-white/[0.02]"><div class="p-5 text-zinc-400">Execution Volume</div><div class="p-5 text-zinc-300">Core production foundation</div><div class="p-5 text-zinc-200">Expanded production scope</div><div data-tier="3" class="p-5 text-zinc-200">Full-force execution ecosystem</div></div>
+      <div data-comparison-row class="grid grid-cols-4 text-sm font-geist border-b border-white/5"><div class="p-5 text-zinc-400">Production Planning</div><div class="p-5 text-zinc-300">Core show structure</div><div class="p-5 text-zinc-200">More robust show structure and asset planning</div><div data-tier="3" class="p-5 text-zinc-200">Advanced conversion optimization</div></div>
+      <div data-comparison-row class="grid grid-cols-4 text-sm font-geist bg-white/[0.02]"><div class="p-5 text-zinc-400">Best Fit</div><div class="p-5 text-zinc-300">Need a strong reality-show project foundation</div><div class="p-5 text-zinc-200">Want a bigger, more premium production scope</div><div data-tier="3" class="p-5 text-zinc-200">Want full partnership and aggressive growth</div></div>
+    </div>
   </div>
 </section>
 
 <section class="w-full max-w-6xl mx-auto px-4 py-20 animate-on-scroll" style="animation: animationIn 0.8s ease-out both;">
   <div class="grid md:grid-cols-2 gap-6">
-    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DEDICATED CLIENT LINKS</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Built to become proposal-per-client.</h3><p class="text-zinc-400 font-geist leading-relaxed">This page is structured as a proposal template that can evolve into dedicated links for each client. The next layer is straightforward: attach proposal data by client slug or proposal ID and render the same branded UI dynamically.</p></div>
-    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">DATABASE READY DIRECTION</div><h3 class="text-3xl font-newsreader italic text-white mb-4">Easy next step: hook into a database.</h3><p class="text-zinc-400 font-geist leading-relaxed">Recommended path: store proposal records by slug and serve each proposal from a clean route like <span id="canonicalHint" class="text-white">/their-business-name</span>. The page can then pull client name, pricing tiers, deliverables, bonuses, CTA links, and status directly from the record.</p></div>
+    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div id="detailCard1Label" class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">STRATEGIC INTENT</div><h3 id="detailCard1Title" class="text-3xl font-newsreader italic text-white mb-4">Built around outcomes, not just assets.</h3><p id="detailCard1Body" class="text-zinc-400 font-geist leading-relaxed">Every package is structured to connect strategy, production, launch, and conversion so the work has a clear path to business impact.</p></div>
+    <div class="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"><div id="detailCard2Label" class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">CLIENT EXPERIENCE</div><h3 id="detailCard2Title" class="text-3xl font-newsreader italic text-white mb-4">Designed to make the decision feel clear.</h3><p id="detailCard2Body" class="text-zinc-400 font-geist leading-relaxed">The proposal clarifies what is included, why it matters, and how the selected scope turns into momentum after approval. <span id="canonicalHint" class="hidden">/their-business-name</span></p></div>
   </div>
 </section>
 
@@ -344,8 +389,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
   <div class="relative overflow-hidden rounded-[2rem] border border-[#34D399]/20 bg-gradient-to-br from-zinc-950 via-zinc-950 to-emerald-950/20 p-10 shadow-[0_0_100px_rgba(5,191,171,0.12)] md:p-14 text-center">
     <div class="absolute right-0 top-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-[120px]"></div>
     <p class="mb-4 text-xs uppercase tracking-[0.24em] text-[#34D399]">Next Step</p>
-    <h2 class="max-w-3xl mx-auto font-newsreader italic text-4xl tracking-tight text-white md:text-6xl">Choose the tier that matches the speed and level of support you want.</h2>
-    <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-zinc-400 font-geist">Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.</p>
+    <h2 id="nextStepHeading" class="max-w-3xl mx-auto font-newsreader italic text-4xl tracking-tight text-white md:text-6xl">Choose the tier that matches the speed and level of support you want.</h2>
+    <p id="nextStepBody" class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-zinc-400 font-geist">Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.</p>
     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
       <a id="approveLink" href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Let's%20Move%20Forward" class="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-white transition hover:brightness-110" style="background: linear-gradient(135deg, #038c7f 0%, #05BFAB 50%, #4adcd0 100%)">Approve & Move Forward</a>
       <a id="questionsLink" href="mailto:shayan@ascendscaling.com?subject=Ventura%20Proposal%20-%20Questions" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-3 text-sm font-medium text-zinc-200 transition hover:border-[#34D399]/30 hover:text-white">Ask a Question</a>

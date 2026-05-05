@@ -52,34 +52,112 @@
   },
   "rise-rejuvenation-center": {
     "client": "Rise Rejuvenation Center",
-    "objective": "Create the Rise Reality Show project structure",
-    "type": "2-option reality show project proposal",
-    "timeline": "Project timeline to be finalized after scope lock",
-    "summary": "This proposal creates the initial structure for the Rise Reality Show project with two clear budget options. Specific deliverables will be added after the project scope is finalized.",
+    "objective": "Build an emotionally-driven transformation series that lowers fear, creates trust, and helps viewers feel what it is like to walk into Rise before they ever book.",
+    "type": "2-option RFP for the Metzvah transformation project",
+    "timeline": "4-6 months for the $45,000 scope; 5-7 months for the $70,000 expanded scope",
+    "summary": "This project is designed to make the Rise experience feel human, safe, and inspiring. Instead of asking prospects to imagine what treatment feels like, the audience follows three real model transformation journeys — the questions, the nerves, the service experience, the before-and-after confidence, and Tracy’s mission behind why Rise does this work.",
     "email": "shayan@ascendscaling.com",
     "tiers": 2,
     "pricesuffix": " project budget",
+    "headlineSuffix": "Turn Transformation Into Trust",
     "tiersheading": "Two Project Budget Options",
-    "tierssubheading": "Initial page structure now. Specific deliverables to be added next.",
-    "tier1name": "Option One",
+    "tierssubheading": "Both options preserve the core emotional story. The $70,000 scope expands the launch engine, founder story, funnel strategy, and audience reach.",
+    "overviewTitle": "The Strategy Behind the Project",
+    "overviewSubtitle": "Make beauty, injectables, and transformation feel less intimidating by letting people experience the journey first.",
+    "overviewParagraphs": [
+      "The heart of this project is emotional connection. Viewers should feel like they already know what it is like to walk into Rise, ask questions, receive services, and move through a real transformation before they ever schedule their own visit.",
+      "The three model journeys create a live reality-show experience that lowers the barrier for women who are curious but nervous. They see the consultation, the vulnerability, the process, the results, and the confidence shift in real time.",
+      "Tracy’s story gives the series its deeper meaning: this is not just aesthetic content. It is about helping women feel beautiful, confident, and seen because Rise has watched that confidence directly impact people’s lives."
+    ],
+    "comparisonHeading": "What Expands at $70,000",
+    "comparisonSubheading": "The first option captures the transformation journey. The expanded option turns it into a larger launch campaign with founder storytelling, conversion funnels, social CRM, PR, influencer opportunities, and a bigger reveal moment.",
+    "comparisonRows": [
+      {
+        "category": "Core Story",
+        "values": [
+          "Three model transformation journeys across a 9-episode cinematic mini series",
+          "Everything in the $45,000 scope plus a 3-part founder story woven into the episodes"
+        ]
+      },
+      {
+        "category": "Content Volume",
+        "values": [
+          "9 episodes, 9 teaser reels, and 10 ready-to-post short-form clips",
+          "9 episodes, 9 teaser reels, and 20 ready-to-post short-form clips"
+        ]
+      },
+      {
+        "category": "Conversion Engine",
+        "values": [
+          "Mission-driven landing page and social posting strategy for Rise CMO",
+          "Mission-driven landing page plus 2 quiz funnels, offer engineering, ad sets, and automated social CRM"
+        ]
+      },
+      {
+        "category": "Launch Moment",
+        "values": [
+          "Airing schedule and episode drops designed to build anticipation",
+          "Planned final episode reveal party, PR, influencer opportunities, and Nicci cross-promotion"
+        ]
+      },
+      {
+        "category": "Best Fit",
+        "values": [
+          "Best if Rise wants the core transformation documentary series and launch foundation",
+          "Best if Rise wants the series plus a larger campaign ecosystem built to drive reach, leads, and cultural momentum"
+        ]
+      }
+    ],
+    "detailCards": [
+      {
+        "label": "EMOTIONAL CONNECTION",
+        "title": "Let prospects feel the experience before they book.",
+        "body": "The series answers the emotional questions that usually stop people from taking action: What will it feel like? What should I ask? Will I feel judged? Will the transformation be worth it? Seeing real women move through the process makes the decision safer."
+      },
+      {
+        "label": "MISSION-DRIVEN POSITIONING",
+        "title": "Make Tracy’s why part of the brand story.",
+        "body": "Tracy’s story gives the campaign a reason to exist beyond content. It connects Rise’s work to confidence, identity, and the visible life impact of helping women feel beautiful again."
+      }
+    ],
+    "nextStepHeading": "Choose the project scope that matches how big Rise wants this launch to become.",
+    "nextStepBody": "Once the budget direction is selected, Ventura can lock the production calendar, finalize creative development, and move into pre-production for the three transformation journeys.",
+    "tier1name": "$45,000 Project Budget",
     "tier1price": "$45,000",
-    "tier1desc": "A strong project foundation for the Rise Reality Show with core strategy, structure, and production planning.",
-    "tier2name": "Option Two",
+    "tier1desc": "A cinematic documentary-style mini series built around three model transformation journeys, designed to make the Rise experience feel familiar, safe, and emotionally compelling.",
+    "tier2name": "$70,000 Project Budget",
     "tier2price": "$70,000",
-    "tier2desc": "A larger project budget for a more robust Rise Reality Show scope with expanded production depth and higher-touch execution.",
+    "tier2desc": "Everything in the $45,000 production scope plus deeper founder storytelling, launch amplification, conversion funnels, offer strategy, social CRM automation, and a higher-touch campaign rollout.",
     "tier1features": [
-      "Rise Reality Show project concept and structure placeholder",
-      "Core episode / content framework to be defined",
-      "Primary production plan placeholder",
-      "Initial creative direction placeholder",
-      "Specific deliverables to be added after scope is finalized"
+      "3 Model's Transformation Journeys",
+      "2 camera angles (Sony FX6 or comparable)",
+      "Cinematic documentary production quality (lighting, sound, video)",
+      "9 episode mini series (20-40 mins each)",
+      "9 teaser reels",
+      "10 ready to post short form clips",
+      "Long & short form editing",
+      "High resolution before/after photos",
+      "Creative writing",
+      "Dedicated executive producer",
+      "Mission driven landing page to convert on the content",
+      "Social media strategy outline for Rise CMO to post",
+      "Airing schedule and episode drop to create excitement",
+      "4-6 months timeline"
     ],
     "tier2features": [
-      "Everything in Option One",
-      "Expanded Rise Reality Show production scope placeholder",
-      "Additional creative / content asset planning placeholder",
-      "Higher-touch production and execution support placeholder",
-      "Specific expanded deliverables to be added after scope is finalized"
+      "Everything in the $45,000 budget +",
+      "20 ready to post short form clips",
+      "3 part founder story incorporated in the episodes",
+      "2 Interactive Quiz funnels (Injectors Guide & Rise)",
+      "Set design (High quality life size images on rolling casters)",
+      "Planned final episode reveal party (families & friends there to support)",
+      "PR, Paid Influencer marketing opportunities for launch",
+      "Strategic offer engineering",
+      "Title sequence/opening intro",
+      "Producing 3 ad sets",
+      "Automated social CRM (comment \"transformation\" auto sends them quiz funnel)",
+      "Dedicated interviewer with Nicci and cross promote to her 69K followers",
+      "5-7 months timeline"
     ]
   }
 }
