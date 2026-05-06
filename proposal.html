@@ -154,6 +154,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     const tier3Price = money(params.get('tier3price') || proposalData.tier3price, '$10,000+');
     const tier1Desc = params.get('tier1desc') || proposalData.tier1desc || 'For brands that need the core strategy and assets done right.';
     const tier2Desc = params.get('tier2desc') || proposalData.tier2desc || 'For brands that want strategy plus hands-on momentum.';
+    const tier2Badge = params.get('tier2badge') || proposalData.tier2badge || 'MOST POPULAR';
     const tier3Desc = params.get('tier3desc') || proposalData.tier3desc || 'For brands that want full-force strategic and execution support.';
     const tierCount = Number(params.get('tiers') || proposalData.tiers || 3);
     const priceSuffix = params.get('pricesuffix') || proposalData.pricesuffix || '/mo';
@@ -195,6 +196,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     setText('tier3Price', tier3Price);
     setText('tier1Desc', tier1Desc);
     setText('tier2Desc', tier2Desc);
+    setText('tier2Badge', tier2Badge);
     setText('tier3Desc', tier3Desc);
     setText('compareTier1', tier1Name);
     setText('compareTier2', tier2Name);
@@ -339,7 +341,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     </div>
 
     <div class="relative bg-gradient-to-b from-[#34D399]/10 to-zinc-900/70 border border-[#34D399]/40 rounded-3xl p-8 backdrop-blur-sm shadow-[0_0_60px_rgba(52,211,153,0.12)] scale-[1.01]">
-      <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#34D399]/15 border border-[#34D399]/30 text-[#34D399] text-xs font-semibold tracking-wide">MOST POPULAR</div>
+      <div id="tier2Badge" class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#34D399]/15 border border-[#34D399]/30 text-[#34D399] text-xs font-semibold tracking-wide">MOST POPULAR</div>
       <div class="text-sm font-bold text-[#34D399] tracking-wider mb-4 font-geist">TIER 2</div>
       <h3 id="tier2Name" class="text-3xl font-newsreader italic text-white mb-2">Growth Partner</h3>
       <p id="tier2Desc" class="text-zinc-300 font-geist mb-6">For brands that want strategy plus hands-on momentum.</p>
