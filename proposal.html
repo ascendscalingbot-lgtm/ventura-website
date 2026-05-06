@@ -162,6 +162,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     const tier1Features = proposalData.tier1features;
     const tier2Features = proposalData.tier2features;
     const tier3Features = proposalData.tier3features;
+    const headlinePrefix = proposalData.headlinePrefix || 'A Proposal to Help';
+    const headlineClientOverride = proposalData.headlineClientOverride || client;
     const headlineSuffix = proposalData.headlineSuffix || 'Scale with Clarity';
     const overviewTitle = proposalData.overviewTitle || 'What This Proposal Solves';
     const overviewSubtitle = proposalData.overviewSubtitle || 'Clear strategy, execution support, and the right level of partnership for your stage.';
@@ -174,7 +176,8 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     const nextStepBody = proposalData.nextStepBody || 'Once you decide on the right package, we can finalize scope, confirm onboarding, and move into execution immediately.';
 
     setText('clientBadge', client);
-    setText('clientHeadline', client);
+    setText('clientHeadline', headlineClientOverride);
+    setText('headlinePrefix', headlinePrefix);
     setText('objectiveText', objective);
     setText('proposalTypeText', proposalType);
     setText('timelineText', timeline);
@@ -282,7 +285,7 @@ body { font-family: var(--font-geist); background:#000; color:#f8fafc; overflow-
     </div>
 
     <h1 class="md:text-7xl text-5xl font-newsreader italic tracking-tight max-w-5xl mb-6 pb-2">
-      <span class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">A Proposal to Help</span>
+      <span id="headlinePrefix" class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">A Proposal to Help</span>
       <span id="clientHeadline" class="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#34D399] to-[#34D399]">[Client Name]</span>
       <span id="headlineSuffix" class="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">Scale with Clarity</span>
     </h1>
