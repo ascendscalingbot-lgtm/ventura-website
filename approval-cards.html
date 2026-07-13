@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ventura — Approval Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --v-accent: #05BFAB;
+  --v-accent-glow: rgba(5, 191, 171, 0.4);
+  --v-accent-soft: rgba(5, 191, 171, 0.12);
+  --v-bg: #000000;
+  --v-surface: #0a0a0a;
+  --v-elevated: #111111;
+  --v-border: rgba(255,255,255,0.06);
+  --v-text: #f8fafc;
+  --v-muted: #94a3b8;
+  --v-danger: #ef4444;
+  --v-danger-glow: rgba(239, 68, 68, 0.3);
+  --v-success: #34D399;
+  --v-success-glow: rgba(52, 211, 153, 0.3);
+  --font: 'Geist', system-ui, -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: var(--font);
+  background: var(--v-bg);
+  color: var(--v-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient glow background */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -30%;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(5,191,171,0.15) 0%, transparent 70%);
+  filter: blur(80px);
+}
+.ambient-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -30%;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+/* App shell */
+.app { position: relative; z-index: 1; max-width: 430px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Header */
+.header {
+  padding: 20px 24px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-logo-icon {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #05BFAB, #34D399);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px;
+  color: #000;
+  box-shadow: 0 0 20px rgba(5,191,171,0.3);
+}
+.header-logo-text {
+  font-weight: 600; font-size: 15px;
+  letter-spacing: -0.3px;
+}
+.header-count {
+  font-size: 12px; color: var(--v-muted);
+  background: var(--v-elevated);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--v-border);
+}
+
+/* Queue indicator */
+.queue-bar {
+  padding: 0 24px 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.queue-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--v-elevated);
+  border: 1px solid var(--v-border);
+  transition: all 0.3s ease;
+}
+.queue-dot.active {
+  background: var(--v-accent);
+  border-color: var(--v-accent);
+  box-shadow: 0 0 8px var(--v-accent-glow);
+}
+.queue-dot.done {
+  background: var(--v-success);
+  border-color: var(--v-success);
+}
+
+/* Card stack */
+.stack {
+  flex: 1;
+  position: relative;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.card {
+  position: absolute;
+  inset: 0 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid var(--v-border);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  transition: transform 0.1s linear, opacity 0.3s ease;
+  will-change: transform;
+  touch-action: none;
+  user-select: none;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.card.glass-shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.card.glass-shine:hover::after {
+  left: 150%;
+}
+
+.card.next {
+  transform: scale(0.92) translateY(12px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+.card.current {
+  z-index: 10;
+}
+.card.exit-left {
+  animation: exitLeft 0.4s ease forwards;
+}
+.card.exit-right {
+  animation: exitRight 0.4s ease forwards;
+}
+
+@keyframes exitLeft {
+  to { transform: translateX(-140%) rotate(-12deg); opacity: 0; }
+}
+@keyframes exitRight {
+  to { transform: translateX(140%) rotate(12deg); opacity: 0; }
+}
+
+/* Card content */
+.card-badge-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--v-border);
+}
+.card-badge.type {
+  background: var(--v-accent-soft);
+  color: var(--v-accent);
+  border-color: rgba(5,191,171,0.2);
+}
+.card-badge.urgent {
+  background: rgba(239,68,68,0.1);
+  color: var(--v-danger);
+  border-color: rgba(239,68,68,0.2);
+}
+.card-badge.client {
+  background: var(--v-elevated);
+  color: var(--v-muted);
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.card-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--v-muted);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.card-preview {
+  background: var(--v-elevated);
+  border: 1px solid var(--v-border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.card-preview img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+.card-preview-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--v-muted);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--v-muted);
+  padding-top: 16px;
+  border-top: 1px solid var(--v-border);
+}
+.card-meta-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--v-accent);
+  box-shadow: 0 0 6px var(--v-accent-glow);
+}
+
+/* Swipe hints */
+.swipe-hints {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 5;
+}
+.swipe-hint {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+.swipe-hint.reject {
+  background: rgba(239,68,68,0.15);
+  color: var(--v-danger);
+  border: 2px solid var(--v-danger);
+  box-shadow: 0 0 30px var(--v-danger-glow);
+}
+.swipe-hint.approve {
+  background: rgba(52,211,153,0.15);
+  color: var(--v-success);
+  border: 2px solid var(--v-success);
+  box-shadow: 0 0 30px var(--v-success-glow);
+}
+.swipe-hint.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Action buttons */
+.actions {
+  padding: 0 24px 32px;
+  display: flex;
+  gap: 16px;
+}
+.action-btn {
+  flex: 1;
+  height: 56px;
+  border-radius: 16px;
+  border: none;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.action-btn:active { transform: scale(0.96); }
+
+.action-btn.reject {
+  background: linear-gradient(180deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+  border: 1px solid rgba(239,68,68,0.25);
+  color: var(--v-danger);
+}
+.action-btn.reject::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, var(--v-danger-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.action-btn.reject:active::before { opacity: 1; }
+
+.action-btn.approve {
+  background: linear-gradient(135deg, #05BFAB, #34D399);
+  color: #000;
+  box-shadow: 0 4px 24px rgba(5,191,171,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.action-btn.approve::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.action-btn.approve:active::after {
+  transform: translateX(100%);
+}
+
+/* Empty state */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  gap: 16px;
+}
+.empty-icon {
+  width: 80px; height: 80px;
+  border-radius: 24px;
+  background: var(--v-elevated);
+  border: 1px solid var(--v-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  box-shadow: 0 0 40px rgba(5,191,171,0.1);
+}
+.empty-title { font-size: 20px; font-weight: 700; }
+.empty-body { font-size: 14px; color: var(--v-muted); line-height: 1.5; max-width: 280px; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--v-elevated);
+  border: 1px solid var(--v-border);
+  border-radius: 16px;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  white-space: nowrap;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.toast.approved { border-color: rgba(52,211,153,0.3); color: var(--v-success); }
+.toast.rejected { border-color: rgba(239,68,68,0.3); color: var(--v-danger); }
+
+/* Pull to refresh hint */
+.pull-hint {
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  color: var(--v-muted);
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.card-enter { animation: cardEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Scrollbar hide */
+::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
+</style>
+</head>
+<body>
+
+<div class="ambient-glow"></div>
+
+<div class="app">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="header-logo-icon">V</div>
+      <div class="header-logo-text">Ventura</div>
+    </div>
+    <div class="header-count" id="countBadge">3 pending</div>
+  </div>
+
+  <!-- Queue dots -->
+  <div class="queue-bar" id="queueDots"></div>
+
+  <!-- Card Stack -->
+  <div class="stack" id="stack">
+    <div class="swipe-hints">
+      <div class="swipe-hint reject" id="hintReject">✕</div>
+      <div class="swipe-hint approve" id="hintApprove">✓</div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions" id="actions">
+    <button class="action-btn reject" onclick="handleReject()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      Decline
+    </button>
+    <button class="action-btn approve" onclick="handleApprove()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      Approve
+    </button>
+  </div>
+
+  <div class="pull-hint">Pull down to refresh</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span id="toastIcon"></span>
+  <span id="toastText"></span>
+</div>
+
+<script>
+// Demo data — replace with API fetch
+const items = [
+  {
+    id: '1',
+    type: 'Ad Creative',
+    client: 'Lovato Lending',
+    urgency: 'P0',
+    title: 'New hook angle: "Stop overpaying on your mortgage"',
+    body: 'Sabri-style pattern interrupt with burning intrigue. 15-sec UGC opener + 3 benefit bullets. Target: homeowners 30-55 in Utah.',
+    preview: null,
+    previewText: 'Hook: "If you\'re still paying 6% on your mortgage, you\'re leaving $400/month on the table..."',
+    meta: 'Ads Agent • 2 min ago'
+  },
+  {
+    id: '2',
+    type: 'Content Script',
+    client: 'Ascend Scaling',
+    urgency: null,
+    title: 'YouTube script: "3 AI Tools That Replace Your Marketing Team"',
+    body: 'Alex Finn cadence. High-energy hook, practical walkthrough, business outcomes. 8-min runtime with 3 CTAs.',
+    preview: null,
+    previewText: 'Hook: "I fired my entire marketing department and replaced them with 3 AI tools. Here\'s what happened..."',
+    meta: 'Scriptwriter • 15 min ago'
+  },
+  {
+    id: '3',
+    type: 'Landing Page',
+    client: 'AmericanVetFamily',
+    urgency: 'P1',
+    title: 'VSL landing page — Utah-only variant',
+    body: 'Glassmorphism hero, video embed, 3-tier offer cards, FAQ accordion. A/B test against current page.',
+    preview: null,
+    previewText: 'Hero: "Utah veterans: claim your $0-down home benefit before rates change"',
+    meta: 'Website Dev • 1 hr ago'
+  }
+];
+
+let currentIndex = 0;
+let startX = 0, currentX = 0, isDragging = false;
+
+function renderQueueDots() {
+  const dots = document.getElementById('queueDots');
+  dots.innerHTML = items.map((_, i) => {
+    if (i < currentIndex) return '<div class="queue-dot done"></div>';
+    if (i === currentIndex) return '<div class="queue-dot active"></div>';
+    return '<div class="queue-dot"></div>';
+  }).join('');
+}
+
+function renderCard(item, index) {
+  const isNext = index === currentIndex + 1;
+  const isCurrent = index === currentIndex;
+  const isPast = index < currentIndex;
+  if (isPast) return '';
+
+  const urgencyBadge = item.urgency ? `<span class="card-badge urgent">${item.urgency}</span>` : '';
+  const preview = item.preview
+    ? `<div class="card-preview"><img src="${item.preview}" alt="Preview"></div>`
+    : `<div class="card-preview"><div class="card-preview-text">${item.previewText}</div></div>`;
+
+  return `
+    <div class="card ${isNext ? 'next' : ''} ${isCurrent ? 'current card-enter' : ''}" data-index="${index}" id="card-${index}">
+      <div class="card-badge-row">
+        <span class="card-badge type">${item.type}</span>
+        ${urgencyBadge}
+        <span class="card-badge client">${item.client}</span>
+      </div>
+      <h2 class="card-title">${item.title}</h2>
+      <p class="card-body">${item.body}</p>
+      ${preview}
+      <div class="card-meta">
+        <div class="card-meta-dot"></div>
+        <span>${item.meta}</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderStack() {
+  const stack = document.getElementById('stack');
+  const cards = items.map((item, i) => renderCard(item, i)).join('');
+  // Keep hints, replace cards
+  const hints = stack.querySelector('.swipe-hints');
+  stack.innerHTML = '';
+  stack.appendChild(hints);
+  stack.insertAdjacentHTML('beforeend', cards);
+
+  // Attach touch handlers to current card
+  const currentCard = document.getElementById(`card-${currentIndex}`);
+  if (currentCard) {
+    currentCard.addEventListener('touchstart', onTouchStart, { passive: true });
+    currentCard.addEventListener('touchmove', onTouchMove, { passive: true });
+    currentCard.addEventListener('touchend', onTouchEnd);
+    currentCard.addEventListener('mousedown', onMouseDown);
+  }
+
+  renderQueueDots();
+  updateCount();
+}
+
+function updateCount() {
+  const remaining = items.length - currentIndex;
+  document.getElementById('countBadge').textContent = remaining === 0 ? 'All caught up' : `${remaining} pending`;
+}
+
+function onTouchStart(e) {
+  isDragging = true;
+  startX = e.touches[0].clientX;
+  currentX = startX;
+}
+function onMouseDown(e) {
+  isDragging = true;
+  startX = e.clientX;
+  currentX = startX;
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+}
+function onMouseMove(e) {
+  if (!isDragging) return;
+  currentX = e.clientX;
+  updateCardPosition();
+}
+function onTouchMove(e) {
+  if (!isDragging) return;
+  currentX = e.touches[0].clientX;
+  updateCardPosition();
+}
+function updateCardPosition() {
+  const card = document.getElementById(`card-${currentIndex}`);
+  if (!card) return;
+  const delta = currentX - startX;
+  const rotate = delta * 0.05;
+  card.style.transform = `translateX(${delta}px) rotate(${rotate}deg)`;
+
+  // Show hints
+  const threshold = 60;
+  document.getElementById('hintReject').classList.toggle('visible', delta < -threshold);
+  document.getElementById('hintApprove').classList.toggle('visible', delta > threshold);
+}
+function onTouchEnd() {
+  finishDrag();
+}
+function onMouseUp() {
+  document.removeEventListener('mousemove', onMouseMove);
+  document.removeEventListener('mouseup', onMouseUp);
+  finishDrag();
+}
+function finishDrag() {
+  isDragging = false;
+  const card = document.getElementById(`card-${currentIndex}`);
+  if (!card) return;
+  const delta = currentX - startX;
+  const threshold = 100;
+
+  if (delta > threshold) {
+    card.classList.add('exit-right');
+    showToast('✓', 'Approved', 'approved');
+    setTimeout(() => advance(), 300);
+  } else if (delta < -threshold) {
+    card.classList.add('exit-left');
+    showToast('✕', 'Declined', 'rejected');
+    setTimeout(() => advance(), 300);
+  } else {
+    card.style.transform = '';
+    document.getElementById('hintReject').classList.remove('visible');
+    document.getElementById('hintApprove').classList.remove('visible');
+  }
+}
+
+function handleApprove() {
+  const card = document.getElementById(`card-${currentIndex}`);
+  if (!card) return;
+  card.classList.add('exit-right');
+  showToast('✓', 'Approved', 'approved');
+  setTimeout(() => advance(), 300);
+}
+function handleReject() {
+  const card = document.getElementById(`card-${currentIndex}`);
+  if (!card) return;
+  card.classList.add('exit-left');
+  showToast('✕', 'Declined', 'rejected');
+  setTimeout(() => advance(), 300);
+}
+
+function advance() {
+  currentIndex++;
+  if (currentIndex >= items.length) {
+    showEmptyState();
+  } else {
+    renderStack();
+  }
+}
+
+function showEmptyState() {
+  const stack = document.getElementById('stack');
+  stack.innerHTML = `
+    <div class="empty-state">
+      <div class="empty-icon">🎉</div>
+      <div class="empty-title">All caught up</div>
+      <div class="empty-body">No pending approvals. Check back later or pull down to refresh.</div>
+    </div>
+  `;
+  document.getElementById('actions').style.display = 'none';
+  document.getElementById('queueDots').innerHTML = items.map(() => '<div class="queue-dot done"></div>').join('');
+  updateCount();
+}
+
+function showToast(icon, text, type) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastIcon').textContent = icon;
+  document.getElementById('toastText').textContent = text;
+  toast.className = `toast ${type} show`;
+  setTimeout(() => toast.classList.remove('show'), 1800);
+}
+
+// Pull to refresh
+let pullStartY = 0;
+document.addEventListener('touchstart', e => { pullStartY = e.touches[0].clientY; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const delta = e.changedTouches[0].clientY - pullStartY;
+  if (delta > 120 && window.scrollY <= 0) {
+    // Refresh
+    location.reload();
+  }
+}, { passive: true });
+
+// Init
+renderStack();
+</script>
+
+</body>
+</html>
