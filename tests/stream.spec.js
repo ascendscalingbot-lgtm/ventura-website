@@ -22,6 +22,23 @@ test('copy interaction gives visible feedback', async ({ page, context }) => {
   await expect(page.locator('.copy-button').first()).toHaveText('Copied');
 });
 
+test('rejected lead submission stays locked', async ({ page }) => {
+  await page.route('https://formsubmit.co/ajax/**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ success: 'false', message: 'Activation required' })
+    });
+  });
+  await page.evaluate(() => localStorage.removeItem('ventura-stream-prompts-unlocked'));
+  await page.reload();
+  await page.getByLabel('First name').fill('Test');
+  await page.getByLabel('Email').fill('test@example.com');
+  await page.getByRole('button', { name: 'Unlock the prompts' }).click();
+  await expect(page.locator('#prompts')).toBeHidden();
+  await expect(page.locator('#form-status')).toContainText('could not submit');
+});
+
 test('mobile layout has no horizontal overflow', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const dimensions = await page.evaluate(() => ({
