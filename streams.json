@@ -1,0 +1,44 @@
+{
+  "clients-30k-dashboard-build": {
+    "day": 1,
+    "series": "30 Days Building an AI-Native Business",
+    "title": "The $30K Client Dashboard Build",
+    "description": "Copy the exact prompts, architecture, and build sequence we use to turn a client workflow into an AI-native operating system.",
+    "thumbnail": "/assets/streams/clients-30k-dashboard-build-final.png",
+    "thumbnailAlt": "Clients $30K Dashboard Build livestream thumbnail featuring Shayan at a dual-monitor dashboard setup",
+    "videoUrl": "",
+    "leadEndpoint": "https://formsubmit.co/ajax/shayan@ascendscaling.com",
+    "prompts": [
+      {
+        "label": "Start here",
+        "title": "Define the dashboard before you code",
+        "note": "Paste this into your coding agent first. Replace every bracketed field with your client context.",
+        "prompt": "You are a principal product engineer and AI systems architect. Help me design an AI-native client operating system for [CLIENT NAME], a [BUSINESS TYPE]. The dashboard must solve these three expensive constraints: [CONSTRAINT 1], [CONSTRAINT 2], and [CONSTRAINT 3].\n\nBefore writing code, produce:\n1. A one-sentence product promise.\n2. The three highest-value user workflows.\n3. The minimum data model needed for those workflows.\n4. The first three dashboard views, ordered by business value.\n5. The AI actions that should be available inside each view.\n6. The events and outcomes we must measure.\n7. A narrow v1 scope that can be shipped and tested in one day.\n\nDo not create generic SaaS features. Every screen and action must connect to a real workflow, decision, or revenue outcome for this client. Ask only the questions that would materially change the architecture."
+      },
+      {
+        "label": "Foundation",
+        "title": "Build the production-ready shell",
+        "note": "Use this after the product brief is approved. It forces a real app foundation instead of a disposable mockup.",
+        "prompt": "Build the first production-ready version of this client dashboard using Next.js, TypeScript, and Tailwind CSS. Use the approved product brief as the source of truth.\n\nRequirements:\n- Create a responsive desktop sidebar and compact mobile navigation.\n- Build only the three approved v1 views.\n- Use semantic design tokens for background, surface, text, muted text, border, and one accent color.\n- Include loading, empty, error, and populated states for every data surface.\n- Keep all client-specific content in a typed configuration file so the system can be adapted without redesigning it.\n- Use accessible labels, keyboard focus states, and 44px minimum touch targets.\n- Do not use fake metrics, decorative charts, or generic feature cards.\n- Add a README with setup, environment variables, architecture, and deployment steps.\n\nFinish by running the type checker, linter, and production build. Fix every error before reporting completion."
+      },
+      {
+        "label": "AI layer",
+        "title": "Add the Chief of Staff interface",
+        "note": "This turns the dashboard from a reporting surface into an operating system.",
+        "prompt": "Add an AI Chief of Staff layer to the dashboard. It must understand the current client, the current page, and the records the user is viewing.\n\nImplement:\n1. A persistent launcher that works on desktop and mobile without blocking primary actions.\n2. A conversation panel with streaming assistant responses.\n3. Context injection for the active route, selected record, client profile, and user role.\n4. Explicit tools for the three highest-value actions in the product brief.\n5. A confirmation step before any destructive or external action.\n6. Clear tool status, success, and failure states.\n7. An audit log that records who requested an action, what the AI proposed, and what was executed.\n\nThe assistant must not invent client data or claim an action succeeded without a verified tool result. Keep credentials server-side. Add tests for authorization, confirmation, failed tools, and malformed model output."
+      },
+      {
+        "label": "Data moat",
+        "title": "Model the proprietary business data",
+        "note": "The value is not the dashboard alone. The value is the client-specific data and operating logic behind it.",
+        "prompt": "Design and implement the dashboard data layer around the client's proprietary workflows.\n\nFor each approved workflow:\n- Define the source of truth.\n- Define the core entities and relationships.\n- Define who can read, create, update, and delete each entity.\n- Define the events that should be captured for future AI recommendations.\n- Define validation rules and failure recovery.\n- Define which data must remain isolated from every other client.\n\nCreate database migrations, seed data clearly labeled as sample data, and a typed repository layer. Enforce tenant isolation at the query layer, not only in the UI. Add tests proving one client cannot read or modify another client's records. Document how new data sources can be connected later without rewriting the product."
+      },
+      {
+        "label": "Ship it",
+        "title": "Run the launch-quality verification pass",
+        "note": "Use this before you show the client or publish the build.",
+        "prompt": "Act as the release owner for this client dashboard. Audit the full application and fix issues before launch.\n\nVerify:\n- Every approved v1 workflow works from start to finish.\n- Desktop, tablet, and mobile layouts have no overflow or blocked actions.\n- Loading, empty, error, and success states are intentional.\n- Keyboard navigation and visible focus states work.\n- Body text and controls meet WCAG AA contrast.\n- Tenant isolation and authorization tests pass.\n- AI tools require confirmation where appropriate and report real tool outcomes.\n- No secrets, sample credentials, or private client data are exposed to the browser or repository.\n- The production build passes with zero type or lint errors.\n- The deployed URL responds successfully and the primary workflow is exercised in production.\n\nReturn a release report with: checks run, defects fixed, remaining risks, and direct evidence for the live deployment. Do not mark the release ready if any critical workflow is unverified."
+      }
+    ]
+  }
+}

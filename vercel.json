@@ -3,6 +3,10 @@
     {
       "source": "/proposal/:slug",
       "destination": "/proposal.html?slug=:slug"
+    },
+    {
+      "source": "/stream/:slug",
+      "destination": "/stream.html?slug=:slug"
     }
   ]
 }
