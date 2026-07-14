@@ -62,17 +62,23 @@
 
     .shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
     .nav {
-      position: relative;
+      position: sticky;
+      top: 16px;
       z-index: var(--z-nav);
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-height: 82px;
-      margin-top: 10px;
-      padding: 8px;
+      justify-content: space-between;
+      min-height: 64px;
+      margin-top: 16px;
+      padding: 8px 10px 8px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(7, 11, 10, .84);
+      backdrop-filter: blur(18px);
+      box-shadow: inset 0 1px rgba(255,255,255,.05), 0 16px 48px rgba(0,0,0,.28);
     }
-    .brand-logo { display: block; width: 74px; height: 56px; object-fit: contain; }
-    .button {
+    .brand-logo { display: block; width: 52px; height: 44px; object-fit: contain; }
+    .nav-link, .button {
       display: inline-flex;
       min-height: 42px;
       align-items: center;
@@ -86,7 +92,8 @@
       white-space: nowrap;
       transition: transform 150ms var(--ease-out), background-color 180ms ease, border-color 180ms ease;
     }
-    .button:active, .copy-button:active { transform: scale(.97); }
+    .nav-link { min-height: 42px; background: var(--mint); color: #062219; }
+    .nav-link:active, .button:active, .copy-button:active { transform: scale(.97); }
 
     .hero {
       display: flex;
@@ -149,26 +156,41 @@
       border-top: 1px solid var(--line);
       text-align: center;
     }
+    .gate[hidden] { display: none; }
     .gate-copy { display: flex; flex-direction: column; align-items: center; }
     .gate-copy h2, .prompt-intro h2 { margin: 0; font: italic 600 clamp(40px, 4.5vw, 64px)/1 var(--serif); letter-spacing: -.03em; }
     .gate-copy p { max-width: 58ch; margin: 20px 0 0; color: var(--muted); line-height: 1.65; }
-    .preview-panel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      width: min(100%, 620px);
+    .lead-form {
+      display: grid;
+      gap: 16px;
+      width: min(100%, 680px);
       margin-top: 28px;
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
-      box-shadow: inset 0 1px rgba(255,255,255,.04);
+      box-shadow: inset 0 1px rgba(255,255,255,.04), 0 24px 70px rgba(0,0,0,.24);
+      text-align: left;
     }
+    .fields { display: grid; grid-template-columns: .78fr 1.22fr; gap: 12px; }
+    label { display: grid; gap: 8px; color: #e1ebe6; font-size: 13px; font-weight: 600; }
+    input {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      outline: none;
+      background: #080d0b;
+      color: var(--ink);
+      padding: 0 14px;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+    input::placeholder { color: #7f8a84; }
+    input:focus { border-color: var(--mint); box-shadow: 0 0 0 3px rgba(184,240,216,.15); }
     .button { min-height: 50px; background: var(--mint); color: #062219; padding-inline: 26px; }
-    .preview-note { margin: 0; color: var(--quiet); font-size: 13px; line-height: 1.5; }
+    .preview-note { margin: 0; color: var(--quiet); font-size: 12px; line-height: 1.5; text-align: center; }
 
-    .prompts-section { width: min(960px, calc(100% - 40px)); padding: 30px 0 120px; }
+    .prompts-section { width: min(960px, calc(100% - 40px)); padding: 30px 0 120px; scroll-margin-top: 120px; }
     .prompts-section[hidden] { display: none; }
     .prompt-intro { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-bottom: 44px; text-align: center; }
     .prompt-intro p { max-width: 52ch; margin: 18px auto 0; color: var(--muted); line-height: 1.6; }
@@ -215,17 +237,40 @@
       overflow-wrap: anywhere;
     }
     .closing {
+      position: relative;
+      overflow: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 26px;
+      gap: 22px;
       margin-top: 72px;
-      padding-top: 28px;
-      border-top: 1px solid var(--line);
+      padding: clamp(38px, 6vw, 64px) 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(184,240,216,.13), transparent 55%),
+        var(--surface);
+      text-align: center;
+      box-shadow: inset 0 1px rgba(255,255,255,.05), 0 28px 80px rgba(0,0,0,.28);
     }
-    .closing p { max-width: 62ch; margin: 0; color: var(--muted); line-height: 1.6; }
-    .closing a { color: var(--mint); font-weight: 700; text-underline-offset: 4px; }
-    footer { padding: 30px 0 46px; color: var(--quiet); font-size: 13px; }
+    .closing h2 { max-width: 15ch; margin: 0; font: italic 600 clamp(36px, 5vw, 58px)/1 var(--serif); letter-spacing: -.03em; }
+    .closing p { max-width: 58ch; margin: 0; color: var(--muted); line-height: 1.65; }
+    .strategy-link {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--mint);
+      color: #062219;
+      padding: 0 24px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 150ms var(--ease-out), box-shadow 180ms ease;
+    }
+    .strategy-link:active { transform: scale(.97); }
+    .site-footer { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 54px 0 46px; color: var(--quiet); font-size: 13px; text-align: center; }
+    .footer-logo { width: 64px; height: 60px; object-fit: contain; }
     .toast {
       position: fixed;
       right: 20px;
@@ -247,25 +292,28 @@
 
     @media (hover: hover) and (pointer: fine) {
       .thumbnail-frame:hover { transform: translateY(-4px); }
-      .button:hover { transform: translateY(-1px); }
+      .nav-link:hover, .button:hover, .strategy-link:hover { transform: translateY(-1px); }
+      .strategy-link:hover { box-shadow: 0 12px 34px rgba(184,240,216,.18); }
     }
     @media (max-width: 860px) {
       .hero { padding-top: 8px; }
       h1 { max-width: 13ch; }
       .hero-media { width: 100%; max-width: 720px; }
-      .closing { align-items: flex-start; flex-direction: column; }
+
     }
     @media (max-width: 560px) {
       .shell { width: min(100% - 24px, 1180px); }
-      .nav { margin-top: 4px; min-height: 70px; }
-      .brand-logo { width: 64px; height: 48px; }
+      .nav { top: 8px; margin-top: 8px; min-height: 56px; padding: 6px 7px 6px 14px; }
+      .brand-logo { width: 44px; height: 38px; }
+      .nav-link { min-height: 40px; padding-inline: 14px; font-size: 13px; }
       .hero { padding: 4px 0 56px; }
       h1 { font-size: clamp(44px, 13vw, 60px); }
       .dek { font-size: 17px; }
       .day-stamp { right: 10px; bottom: -16px; }
       .hero-copy { margin-top: 48px; }
       .gate { padding: 62px 0 72px; }
-      .preview-panel, .prompt-meta, .prompt-body { padding: 18px; }
+      .fields { grid-template-columns: 1fr; }
+      .lead-form, .prompt-meta, .prompt-body { padding: 18px; }
       .prompt-intro { margin-bottom: 28px; }
       .button.secondary { width: 100%; }
       pre { max-height: 520px; padding: 16px; font-size: 12px; }
@@ -283,6 +331,7 @@
     <a href="/" aria-label="Ventura Marketing home">
       <img class="brand-logo" src="/assets/vmc-mint-monogram.png" alt="VMC">
     </a>
+    <a class="nav-link" href="#build-kit">Get the prompts</a>
   </header>
 
   <main id="app">
@@ -306,12 +355,16 @@
     <section class="gate shell" id="build-kit">
       <div class="gate-copy">
         <h2>Build it with us.</h2>
-        <p>Preview the complete prompt stack from this stream, then copy each step into Claude Code, Codex, or your preferred coding agent.</p>
+        <p>Enter your name and email to unlock the complete prompt stack from this stream, then copy each step into your preferred coding agent.</p>
       </div>
-      <div class="preview-panel">
-        <button class="button" id="preview-prompts" type="button" aria-controls="prompts" aria-expanded="false">Preview all prompts</button>
-        <p class="preview-note">Preview mode is on. Lead capture will be connected later.</p>
-      </div>
+      <form class="lead-form" id="lead-form">
+        <div class="fields">
+          <label>First name<input name="first_name" autocomplete="given-name" placeholder="Your first name" required></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+        </div>
+        <button class="button" id="preview-prompts" type="submit" aria-controls="prompts" aria-expanded="false">Unlock the prompts</button>
+        <p class="preview-note">Preview mode: your information is not submitted or stored yet.</p>
+      </form>
     </section>
 
     <section class="prompts-section shell" id="prompts" hidden>
@@ -324,8 +377,9 @@
       </div>
       <div class="prompt-list" id="prompt-list"></div>
       <div class="closing">
-        <p>Want Ventura to build the AI-native operating system for your business instead?</p>
-        <a href="https://ventura-website-ruddy.vercel.app/#book-consultation">Book a strategy session</a>
+        <h2>Want us to build it for you?</h2>
+        <p>Ventura designs and implements AI-native operating systems around your proprietary workflows, data, and growth constraints.</p>
+        <a class="strategy-link" href="https://ventura-website-ruddy.vercel.app/#book-consultation">Book a strategy session</a>
       </div>
     </section>
   </template>
@@ -344,7 +398,10 @@
     </article>
   </template>
 
-  <footer class="shell"><span>© 2026 Ventura Marketing. Built for operators who ship.</span></footer>
+  <footer class="site-footer shell">
+    <img class="footer-logo" src="/assets/vmc-mint-monogram.png" alt="VMC">
+    <span>© 2026 Ventura Marketing. Built for operators who ship.</span>
+  </footer>
 
   <script>
     const app = document.querySelector('#app');
@@ -385,10 +442,10 @@
 
     function unlockPrompts(shouldScroll = true) {
       const section = document.querySelector('#prompts');
+      const gate = document.querySelector('#build-kit');
       section.hidden = false;
-      const button = document.querySelector('#preview-prompts');
-      button.textContent = 'Prompts are open';
-      button.setAttribute('aria-expanded', 'true');
+      document.querySelector('#preview-prompts').setAttribute('aria-expanded', 'true');
+      gate.hidden = true;
       if (shouldScroll) section.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     }
 
@@ -423,7 +480,12 @@
         copyText(all, event.currentTarget);
       });
 
-      document.querySelector('#preview-prompts').addEventListener('click', () => unlockPrompts(true));
+      const form = document.querySelector('#lead-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        unlockPrompts(true);
+      });
     }
 
     fetch('/streams.json', { cache: 'no-store' })
