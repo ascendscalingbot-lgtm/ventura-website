@@ -1,0 +1,55 @@
+{
+  "id": "ventura-intake",
+  "title": "Ventura client intake",
+  "brand": "Ventura",
+  "preview": true,
+  "media": {
+    "src": "./assets/host-loop.mp4",
+    "poster": "./assets/host-poster.jpg"
+  },
+  "steps": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Introduction",
+      "cta": "Start application"
+    },
+    {
+      "id": "permissions",
+      "type": "permissions",
+      "kicker": "Let’s get started by giving Ventura…",
+      "title": "Access to your mic and cam"
+    },
+    {
+      "id": "experience",
+      "type": "choice",
+      "title": "Qualification question",
+      "prompt": "How many years have you been running this business?",
+      "options": [
+        { "id": "a", "label": "A", "text": "0–2 years" },
+        { "id": "b", "label": "B", "text": "3–5 years" },
+        { "id": "c", "label": "C", "text": "5+ years" }
+      ]
+    },
+    {
+      "id": "ready",
+      "type": "yesno",
+      "title": "Fit check",
+      "prompt": "Ready to start this month?"
+    },
+    {
+      "id": "story",
+      "type": "open",
+      "title": "First question",
+      "prompt": "Tell us about your business in your own words.",
+      "accepts": ["video", "audio", "text"],
+      "maxSeconds": 90
+    },
+    {
+      "id": "done",
+      "type": "complete",
+      "title": "You’re in",
+      "body": "We got your answers. A Ventura partner will review this and follow up."
+    }
+  ]
+}
