@@ -1,13 +1,5 @@
-import {
-  nid,
-  putBlob,
-  saveAsk,
-  getAsk,
-  listAsks,
-  listReplies,
-  takeUrl,
-  currentAskId,
-} from "./store.js";
+import { getBlob, listAsks, listReplies, nid, putBlob, saveAsk, getAsk, takeUrl, currentAskId } from "./store.js";
+import { fetchHiringAsk, publishHiring } from "./hiring-api.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -81,6 +73,19 @@ export async function bootAdmin() {
   document.title = "Ventura Ask · Studio";
   document.body.dataset.mode = "admin";
   root().hidden = false;
+  const hiringId = new URLSearchParams(location.search).get("hiring");
+  if (hiringId) {
+    const existing = (await getAsk(hiringId)) || (await fetchHiringAsk(hiringId));
+    state.ask = existing
+      ? { id: hiringId, title: existing.title || "Untitled", steps: existing.steps || [], live: true }
+      : { id: hiringId, title: "Untitled", steps: [], live: false };
+    if (state.ask.steps.filter((s) => s.type !== "complete").length) {
+      goLive();
+      return;
+    }
+    startNew({ reuse: true });
+    return;
+  }
   const existing = currentAskId() ? await getAsk(currentAskId()) : null;
   const asks = await listAsks();
   if (!existing && asks.length === 0) {
@@ -91,9 +96,9 @@ export async function bootAdmin() {
   showHome();
 }
 
-function startNew() {
+function startNew(opts = {}) {
   stopStream();
-  state.ask = blankAsk();
+  if (!opts.reuse) state.ask = blankAsk();
   state.draft = null;
   goPermissions();
 }
@@ -451,7 +456,40 @@ async function publishDraft() {
   state.ask.live = true;
   if (state.ask.title === "Untitled") state.ask.title = step.title || "Untitled";
   await saveAsk(state.ask);
+  await syncHiring();
   goLive();
+}
+
+async function blobToDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function syncHiring() {
+  const steps = [];
+  for (const s of state.ask.steps || []) {
+    const copy = { ...s };
+    if (s.mediaKey && !s.mediaData) {
+      const blob = await getBlob(s.mediaKey);
+      if (blob && blob.size < 6_000_000) copy.mediaData = await blobToDataUrl(blob);
+    }
+    delete copy.preview;
+    steps.push(copy);
+  }
+  try {
+    await publishHiring({
+      kind: "publish",
+      id: state.ask.id,
+      title: state.ask.title,
+      steps,
+    });
+  } catch {
+    /* local still works */
+  }
 }
 
 function goLive() {

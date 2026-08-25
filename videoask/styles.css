@@ -1080,3 +1080,31 @@ button:focus-visible {
   background: #141816;
 }
 .reply-row p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+.practice {
+  margin: 2px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(244, 247, 245, 0.78);
+}
+
+.types.vat {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.types.vat .type {
+  min-height: 92px;
+  border-radius: 18px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.types.vat .type .ph { font-size: 28px; }
+
+.vat-prompt {
+  background: transparent;
+  padding: 0;
+  font-size: 17px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}

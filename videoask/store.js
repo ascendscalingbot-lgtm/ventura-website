@@ -118,7 +118,7 @@ export async function hydrateAsk(ask) {
   if (!ask) return null;
   const steps = [];
   for (const step of ask.steps || []) {
-    const media = step.mediaKey ? await blobUrl(step.mediaKey) : step.media || "";
+    const media = step.mediaData || (step.mediaKey ? await blobUrl(step.mediaKey) : step.media || "");
     steps.push({ ...step, media });
   }
   return { ...ask, steps };

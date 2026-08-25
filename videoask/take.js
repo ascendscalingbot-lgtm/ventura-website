@@ -1,4 +1,5 @@
 import { getAsk, hydrateAsk, saveReply, blobUrl, putBlob, nid } from "./store.js";
+import { fetchHiringAsk, publishHiring } from "./hiring-api.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -58,14 +59,24 @@ function toast(msg) {
 }
 
 async function applyMedia(s) {
-  const src = s.media || (s.mediaKey ? await blobUrl(s.mediaKey) : "");
-  const poster = document.querySelector(".stage img.poster");
+  const src = s.media || (s.mediaKey ? await blobUrl(s.mediaKey) : s.mediaData || "");
+  host.loop = false;
   if (src) {
-    host.src = src;
+    if (host.src !== src) host.src = src;
     host.classList.add("is-on");
-    host.play().then(() => host.classList.add("is-on")).catch(() => {});
-  } else if (poster) {
+    try {
+      host.currentTime = 0;
+      await host.play();
+      state.playing = true;
+      playBtn.hidden = true;
+    } catch {
+      state.playing = false;
+      playBtn.hidden = false;
+    }
+  } else {
     host.classList.remove("is-on");
+    state.playing = false;
+    playBtn.hidden = false;
   }
 }
 
@@ -78,7 +89,13 @@ export async function bootTake(id) {
   document.querySelector(".powered").hidden = false;
   if ($("banner")) $("banner").hidden = true;
 
-  const raw = await getAsk(id);
+  let raw = await getAsk(id);
+  if (!raw) raw = await fetchHiringAsk(id);
+  if (raw && raw.steps) {
+    for (const s of raw.steps) {
+      if (s.mediaData && !s.media) s.media = s.mediaData;
+    }
+  }
   if (!raw) {
     showMissing(id);
     return;
@@ -139,9 +156,9 @@ function render() {
   if (s.type === "open" && state.openMode === "text") return renderText(s);
   if (s.type === "open" && state.openMode === "review") return renderReview(s);
 
-  controls.hidden = s.type === "intro" || s.type === "yesno";
+  controls.hidden = false;
   playWrap.hidden = false;
-  playBtn.hidden = !(s.type === "intro" && !state.playing);
+  playBtn.hidden = Boolean(state.playing);
   renderBottom(s);
   syncTime();
 }
@@ -191,40 +208,31 @@ function renderBottom(s) {
   if (s.type === "open") {
     const accepts = s.accepts?.length ? s.accepts : ["video", "audio", "text"];
     bottom.innerHTML = `
-      <div class="types">
+      <p class="prompt vat-prompt">How would you like to answer?</p>
+      <div class="types vat">
         ${accepts
           .map(
             (m) => `
           <button class="type" type="button" data-m="${m}">
-            <i class="ph ${iconFor(m)}" aria-hidden="true" style="font-size:26px"></i>
+            <i class="ph ${iconFor(m)}" aria-hidden="true"></i>
             ${m.toUpperCase()}
           </button>`
           )
           .join("")}
       </div>
-      <div class="select-copy">
-        <p>Select answer type:</p>
-        <em>Video, voice or text</em>
-      </div>
-      <button class="cta" id="contOpen" type="button" disabled>Continue →</button>
+      <p class="practice">You can practice before sending</p>
     `;
-    let picked = null;
     bottom.querySelectorAll(".type").forEach((btn) => {
       btn.onclick = () => {
-        picked = btn.dataset.m;
-        bottom.querySelectorAll(".type").forEach((b) => b.classList.toggle("is-on", b === btn));
-        $("contOpen").disabled = false;
+        const picked = btn.dataset.m;
+        if (picked === "text") state.openMode = "text";
+        else {
+          state.openMode = "record";
+          state.draft = { kind: picked };
+        }
+        render();
       };
     });
-    $("contOpen").onclick = () => {
-      if (!picked) return;
-      if (picked === "text") state.openMode = "text";
-      else {
-        state.openMode = "record";
-        state.draft = { kind: picked };
-      }
-      render();
-    };
   }
 }
 
@@ -289,6 +297,13 @@ async function renderComplete(s) {
     askId: state.flow.id,
     answers: state.answers,
   });
+  try {
+    await publishHiring({
+      kind: "reply",
+      positionId: state.flow.id,
+      answers: state.answers,
+    });
+  } catch { /* local still saved */ }
   const count = Object.keys(state.answers).filter((k) => k !== "permissions").length;
   sheet.innerHTML = `
     <button class="sheet-close" type="button" id="doneClose" aria-label="Close">
@@ -451,10 +466,10 @@ function syncTime() {
 playBtn.onclick = async () => {
   try {
     host.muted = false;
+    if (host.ended || host.currentTime >= (host.duration || 0) - 0.1) host.currentTime = 0;
     await host.play();
     state.playing = true;
     playBtn.hidden = true;
-    controls.hidden = step().type === "intro";
   } catch {
     toast("Tap again to play the clip.");
   }
@@ -462,19 +477,27 @@ playBtn.onclick = async () => {
 
 host.addEventListener("timeupdate", syncTime);
 host.addEventListener("loadedmetadata", syncTime);
-host.addEventListener("playing", () => host.classList.add("is-on"));
+host.addEventListener("playing", () => {
+  host.classList.add("is-on");
+  state.playing = true;
+  playBtn.hidden = true;
+});
 host.addEventListener("play", () => {
   host.classList.add("is-on");
-  if (step()?.type !== "intro") {
-    state.playing = true;
-    playBtn.hidden = true;
-  }
+  state.playing = true;
+  playBtn.hidden = true;
 });
 host.addEventListener("pause", () => {
-  if (step()?.type === "intro") {
-    state.playing = false;
-    playBtn.hidden = false;
-  }
+  if (host.ended) return;
+  state.playing = false;
+  playBtn.hidden = false;
+});
+host.addEventListener("ended", () => {
+  state.playing = false;
+  playBtn.hidden = false;
+  try {
+    host.currentTime = Math.max(0, (host.duration || 0) - 0.05);
+  } catch { /* ignore */ }
 });
 
 $("muteBtn").onclick = () => {
