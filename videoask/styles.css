@@ -35,9 +35,12 @@ html, body {
   color-scheme: dark;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 button, textarea, input { font: inherit; color: inherit; }
+input, textarea, select { font-size: 16px; }
 
 button {
   appearance: none;
@@ -720,18 +723,96 @@ button:focus-visible {
   margin: 16px 8px 8px;
 }
 
+.admin-rec,
+.admin-rec * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+.admin-rec textarea,
+.admin-rec input {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
 .hold-rec {
   width: 84px;
   height: 84px;
   border-radius: 50%;
   background: #ff4d5a;
   box-shadow: 0 8px 24px rgba(255, 77, 90, 0.35);
-  touch-action: none;
+  touch-action: manipulation;
+  -webkit-user-drag: none;
+  user-select: none;
+  position: relative;
 }
 
-.hold-rec.hot {
-  transform: scale(0.94);
-  box-shadow: 0 0 0 10px rgba(255, 77, 90, 0.22);
+.hold-rec::after {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.hold-rec.is-recording {
+  background: #ef4b4b;
+  box-shadow: 0 0 0 10px rgba(239, 75, 75, 0.22);
+  animation: rec-pulse 1.2s ease-in-out infinite;
+}
+
+.hold-rec.is-recording::after {
+  inset: 30px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.rec-live {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff4d5a;
+  animation: rec-blink 1s steps(1) infinite;
+}
+
+.admin-rec.is-recording .rec-tick {
+  background: #ff4d5a;
+  animation: rec-blink 1s steps(1) infinite;
+}
+
+@keyframes rec-pulse {
+  0%, 100% { box-shadow: 0 0 0 8px rgba(239, 75, 75, 0.2); }
+  50% { box-shadow: 0 0 0 16px rgba(239, 75, 75, 0.08); }
+}
+
+@keyframes rec-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hold-rec.is-recording,
+  .rec-dot,
+  .admin-rec.is-recording .rec-tick { animation: none; }
 }
 
 .notes-toggle {
@@ -880,7 +961,7 @@ button:focus-visible {
   min-width: 0;
   border: 0;
   background: transparent;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .admin-live { color: #fff; }

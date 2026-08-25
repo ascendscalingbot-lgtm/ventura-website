@@ -20,6 +20,8 @@ const state = {
   facing: "user",
   notesOn: false,
   recording: false,
+  recTimer: null,
+  recStarted: 0,
   draft: null,
   replies: [],
 };
@@ -42,6 +44,7 @@ function pickMime() {
 }
 
 function stopStream() {
+  clearInterval(state.recTimer);
   if (state.rec && state.rec.state === "recording") {
     try { state.rec.stop(); } catch { /* ignore */ }
   }
@@ -161,13 +164,17 @@ function goRec(opts = {}) {
           <i class="ph ph-x" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="hold-copy">Hold <b>REC</b> to ask</div>
+      <div class="hold-copy" id="holdCopy">Tap <b>REC</b> to ask</div>
+      <div class="rec-live" id="recLive" hidden>
+        <span class="rec-dot" aria-hidden="true"></span>
+        <span id="recClock">0:00</span>
+      </div>
       <div class="hold-row">
         <button class="notes-toggle" id="notesToggle" type="button" aria-pressed="false">
           <span class="switch ${state.notesOn ? "on" : ""}"></span>
           <small>+ Notes</small>
         </button>
-        <button class="hold-rec" id="holdRec" type="button" aria-label="Hold to record"></button>
+        <button class="hold-rec" id="holdRec" type="button" draggable="false" aria-pressed="false" aria-label="Start recording"></button>
         <button class="icon-btn ghost" id="flipCam" type="button" aria-label="Flip camera">
           <i class="ph ph-arrows-clockwise" aria-hidden="true"></i>
         </button>
@@ -226,30 +233,35 @@ function goRec(opts = {}) {
 }
 
 function wireHold(btn) {
-  let downAt = 0;
-  const start = async (e) => {
+  const block = (e) => e.preventDefault();
+  btn.addEventListener("contextmenu", block);
+  btn.addEventListener("dragstart", block);
+  btn.addEventListener("selectstart", block);
+  btn.addEventListener("click", async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (state.recording) {
       finishRecording();
       return;
     }
-    downAt = Date.now();
     try {
-      btn.setPointerCapture(e.pointerId);
       await beginRecording();
     } catch {
       toast("Could not start recording.");
     }
-  };
-  const end = (e) => {
-    e.preventDefault();
-    if (!state.recording) return;
-    if (Date.now() - downAt < 400) return;
-    finishRecording();
-  };
-  btn.addEventListener("pointerdown", start);
-  btn.addEventListener("pointerup", end);
-  btn.addEventListener("pointercancel", end);
+  });
+}
+
+function setRecUI(on) {
+  const btn = $("holdRec");
+  const copy = $("holdCopy");
+  const live = $("recLive");
+  btn?.classList.toggle("is-recording", on);
+  btn?.setAttribute("aria-pressed", String(on));
+  btn?.setAttribute("aria-label", on ? "Stop recording" : "Start recording");
+  if (copy) copy.innerHTML = on ? "Recording… tap to stop" : "Tap <b>REC</b> to ask";
+  if (live) live.hidden = !on;
+  document.querySelector(".admin-rec")?.classList.toggle("is-recording", on);
 }
 
 async function beginRecording() {
@@ -266,8 +278,16 @@ async function beginRecording() {
   state.rec._stopped = stopped;
   state.rec.start(200);
   state.recording = true;
-  $("holdRec")?.classList.add("hot");
-  document.querySelector(".hold-copy")?.classList.add("hot");
+  state.recStarted = Date.now();
+  setRecUI(true);
+  clearInterval(state.recTimer);
+  const clock = $("recClock");
+  const tick = () => {
+    const sec = Math.max(0, Math.floor((Date.now() - state.recStarted) / 1000));
+    if (clock) clock.textContent = `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}`;
+  };
+  tick();
+  state.recTimer = setInterval(tick, 250);
 }
 
 async function finishRecording() {
@@ -276,10 +296,11 @@ async function finishRecording() {
   rec.stop();
   await rec._stopped;
   state.recording = false;
-  $("holdRec")?.classList.remove("hot");
+  clearInterval(state.recTimer);
+  setRecUI(false);
   const blob = new Blob(state.chunks, { type: rec.mimeType || "video/webm" });
   if (blob.size < 800) {
-    toast("Hold a little longer to capture the question.");
+    toast("Record a bit longer to capture the question.");
     return;
   }
   await commitClip(blob);
