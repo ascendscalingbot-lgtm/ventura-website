@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#070b0a">
-  <title>Win a $5,000 content shoot | Ventura Marketing Collective</title>
-  <meta name="description" content="Enter to win a $5,000 content shoot from Ventura Marketing Collective. One business owner gets a full production crew for an eight-hour day, filmed and edited.">
+  <title>Win A $5,000 Content Shoot | Ventura Marketing Collective</title>
+  <meta name="description" content="Enter to win a $5,000 content shoot from Ventura Marketing Collective. One business owner gets our full production services for an eight-hour day.">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://ventura-website-ruddy.vercel.app/win">
-  <meta property="og:title" content="Win a $5,000 content shoot">
-  <meta property="og:description" content="One business owner gets a full production crew for an eight-hour day. Filmed and edited.">
+  <meta property="og:title" content="Win A $5,000 Content Shoot">
+  <meta property="og:description" content="One business owner gets our full production services for an eight-hour day.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,6 @@
       --muted: #a5b0aa;
       --quiet: #758079;
       --mint: #b8f0d8;
-      --mint-dark: #2f8f69;
       --danger: #ff8f8f;
       --sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --serif: "Newsreader", Georgia, serif;
@@ -62,41 +61,48 @@
     button, a { -webkit-tap-highlight-color: transparent; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
+    svg { display: block; }
     ::selection { background: rgba(184, 240, 216, .3); }
 
-    .shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .shell { width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
     .nav {
       position: sticky;
-      top: 16px;
+      top: 12px;
       z-index: var(--z-nav);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 64px;
-      margin-top: 16px;
-      padding: 8px 10px 8px 18px;
+      min-height: 48px;
+      margin-top: 12px;
+      padding: 5px 6px 5px 14px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: rgba(7, 11, 10, .84);
       backdrop-filter: blur(18px);
       box-shadow: inset 0 1px rgba(255,255,255,.05), 0 16px 48px rgba(0,0,0,.28);
     }
-    .brand-logo { display: block; width: 52px; height: 44px; object-fit: contain; }
+    .brand-logo { display: block; width: 36px; height: 30px; object-fit: contain; }
     .nav-link, .button {
       display: inline-flex;
-      min-height: 42px;
       align-items: center;
       justify-content: center;
+      gap: 7px;
       border: 0;
       border-radius: 999px;
-      padding: 0 18px;
       cursor: pointer;
       font-weight: 600;
       text-decoration: none;
       white-space: nowrap;
-      transition: transform 150ms var(--ease-out), background-color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+      transition: transform 150ms var(--ease-out), background-color 180ms ease, opacity 180ms ease;
     }
-    .nav-link { min-height: 42px; background: var(--mint); color: #062219; }
+    .nav-link {
+      min-height: 34px;
+      padding: 0 13px;
+      background: var(--mint);
+      color: #062219;
+      font-size: 13px;
+    }
+    .nav-link svg, .button svg { width: 14px; height: 14px; flex: none; }
     .nav-link:active, .button:active { transform: scale(.97); }
     .nav-link:focus-visible, .button:focus-visible, input:focus-visible {
       outline: 2px solid var(--mint);
@@ -107,11 +113,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
-      padding: 8px 0 36px;
+      padding: 28px 0 20px;
       text-align: center;
     }
-    .hero-media { position: relative; width: min(100%, 980px); }
+    .hero-media { position: relative; width: min(100%, 920px); }
     .hero-media::before {
       content: "";
       position: absolute;
@@ -132,57 +137,113 @@
       transition: transform 500ms var(--ease-out);
     }
     .thumbnail-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-copy { display: flex; flex-direction: column; align-items: center; margin-top: 40px; }
+    .hero-copy { display: flex; flex-direction: column; align-items: center; margin-top: 28px; }
     h1, h2, p { text-wrap: pretty; }
-    .series { margin: 0 0 18px; color: var(--mint); font-size: 13px; font-weight: 700; }
+    .series {
+      margin: 0 0 14px;
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
     h1 {
-      max-width: 14ch;
+      max-width: 16ch;
       margin: 0;
-      font: italic 600 clamp(48px, 6.1vw, 78px)/1.08 var(--serif);
+      font: italic 600 clamp(40px, 5.4vw, 68px)/1.1 var(--serif);
       letter-spacing: -.035em;
     }
-    .dek { max-width: 650px; margin: 24px 0 0; color: var(--muted); font-size: clamp(17px, 1.7vw, 20px); line-height: 1.55; }
+    .dek {
+      max-width: 38ch;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 1.5;
+    }
+
+    .includes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: min(100%, 920px);
+      margin: 28px auto 0;
+      text-align: left;
+    }
+    .include {
+      padding: 18px 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .include-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .include-num {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: rgba(184, 240, 216, .12);
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .include-icon { color: var(--mint); }
+    .include-icon svg { width: 16px; height: 16px; }
+    .include h3 {
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: -.02em;
+    }
+    .include p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
     .gate {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 8px 0 72px;
+      padding: 28px 0 72px;
       text-align: center;
     }
     .lead-form, .success-card {
       display: grid;
-      gap: 16px;
+      gap: 12px;
       width: min(100%, 680px);
-      margin-top: 8px;
-      padding: 24px;
+      padding: 20px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
       box-shadow: inset 0 1px rgba(255,255,255,.04), 0 24px 70px rgba(0,0,0,.24);
       text-align: left;
     }
-    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    label { display: grid; gap: 8px; color: #e1ebe6; font-size: 13px; font-weight: 600; }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+    label { display: grid; gap: 6px; color: #e1ebe6; font-size: 12px; font-weight: 600; }
     input {
       width: 100%;
-      min-height: 50px;
+      min-height: 46px;
       border: 1px solid rgba(232, 255, 246, 0.22);
       border-radius: 12px;
       outline: none;
       background: #080d0b;
       color: var(--ink);
-      padding: 0 14px;
+      padding: 0 12px;
       transition: border-color 180ms ease, box-shadow 180ms ease;
     }
     input::placeholder { color: #9aa59f; }
     input:focus { border-color: var(--mint); box-shadow: 0 0 0 3px rgba(184,240,216,.15); }
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     .button {
-      min-height: 50px;
+      min-height: 48px;
       background: var(--mint);
       color: #062219;
-      padding-inline: 26px;
+      padding-inline: 22px;
     }
     .button[disabled] { opacity: .7; cursor: wait; }
     .form-note, .legal { margin: 0; color: var(--quiet); font-size: 12px; line-height: 1.5; text-align: center; }
@@ -203,42 +264,17 @@
     }
     .success-card p { max-width: 46ch; margin: 0; color: var(--muted); line-height: 1.65; }
 
-    .includes {
-      width: min(100%, 680px);
-      margin: 8px auto 0;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface-2);
-      overflow: hidden;
-      text-align: left;
-    }
-    .include {
-      padding: 22px 24px;
-    }
-    .include + .include { border-top: 1px solid var(--line); }
-    .include h3 {
-      margin: 0;
-      font-size: 17px;
-      letter-spacing: -.02em;
-    }
-    .include p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
     .site-footer {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 14px;
-      padding: 24px 0 46px;
+      padding: 8px 0 46px;
       color: var(--quiet);
       font-size: 13px;
       text-align: center;
     }
-    .footer-logo { width: 64px; height: 60px; object-fit: contain; }
+    .footer-logo { width: 52px; height: 48px; object-fit: contain; }
     .toast {
       position: fixed;
       right: 20px;
@@ -261,20 +297,23 @@
       .nav-link:hover, .button:hover { transform: translateY(-1px); }
       .thumbnail-frame:hover { transform: translateY(-4px); }
     }
+    @media (max-width: 720px) {
+      .includes { grid-template-columns: 1fr; }
+    }
     @media (max-width: 560px) {
-      .shell { width: min(100% - 24px, 1180px); }
-      .nav { top: 8px; margin-top: 8px; min-height: 56px; padding: 6px 7px 6px 14px; }
-      .brand-logo { width: 44px; height: 38px; }
-      .nav-link { min-height: 40px; padding-inline: 14px; font-size: 13px; }
-      .hero { padding: 4px 0 28px; }
-      h1 { font-size: clamp(44px, 13vw, 60px); }
-      .dek { font-size: 17px; }
-      .hero-media { width: 100%; max-width: 720px; }
-      .hero-copy { margin-top: 32px; }
+      .shell { width: min(100% - 24px, 1100px); }
+      .nav { top: 8px; margin-top: 8px; min-height: 44px; padding: 4px 5px 4px 12px; }
+      .brand-logo { width: 32px; height: 26px; }
+      .nav-link { min-height: 32px; padding-inline: 11px; font-size: 12px; }
+      .hero { padding: 20px 0 16px; }
+      h1 { font-size: clamp(36px, 11vw, 52px); }
+      .dek { font-size: 16px; }
+      .hero-media { width: 100%; }
+      .hero-copy { margin-top: 22px; }
       .thumbnail-frame:hover { transform: none; }
-      .fields { grid-template-columns: 1fr; }
-      .lead-form, .success-card, .include { padding: 18px; }
-      .gate { padding-bottom: 56px; }
+      .lead-form, .success-card { padding: 16px; }
+      .include { padding: 16px; }
+      input { min-height: 44px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -288,55 +327,81 @@
     <a href="/" aria-label="Ventura Marketing home">
       <img class="brand-logo" src="/assets/vmc-mint-monogram.png" alt="VMC">
     </a>
-    <a class="nav-link" href="#enter">Enter now</a>
+    <a class="nav-link" href="#enter">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5 8 3l5 2.5v4.2c0 2.3-2.1 3.8-5 4.8-2.9-1-5-2.5-5-4.8V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="m6 8 1.4 1.4L10.2 6.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Enter Now
+    </a>
   </header>
 
   <main>
     <section class="hero shell">
       <div class="hero-media">
         <div class="thumbnail-frame">
-          <img src="/assets/streams/clients-30k-dashboard-build-final.png" width="1672" height="941" alt="Ventura content shoot giveaway">
+          <img src="/assets/streams/content-shoot-giveaway.png" width="1672" height="941" alt="Win a $5,000 content shoot">
         </div>
       </div>
       <div class="hero-copy">
-        <p class="series">Ventura Marketing Collective</p>
-        <h1>Win a $5,000 content shoot.</h1>
-        <p class="dek">One business owner gets a full production crew for an eight-hour day. Filmed and edited.</p>
+        <p class="series">One Winner Gets The Whole Crew</p>
+        <h1>Win A $5,000 Content Shoot.</h1>
+        <p class="dek">One business owner gets our full production services for an eight-hour day.</p>
+      </div>
+    </section>
+
+    <section class="shell" aria-label="What you win">
+      <div class="includes">
+        <article class="include">
+          <div class="include-top">
+            <span class="include-num">1</span>
+            <span class="include-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M6 5V4a2 2 0 0 1 4 0v1" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="9" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>
+            </span>
+          </div>
+          <h3>Full Production Crew</h3>
+          <p>Director, camera, audio, and lighting show up ready. You just get on camera.</p>
+        </article>
+        <article class="include">
+          <div class="include-top">
+            <span class="include-num">2</span>
+            <span class="include-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V8l2.5 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3>Eight-Hour Shoot Day</h3>
+          <p>A full day on set. Enough interviews, b-roll, and talking-head to last months.</p>
+        </article>
+        <article class="include">
+          <div class="include-top">
+            <span class="include-num">3</span>
+            <span class="include-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 4.5h10v8H3z" stroke="currentColor" stroke-width="1.5"/><path d="m6.2 8.1 1.4 1.4 2.4-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3>Finished Content Bank</h3>
+          <p>You leave with usable assets, not a hard drive of raw footage.</p>
+        </article>
       </div>
     </section>
 
     <section class="gate shell" id="enter">
       <form class="lead-form" id="lead-form" novalidate>
         <div class="fields">
-          <label>First name<input name="first_name" autocomplete="given-name" placeholder="Your first name" required></label>
-          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label>Full Name<input name="full_name" autocomplete="name" placeholder="Your full name" required></label>
+          <label>Email Address<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
           <label>Phone<input name="phone" type="tel" autocomplete="tel" placeholder="801 555 0100" required></label>
-          <label>Business name<input name="business" autocomplete="organization" placeholder="Your company" required></label>
+          <label>Business Name<input name="business" autocomplete="organization" placeholder="Your company" required></label>
         </div>
         <label class="hp" aria-hidden="true">Company website<input name="_honey" tabindex="-1" autocomplete="off"></label>
-        <button class="button" id="submit-entry" type="submit">Enter to win</button>
+        <button class="button" id="submit-entry" type="submit">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.2 13.2 3.4 8.6 13.5l-.9-3.7L2.5 8.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          Enter To Win
+        </button>
         <p class="form-error" id="form-error" hidden></p>
         <p class="form-note">One winner. No purchase necessary. We will contact the winner directly.</p>
       </form>
 
       <div class="success-card" id="success" hidden>
-        <h2 tabindex="-1">You're in.</h2>
+        <h2 tabindex="-1">You're In.</h2>
         <p>Your entry is in. If you win, Ventura Marketing Collective will reach out using the details you just gave us.</p>
-      </div>
-
-      <div class="includes" aria-label="What the shoot includes">
-        <article class="include">
-          <h3>Full production crew</h3>
-          <p>We bring the team. You show up as the operator on camera.</p>
-        </article>
-        <article class="include">
-          <h3>Eight-hour shoot day</h3>
-          <p>One full day on set. Enough to build a content bank, not a single clip.</p>
-        </article>
-        <article class="include">
-          <h3>Filmed and edited</h3>
-          <p>You leave with finished assets, not a hard drive of raw footage.</p>
-        </article>
       </div>
     </section>
   </main>
@@ -355,6 +420,7 @@
     const errorEl = document.querySelector('#form-error');
     const toast = document.querySelector('#toast');
     const endpoint = 'https://formsubmit.co/ajax/shayan@ascendscaling.com';
+    const submitMarkup = submit.innerHTML;
 
     function announce(message) {
       toast.textContent = message;
@@ -383,7 +449,7 @@
       if (form.elements._honey.value) return;
 
       const payload = {
-        first_name: form.elements.first_name.value.trim(),
+        full_name: form.elements.full_name.value.trim(),
         email: form.elements.email.value.trim(),
         phone: form.elements.phone.value.trim(),
         business: form.elements.business.value.trim(),
@@ -415,7 +481,7 @@
       } catch (_) {
         showError('Could not submit just now. Check your connection and try again.');
         submit.disabled = false;
-        submit.textContent = 'Enter to win';
+        submit.innerHTML = submitMarkup;
       }
     });
   </script>
