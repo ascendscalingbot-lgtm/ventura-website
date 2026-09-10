@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <title>Win a $5,000 content shoot | Ventura Marketing Collective</title>
+  <meta name="description" content="Enter to win a $5,000 content shoot from Ventura Marketing Collective. One business owner gets a full production crew for an eight-hour day, filmed and edited.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://ventura-website-ruddy.vercel.app/win">
+  <meta property="og:title" content="Win a $5,000 content shoot">
+  <meta property="og:description" content="One business owner gets a full production crew for an eight-hour day. Filmed and edited.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Newsreader:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b0a;
+      --surface: #0d1210;
+      --surface-2: #111815;
+      --line: rgba(232, 255, 246, 0.12);
+      --line-strong: rgba(184, 240, 216, 0.38);
+      --ink: #f3f7f5;
+      --muted: #a5b0aa;
+      --quiet: #758079;
+      --mint: #b8f0d8;
+      --mint-dark: #2f8f69;
+      --danger: #ff8f8f;
+      --sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Newsreader", Georgia, serif;
+      --radius: 20px;
+      --ease-out: cubic-bezier(.23, 1, .32, 1);
+      --z-nav: 20;
+      --z-toast: 40;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 50% 2%, rgba(184, 240, 216, .13), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+      z-index: -1;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ::selection { background: rgba(184, 240, 216, .3); }
+
+    .shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: var(--z-nav);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      margin-top: 16px;
+      padding: 8px 10px 8px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(7, 11, 10, .84);
+      backdrop-filter: blur(18px);
+      box-shadow: inset 0 1px rgba(255,255,255,.05), 0 16px 48px rgba(0,0,0,.28);
+    }
+    .brand-logo { display: block; width: 52px; height: 44px; object-fit: contain; }
+    .nav-link, .button {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 18px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 150ms var(--ease-out), background-color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+    }
+    .nav-link { min-height: 42px; background: var(--mint); color: #062219; }
+    .nav-link:active, .button:active { transform: scale(.97); }
+    .nav-link:focus-visible, .button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--mint);
+      outline-offset: 3px;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 36px 0 20px;
+      text-align: center;
+    }
+    h1, h2, p { text-wrap: pretty; }
+    .series { margin: 0 0 18px; color: var(--mint); font-size: 13px; font-weight: 700; }
+    h1 {
+      max-width: 14ch;
+      margin: 0;
+      font: italic 600 clamp(48px, 6.1vw, 78px)/1.08 var(--serif);
+      letter-spacing: -.035em;
+    }
+    .dek { max-width: 650px; margin: 24px 0 0; color: var(--muted); font-size: clamp(17px, 1.7vw, 20px); line-height: 1.55; }
+
+    .gate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 0 72px;
+      text-align: center;
+    }
+    .lead-form, .success-card {
+      display: grid;
+      gap: 16px;
+      width: min(100%, 680px);
+      margin-top: 8px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: inset 0 1px rgba(255,255,255,.04), 0 24px 70px rgba(0,0,0,.24);
+      text-align: left;
+    }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: grid; gap: 8px; color: #e1ebe6; font-size: 13px; font-weight: 600; }
+    input {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid rgba(232, 255, 246, 0.22);
+      border-radius: 12px;
+      outline: none;
+      background: #080d0b;
+      color: var(--ink);
+      padding: 0 14px;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+    input::placeholder { color: #9aa59f; }
+    input:focus { border-color: var(--mint); box-shadow: 0 0 0 3px rgba(184,240,216,.15); }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .button {
+      min-height: 50px;
+      background: var(--mint);
+      color: #062219;
+      padding-inline: 26px;
+    }
+    .button[disabled] { opacity: .7; cursor: wait; }
+    .form-note, .legal { margin: 0; color: var(--quiet); font-size: 12px; line-height: 1.5; text-align: center; }
+    .form-error {
+      margin: 0;
+      color: var(--danger);
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .form-error[hidden], .lead-form[hidden], .success-card[hidden] { display: none; }
+
+    .success-card { text-align: center; justify-items: center; }
+    .success-card h2 {
+      margin: 0;
+      font: italic 600 clamp(36px, 4.5vw, 52px)/1.08 var(--serif);
+      letter-spacing: -.03em;
+    }
+    .success-card p { max-width: 46ch; margin: 0; color: var(--muted); line-height: 1.65; }
+
+    .includes {
+      width: min(100%, 680px);
+      margin: 8px auto 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+      overflow: hidden;
+      text-align: left;
+    }
+    .include {
+      padding: 22px 24px;
+    }
+    .include + .include { border-top: 1px solid var(--line); }
+    .include h3 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+    .include p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 24px 0 46px;
+      color: var(--quiet);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer-logo { width: 64px; height: 60px; object-fit: contain; }
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: var(--z-toast);
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      background: #0b1711;
+      color: var(--ink);
+      padding: 12px 16px;
+      box-shadow: 0 18px 54px rgba(0,0,0,.42);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 220ms var(--ease-out);
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (hover: hover) and (pointer: fine) {
+      .nav-link:hover, .button:hover { transform: translateY(-1px); }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .nav { top: 8px; margin-top: 8px; min-height: 56px; padding: 6px 7px 6px 14px; }
+      .brand-logo { width: 44px; height: 38px; }
+      .nav-link { min-height: 40px; padding-inline: 14px; font-size: 13px; }
+      .hero { padding: 36px 0 20px; }
+      h1 { font-size: clamp(44px, 13vw, 60px); }
+      .dek { font-size: 17px; }
+      .fields { grid-template-columns: 1fr; }
+      .lead-form, .success-card, .include { padding: 18px; }
+      .gate { padding-bottom: 56px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav shell">
+    <a href="/" aria-label="Ventura Marketing home">
+      <img class="brand-logo" src="/assets/vmc-mint-monogram.png" alt="VMC">
+    </a>
+    <a class="nav-link" href="#enter">Enter now</a>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <p class="series">Ventura Marketing Collective</p>
+      <h1>Win a $5,000 content shoot.</h1>
+      <p class="dek">One business owner gets a full production crew for an eight-hour day. Filmed and edited.</p>
+    </section>
+
+    <section class="gate shell" id="enter">
+      <form class="lead-form" id="lead-form" novalidate>
+        <div class="fields">
+          <label>First name<input name="first_name" autocomplete="given-name" placeholder="Your first name" required></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" placeholder="801 555 0100" required></label>
+          <label>Business name<input name="business" autocomplete="organization" placeholder="Your company" required></label>
+        </div>
+        <label class="hp" aria-hidden="true">Company website<input name="_honey" tabindex="-1" autocomplete="off"></label>
+        <button class="button" id="submit-entry" type="submit">Enter to win</button>
+        <p class="form-error" id="form-error" hidden></p>
+        <p class="form-note">One winner. No purchase necessary. We will contact the winner directly.</p>
+      </form>
+
+      <div class="success-card" id="success" hidden>
+        <h2 tabindex="-1">You're in.</h2>
+        <p>Your entry is in. If you win, Ventura Marketing Collective will reach out using the details you just gave us.</p>
+      </div>
+
+      <div class="includes" aria-label="What the shoot includes">
+        <article class="include">
+          <h3>Full production crew</h3>
+          <p>We bring the team. You show up as the operator on camera.</p>
+        </article>
+        <article class="include">
+          <h3>Eight-hour shoot day</h3>
+          <p>One full day on set. Enough to build a content bank, not a single clip.</p>
+        </article>
+        <article class="include">
+          <h3>Filmed and edited</h3>
+          <p>You leave with finished assets, not a hard drive of raw footage.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <img class="footer-logo" src="/assets/vmc-mint-monogram.png" alt="VMC">
+    <span>© 2026 Ventura Marketing Collective. Built for operators who ship.</span>
+    <p class="legal">Giveaway sponsored by Ventura Marketing Collective. One winner. No purchase necessary. Winner contacted by VMC.</p>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const form = document.querySelector('#lead-form');
+    const success = document.querySelector('#success');
+    const submit = document.querySelector('#submit-entry');
+    const errorEl = document.querySelector('#form-error');
+    const toast = document.querySelector('#toast');
+    const endpoint = 'https://formsubmit.co/ajax/shayan@ascendscaling.com';
+
+    function announce(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(announce.timer);
+      announce.timer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    function showError(message) {
+      errorEl.hidden = false;
+      errorEl.textContent = message;
+    }
+
+    function hideError() {
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      hideError();
+      if (!form.reportValidity()) {
+        showError('Fill in every field so we can reach the winner.');
+        return;
+      }
+      if (form.elements._honey.value) return;
+
+      const payload = {
+        first_name: form.elements.first_name.value.trim(),
+        email: form.elements.email.value.trim(),
+        phone: form.elements.phone.value.trim(),
+        business: form.elements.business.value.trim(),
+        _subject: 'VMC $5,000 content shoot giveaway entry',
+        _template: 'table',
+        source: 'win-giveaway'
+      };
+
+      submit.disabled = true;
+      submit.textContent = 'Entering...';
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || data.success === 'false' || data.success === false) {
+          throw new Error(data.message || 'Could not submit your entry.');
+        }
+        form.hidden = true;
+        success.hidden = false;
+        announce("You're in");
+        success.querySelector('h2').focus?.();
+      } catch (_) {
+        showError('Could not submit just now. Check your connection and try again.');
+        submit.disabled = false;
+        submit.textContent = 'Enter to win';
+      }
+    });
+  </script>
+</body>
+</html>

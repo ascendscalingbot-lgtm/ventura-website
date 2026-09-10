@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/win",
+      "destination": "/giveaway.html"
+    },
+    {
       "source": "/proposal/:slug",
       "destination": "/proposal.html?slug=:slug"
     },
